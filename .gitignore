@@ -1,0 +1,23 @@
+node_modules
+package-lock.json
+.env
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts
+
+# TheGraph files
+/build
+/src/types
+
+subgraph.yaml
+
+deployments
+
+.vscode
+
+
