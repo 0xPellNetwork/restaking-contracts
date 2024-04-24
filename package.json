@@ -1,8 +1,8 @@
 {
-  "name": "oglayer-contract",
+  "name": "restaking-contracts",
   "version": "1.0.0",
-  "description": "Oglayer contract",
-  "author": "Oglayer",
+  "description": "PellNetwork restaking contracts",
+  "author": "PellNetwork",
   "license": "LGPL-3.0",
   "scripts": {},
   "dependencies": {
