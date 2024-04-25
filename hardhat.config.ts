@@ -21,6 +21,7 @@ import {
 import { DEFAULT_NAMED_ACCOUNTS } from './helpers/constants';
 
 import '@nomicfoundation/hardhat-toolbox';
+import '@openzeppelin/hardhat-upgrades';
 import 'hardhat-deploy';
 import 'hardhat-contract-sizer';
 import 'hardhat-abi-exporter';

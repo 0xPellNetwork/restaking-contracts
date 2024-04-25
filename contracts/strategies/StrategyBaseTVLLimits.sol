@@ -21,7 +21,8 @@ contract StrategyBaseTVLLimits is StrategyBase {
   /// @notice Emitted when `maxTotalDeposits` value is updated from `previousValue` to `newValue`
   event MaxTotalDepositsUpdated(uint256 previousValue, uint256 newValue);
 
-  // solhint-disable-next-line no-empty-blocks
+  /// solhint-disable-next-line no-empty-blocks
+  /// @custom:oz-upgrades-unsafe-allow constructor
   constructor(IStrategyManager _strategyManager) StrategyBase(_strategyManager) {}
 
   function initialize(

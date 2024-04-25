@@ -45,6 +45,7 @@ contract StrategyBase is Initializable, Pausable, IStrategy {
   uint256 internal constant BALANCE_OFFSET = 1e3;
 
   /// @notice Pell's StrategyManager contract
+  /// @custom:oz-upgrades-unsafe-allow state-variable-immutable
   IStrategyManager public immutable strategyManager;
 
   /// @notice The underlying token for shares in this Strategy
@@ -60,6 +61,7 @@ contract StrategyBase is Initializable, Pausable, IStrategy {
   }
 
   /// @notice Since this contract is designed to be initializable, the constructor simply sets `strategyManager`, the only immutable variable.
+  /// @custom:oz-upgrades-unsafe-allow constructor
   constructor(IStrategyManager _strategyManager) {
     strategyManager = _strategyManager;
     _disableInitializers();

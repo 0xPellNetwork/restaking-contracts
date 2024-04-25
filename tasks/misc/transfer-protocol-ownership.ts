@@ -2,15 +2,7 @@ import { FORK } from './../../helpers/hardhat-config-helpers';
 import { task } from 'hardhat/config';
 import { getContract, waitForTx } from '../../helpers/utilities/tx';
 import { exit } from 'process';
-import {
-  DelegationManager,
-  eNetwork,
-  PellUSD,
-  PUSDRedeem,
-  PUSDSales,
-  Slasher,
-  StrategyManager,
-} from '../../helpers';
+import { DelegationManager, eNetwork, Slasher, StrategyManager } from '../../helpers';
 import { getParamPerNetwork } from '../../helpers/config-helpers';
 import { Configs } from '../../helpers/config';
 import {
