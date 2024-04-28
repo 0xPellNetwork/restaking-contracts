@@ -32,7 +32,7 @@ contract DelegationManager is Initializable, OwnableUpgradeable, Pausable, Deleg
   // @dev Maximum Value for `stakerOptOutWindow`. Approximately equivalent to 6 months.
   uint256 public constant MAX_STAKER_OPT_OUT_WINDOW = 180 days;
 
-  // @notice Simple permission for functions that are only callable by the StrategyManager contract OR by the EigenPodManagerContract
+  // @notice Simple permission for functions that are only callable by the StrategyManager contract
   modifier onlyStrategyManager() {
     require(msg.sender == address(strategyManager), 'DelegationManager: onlyStrategyManager');
     _;
@@ -312,7 +312,7 @@ contract DelegationManager is Initializable, OwnableUpgradeable, Pausable, Deleg
    * @param shares The number of shares to increase.
    *
    * @dev *If the staker is actively delegated*, then increases the `staker`'s delegated shares in `strategy` by `shares`. Otherwise does nothing.
-   * @dev Callable only by the StrategyManager or EigenPodManager.
+   * @dev Callable only by the StrategyManager.
    */
   function increaseDelegatedShares(address staker, IStrategy strategy, uint256 shares) external onlyStrategyManager {
     // if the staker is delegated to an operator
@@ -602,8 +602,7 @@ contract DelegationManager is Initializable, OwnableUpgradeable, Pausable, Deleg
   }
 
   /**
-   * @notice Withdraws `shares` in `strategy` to `withdrawer`. If the shares are virtual beaconChainETH shares, then a call is ultimately forwarded to the
-   * `staker`s EigenPod; otherwise a call is ultimately forwarded to the `strategy` with info on the `token`.
+   * @notice Withdraws `shares` in `strategy` to `withdrawer`. Call is ultimately forwarded to the `strategy` with info on the `token`.
    */
   function _withdrawSharesAsTokens(address staker, address withdrawer, IStrategy strategy, uint256 shares, IERC20 token) internal {
     strategyManager.withdrawSharesAsTokens(withdrawer, strategy, shares, token);
