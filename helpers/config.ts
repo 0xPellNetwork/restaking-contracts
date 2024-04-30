@@ -155,7 +155,7 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         maxDeposits:
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
-        withdrawalDelay: 180,
+        withdrawalDelay: 604800,
       },
       SolvBTC: {
         tokenAddress: '0x41D9036454BE47d3745A823C4aaCD0e29cFB0f71',
@@ -218,8 +218,8 @@ export const Configs: IConfiguration = {
     [eBscNetwork.bscTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eMerlinNetwork.merlinTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
-    [eBounceBitNetwork.bb]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
-    [eMerlinNetwork.merlin]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
+    [eBounceBitNetwork.bb]: '',
+    [eMerlinNetwork.merlin]: '0xd41Ea5b3AbB4AE2fA2097EB081823291dAecC7c4',
   },
   WhiteLister: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -227,8 +227,8 @@ export const Configs: IConfiguration = {
     [eBscNetwork.bscTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eMerlinNetwork.merlinTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
-    [eBounceBitNetwork.bb]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
-    [eMerlinNetwork.merlin]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
+    [eBounceBitNetwork.bb]: '',
+    [eMerlinNetwork.merlin]: '0x853b480f808073c63A71C817277222D9901f3454',
   },
   Pauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -236,8 +236,8 @@ export const Configs: IConfiguration = {
     [eBscNetwork.bscTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eMerlinNetwork.merlinTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
-    [eBounceBitNetwork.bb]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
-    [eMerlinNetwork.merlin]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
+    [eBounceBitNetwork.bb]: '',
+    [eMerlinNetwork.merlin]: '0xB24e18BBD4918d4c2796D8D4de697bc14aec56Fb',
   },
   Unpauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -245,7 +245,7 @@ export const Configs: IConfiguration = {
     [eBscNetwork.bscTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eMerlinNetwork.merlinTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
-    [eBounceBitNetwork.bb]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
-    [eMerlinNetwork.merlin]: '0xc45cce6f84050f510b318c3a8a07eda0d009daf4',
+    [eBounceBitNetwork.bb]: '',
+    [eMerlinNetwork.merlin]: '0x04a1C7D8e143648903fB7444da93995830ACe6ad',
   },
 };

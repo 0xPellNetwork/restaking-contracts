@@ -757,9 +757,9 @@
     solidity-ast "^0.4.15"
 
 "@openzeppelin/upgrades-core@^1.27.0":
-  version "1.33.0"
-  resolved "https://registry.yarnpkg.com/@openzeppelin/upgrades-core/-/upgrades-core-1.33.0.tgz#18008be628ceb71354866e106ad83b59f09bb681"
-  integrity sha512-caJGjavv3ejWoiOU0ZyKf87lGni2E50Yqw4KYZFLopnsNWUOdWwLg9WhtduoPI3OUQFeoqvTmzzixL2ZMRNAYA==
+  version "1.33.1"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/upgrades-core/-/upgrades-core-1.33.1.tgz#2e129ce1ab7bd07d07e98822ca8bb8de1d3b008e"
+  integrity sha512-YRxIRhTY1b+j7+NUUu8Uuem5ugxKexEMVd8dBRWNgWeoN1gS1OCrhgUg0ytL+54vzQ+SGWZDfNnzjVuI1Cj1Zw==
   dependencies:
     cbor "^9.0.0"
     chalk "^4.1.0"

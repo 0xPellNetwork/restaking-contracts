@@ -79,6 +79,7 @@ export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
 const GAS_PRICE_PER_NET: iParamsPerNetwork<string | number> = {
   // [eArbitrumNetwork.arbitrumSepolia]: 100000001,
   [eBaseNetwork.baseGoerli]: 10000000,
+  [eMerlinNetwork.merlin]: 50000000,
 };
 
 export const buildForkConfig = (): HardhatNetworkForkingUserConfig | undefined => {
@@ -144,3 +145,5 @@ export const BASESCAN_KEY = process.env.BASESCAN_KEY || '';
 export const BSCSCAN_KEY = process.env.BSCSCAN_KEY || '';
 
 export const MANTLESCAN_KEY = process.env.MANTLESCAN_KEY || '';
+
+export const MERLINSCAN_KEY = process.env.MERLINSCAN_KEY || '';

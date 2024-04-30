@@ -6,6 +6,7 @@ import {
   getCommonNetworkConfig,
   hardhatNetworkSettings,
   loadTasks,
+  MERLINSCAN_KEY,
 } from './helpers/hardhat-config-helpers';
 import {
   eArbitrumNetwork,
@@ -59,6 +60,13 @@ export default {
   },
   solidity: {
     compilers: [
+      {
+        version: '0.8.9',
+        settings: {
+          optimizer: { enabled: true, runs: 1_500 },
+          evmVersion: 'berlin',
+        },
+      },
       {
         version: '0.8.20',
         settings: {
@@ -183,6 +191,12 @@ export default {
     },
     [eMerlinNetwork.merlin]: {
       ...getCommonNetworkConfig(eMerlinNetwork.merlin, 4200),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://scan.merlinchain.io',
+          apiKey: MERLINSCAN_KEY,
+        },
+      },
     },
     [eMerlinNetwork.merlinTestnet]: {
       ...getCommonNetworkConfig(eMerlinNetwork.merlinTestnet, 686868),
@@ -227,6 +241,7 @@ export default {
       [eBscNetwork.bscTestnet]: BSCSCAN_KEY,
       [eMantleNetwork.mantle]: ETHERSCAN_KEY,
       [eMantleNetwork.mantleTestnet]: ETHERSCAN_KEY,
+      [eMerlinNetwork.merlin]: MERLINSCAN_KEY,
     },
     customChains: [
       {
@@ -283,6 +298,14 @@ export default {
         urls: {
           apiURL: 'https://explorer.testnet.mantle.xyz/api',
           browserURL: 'https://explorer.testnet.mantle.xyz',
+        },
+      },
+      {
+        network: 'merlin',
+        chainId: 4200,
+        urls: {
+          apiURL: 'https://scan.merlinchain.io/api',
+          browserURL: 'https://scan.merlinchain.io',
         },
       },
     ],
