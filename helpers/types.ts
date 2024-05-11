@@ -10,7 +10,8 @@ export type eNetwork =
   | eZetaChainNetwork
   | eBounceBitNetwork
   | eMerlinNetwork
-  | eBSquaredNetwork;
+  | eBSquaredNetwork
+  | eBitLayerNetwork;
 
 export enum eEthereumNetwork {
   main = 'main',
@@ -57,6 +58,11 @@ export enum eMerlinNetwork {
 export enum eBSquaredNetwork {
   bsquared = 'bsquared',
   bsquaredTestnet = 'bsquared-testnet',
+}
+
+export enum eBitLayerNetwork {
+  bitlayer = 'bitlayer',
+  bitlayerTestnet = 'bitlayer-testnet',
 }
 
 export type tEthereumAddress = string;

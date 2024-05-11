@@ -14,6 +14,7 @@ const func: DeployFunction = async function ({
 
   await deploy(EMPTY_CONTRANCT_ID, {
     from: deployer,
+    contract: 'EmptyContract',
     ...COMMON_DEPLOY_PARAMS,
   });
 

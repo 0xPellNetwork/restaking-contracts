@@ -57,6 +57,6 @@ const func: DeployFunction = async function ({
 };
 
 func.id = 'StrategyInitialize';
-func.tags = ['strategy'];
+func.tags = ['strategy', 'add-strategy'];
 
 export default func;

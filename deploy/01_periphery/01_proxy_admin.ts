@@ -14,6 +14,7 @@ const func: DeployFunction = async function ({
 
   await deploy(PROXY_ADMIN_ID, {
     from: deployer,
+    contract: 'ProxyAdmin',
     ...COMMON_DEPLOY_PARAMS,
   });
 

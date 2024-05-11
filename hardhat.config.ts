@@ -11,6 +11,7 @@ import {
 import {
   eArbitrumNetwork,
   eBaseNetwork,
+  eBitLayerNetwork,
   eBounceBitNetwork,
   eBscNetwork,
   eBSquaredNetwork,
@@ -203,7 +204,7 @@ export default {
       verify: {
         etherscan: {
           apiUrl: 'https://testnet-scan.merlinchain.io',
-          apiKey: ETHERSCAN_KEY,
+          apiKey: MERLINSCAN_KEY,
         },
       },
     },
@@ -212,6 +213,24 @@ export default {
       verify: {
         etherscan: {
           apiUrl: 'https://haven-explorer.bsquared.network',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eBitLayerNetwork.bitlayer]: {
+      ...getCommonNetworkConfig(eBitLayerNetwork.bitlayer, 200901),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://api.btrscan.com/scan',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eBitLayerNetwork.bitlayerTestnet]: {
+      ...getCommonNetworkConfig(eBitLayerNetwork.bitlayerTestnet, 200810),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://api-testnet.btrscan.com/scan',
           apiKey: ETHERSCAN_KEY,
         },
       },
@@ -242,6 +261,8 @@ export default {
       [eMantleNetwork.mantle]: ETHERSCAN_KEY,
       [eMantleNetwork.mantleTestnet]: ETHERSCAN_KEY,
       [eMerlinNetwork.merlin]: MERLINSCAN_KEY,
+      [eBitLayerNetwork.bitlayer]: ETHERSCAN_KEY,
+      [eBitLayerNetwork.bitlayerTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -306,6 +327,22 @@ export default {
         urls: {
           apiURL: 'https://scan.merlinchain.io/api',
           browserURL: 'https://scan.merlinchain.io',
+        },
+      },
+      {
+        network: 'bitlayer',
+        chainId: 200901,
+        urls: {
+          apiURL: 'https://api.btrscan.com/scan/api',
+          browserURL: 'https://www.btrscan.com',
+        },
+      },
+      {
+        network: 'bitlayer-testnet',
+        chainId: 200810,
+        urls: {
+          apiURL: 'https://api-testnet.btrscan.com/scan/api',
+          browserURL: 'https://testnet.btrscan.com',
         },
       },
     ],

@@ -13,6 +13,7 @@ import {
   eBounceBitNetwork,
   eMerlinNetwork,
   eBSquaredNetwork,
+  eBitLayerNetwork,
 } from './types';
 
 require('dotenv').config();
@@ -59,11 +60,13 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eMantleNetwork.mantleTestnet]: `https://rpc.testnet.mantle.xyz`,
   [eZetaChainNetwork.zeta]: `https://zetachain-evm.blockpi.network/v1/rpc/public`,
   [eZetaChainNetwork.zetaTestnet]: `https://zetachain-athens-evm.blockpi.network/v1/rpc/public`,
-  [eBounceBitNetwork.bb]: `https://oracle-bakckend-private.bouncebitapi.com`,
+  [eBounceBitNetwork.bb]: `https://oracle-bakckend-private.bouncebitapi.com`, // https://fullnode-mainnet.bouncebitapi.com
   [eBounceBitNetwork.bbTestnet]: `https://oracle-rpc-vip.bouncebitapi.com`,
   [eMerlinNetwork.merlin]: `https://rpc.merlinchain.io`,
   [eMerlinNetwork.merlinTestnet]: `https://merlin-testnet.blockpi.network/v1/rpc/public`,
   [eBSquaredNetwork.bsquaredTestnet]: `https://haven-rpc.bsquared.network`,
+  [eBitLayerNetwork.bitlayer]: `https://rpc.bitlayer.org`,
+  [eBitLayerNetwork.bitlayerTestnet]: `https://testnet-rpc.bitlayer.org`,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
