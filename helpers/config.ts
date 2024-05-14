@@ -103,7 +103,7 @@ export const Configs: IConfiguration = {
     },
     [eBitLayerNetwork.bitlayerTestnet]: {
       WBTC: {
-        tokenAddress: '0x7C346C27Ef3A48B1AE0454D994A49005C720D6FA',
+        tokenAddress: '0x559852401e545f941F275B5674afAfcb1b51D147',
         tokenName: 'Wrapped BTC',
         tokenSymbol: 'WBTC',
         maxPerDeposit:
@@ -113,7 +113,7 @@ export const Configs: IConfiguration = {
         withdrawalDelay: 180,
       },
       WETH: {
-        tokenAddress: '0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0',
+        tokenAddress: '0xd7c2Ddf974F274e28D59a394C170464CDcDE7D62',
         tokenName: 'Wrapped ETH',
         tokenSymbol: 'WETH',
         maxPerDeposit:
