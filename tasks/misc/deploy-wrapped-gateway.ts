@@ -1,5 +1,5 @@
 import { task } from 'hardhat/config';
-import { getContract, waitForTx, ZERO_ADDRESS } from '../../helpers';
+import { eNetwork, FORK, getContract, waitForTx, ZERO_ADDRESS } from '../../helpers';
 import {
   DELEGATION_MANAGER_IMPL_ID,
   DELEGATION_MANAGER_PROXY_ID,
@@ -10,6 +10,8 @@ import {
   STRATEGY_PROXY_ID,
   WRAPPED_TOKEN_GATEWAY_ID,
 } from '../../helpers/deploy-ids';
+import { Configs } from '../../helpers/config';
+import { getParamPerNetwork } from '../../helpers/config-helpers';
 
 task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAction(
   async (_, hre) => {
@@ -18,6 +20,9 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     }
 
     console.log(`\n- WrappedTokenGateway deployment`);
+
+    const network = (FORK ? FORK : hre.network.name) as eNetwork;
+    const owner = getParamPerNetwork(Configs.Owner, network);
 
     const wrappedTokenAddress = '0x559852401e545f941F275B5674afAfcb1b51D147';
 
@@ -35,7 +40,7 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
       from: deployer,
       args: [
         wrappedTokenAddress,
-        deployer,
+        owner,
         strategyAddress,
         strategyManagerAddress,
         delegationManagerAddress,
@@ -52,7 +57,9 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
         args: [delegationManagerAddress, slasherAddress],
       }
     );
-    console.log(`[Deployment][INFO] StrategyManagerV2 deployed`);
+    console.log(
+      `[Deployment][INFO] StrategyManagerV2 impl deployed ${strategyManagerImplV2.address}`
+    );
 
     const delegationManagerImplV2 = await hre.deployments.deploy(
       `Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`,
@@ -62,16 +69,8 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
         args: [strategyManagerAddress, slasherAddress],
       }
     );
-    console.log(`[Deployment][INFO] DelegationManager deployed`);
-
-    const proxyAdmin = await getContract(PROXY_ADMIN_ID);
-    await waitForTx(
-      await proxyAdmin.upgrade(strategyManagerAddress, strategyManagerImplV2.address)
+    console.log(
+      `[Deployment][INFO] DelegationManagerV2 impl deployed ${delegationManagerImplV2.address}`
     );
-    console.log('Strategy升级完成');
-    await waitForTx(
-      await proxyAdmin.upgrade(delegationManagerAddress, delegationManagerImplV2.address)
-    );
-    console.log('Delegation升级完成');
   }
 );
