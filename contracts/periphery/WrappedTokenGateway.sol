@@ -46,7 +46,7 @@ contract WrappedTokenGateway is IWrappedTokenGateway, Ownable {
   ) external {
     for (uint256 i = 0; i < withdrawals.length; i++) {
       require(withdrawals[i].staker == msg.sender, 'Withdrawer must be staker');
-      for (uint256 j = 0; i < withdrawals[i].strategies.length; j++) {
+      for (uint256 j = 0; j < withdrawals[i].strategies.length; j++) {
         require(withdrawals[i].strategies[j] == strategy, 'Only support wrapped token strategy');
       }
     }
