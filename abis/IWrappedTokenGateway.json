@@ -52,27 +52,27 @@
             "type": "uint256[]"
           }
         ],
-        "internalType": "struct IDelegationManager.Withdrawal",
-        "name": "withdrawal",
-        "type": "tuple"
+        "internalType": "struct IDelegationManager.Withdrawal[]",
+        "name": "withdrawals",
+        "type": "tuple[]"
       },
       {
-        "internalType": "contract IERC20[]",
+        "internalType": "contract IERC20[][]",
         "name": "tokens",
-        "type": "address[]"
+        "type": "address[][]"
       },
       {
-        "internalType": "uint256",
-        "name": "middlewareTimesIndex",
-        "type": "uint256"
+        "internalType": "uint256[]",
+        "name": "middlewareTimesIndexs",
+        "type": "uint256[]"
       },
       {
-        "internalType": "bool",
+        "internalType": "bool[]",
         "name": "receiveAsTokens",
-        "type": "bool"
+        "type": "bool[]"
       }
     ],
-    "name": "withdrawNativeToken",
+    "name": "withdrawNativeTokens",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
