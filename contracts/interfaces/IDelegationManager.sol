@@ -141,6 +141,8 @@ interface IDelegationManager is ISignatureUtils {
   /// @notice Emitted when the `strategyWithdrawalDelay` variable is modified from `previousValue` to `newValue`.
   event StrategyWithdrawalDelaySet(IStrategy strategy, uint256 previousValue, uint256 newValue);
 
+  event UpdateWrappedTokenGateway(address previousGateway, address currentGateway);
+
   /**
    * @notice Registers the caller as an operator in Pell.
    * @param registeringOperatorDetails is the `OperatorDetails` for the operator.

@@ -363,6 +363,25 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "address",
+        "name": "previousGateway",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "currentGateway",
+        "type": "address"
+      }
+    ],
+    "name": "UpdateWrappedTokenGateway",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "bytes32",
         "name": "withdrawalRoot",
         "type": "bytes32"
@@ -1580,6 +1599,32 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "test1",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "test2",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -1635,6 +1680,32 @@
     "name": "updateOperatorMetadataURI",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newWrappedTokenGateway",
+        "type": "address"
+      }
+    ],
+    "name": "updateWrappedTokenGateway",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "wrappedTokenGateway",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   }
 ]

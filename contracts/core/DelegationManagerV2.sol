@@ -6,7 +6,7 @@ import '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
 import '@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol';
 import '../permissions/Pausable.sol';
 import '../libraries/EIP1271SignatureUtils.sol';
-import './DelegationManagerStorage.sol';
+import './DelegationManagerStorageV2.sol';
 
 /**
  * @title DelegationManager
@@ -16,7 +16,7 @@ import './DelegationManagerStorage.sol';
  * - enabling any staker to delegate its stake to the operator of its choice (a given staker can only delegate to a single operator at a time)
  * - enabling a staker to undelegate its assets from the operator it is delegated to (performed as part of the withdrawal process, initiated through the StrategyManager)
  */
-contract DelegationManagerV2 is Initializable, OwnableUpgradeable, Pausable, DelegationManagerStorage, ReentrancyGuardUpgradeable {
+contract DelegationManagerV2 is Initializable, OwnableUpgradeable, Pausable, DelegationManagerStorageV2, ReentrancyGuardUpgradeable {
   // @dev Index for flag that pauses new delegations when set
   uint8 internal constant PAUSED_NEW_DELEGATION = 0;
 
@@ -45,7 +45,7 @@ contract DelegationManagerV2 is Initializable, OwnableUpgradeable, Pausable, Del
   /**
    * @dev Initializes the immutable addresses of the strategy mananger and slasher.
    */
-  constructor(IStrategyManager _strategyManager, ISlasher _slasher) DelegationManagerStorage(_strategyManager, _slasher) {
+  constructor(IStrategyManager _strategyManager, ISlasher _slasher) DelegationManagerStorageV2(_strategyManager, _slasher) {
     _disableInitializers();
     ORIGINAL_CHAIN_ID = block.chainid;
   }
@@ -246,7 +246,10 @@ contract DelegationManagerV2 is Initializable, OwnableUpgradeable, Pausable, Del
         queuedWithdrawalParams[i].strategies.length == queuedWithdrawalParams[i].shares.length,
         'DelegationManager.queueWithdrawal: input length mismatch'
       );
-      // require(queuedWithdrawalParams[i].withdrawer == msg.sender, 'DelegationManager.queueWithdrawal: withdrawer must be staker');
+      require(
+        queuedWithdrawalParams[i].withdrawer == msg.sender || queuedWithdrawalParams[i].withdrawer == wrappedTokenGateway,
+        'DelegationManager.queueWithdrawal: withdrawer must be staker or wrapped token gateway'
+      );
 
       // Remove shares from staker's strategies and place strategies/shares in queue.
       // If the staker is delegated to an operator, the operator's delegated shares are also reduced
@@ -360,6 +363,15 @@ contract DelegationManagerV2 is Initializable, OwnableUpgradeable, Pausable, Del
    */
   function setStrategyWithdrawalDelay(IStrategy[] calldata strategies, uint256[] calldata withdrawalDelay) external onlyOwner {
     _setStrategyWithdrawalDelay(strategies, withdrawalDelay);
+  }
+
+  /**
+   * @notice Called by owner to update the wrapped token gateway
+   * @param _newWrappedTokenGateway New wrapped token gateway address
+   */
+  function updateWrappedTokenGateway(address _newWrappedTokenGateway) external onlyOwner {
+    emit UpdateWrappedTokenGateway(wrappedTokenGateway, _newWrappedTokenGateway);
+    wrappedTokenGateway = _newWrappedTokenGateway;
   }
 
   /*******************************************************************************

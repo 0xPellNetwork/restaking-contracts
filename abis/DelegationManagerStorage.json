@@ -258,6 +258,25 @@
     "inputs": [
       {
         "indexed": false,
+        "internalType": "address",
+        "name": "previousGateway",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "currentGateway",
+        "type": "address"
+      }
+    ],
+    "name": "UpdateWrappedTokenGateway",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
         "internalType": "bytes32",
         "name": "withdrawalRoot",
         "type": "bytes32"

@@ -1,5 +1,13 @@
 import { task } from 'hardhat/config';
-import { eNetwork, FORK, getContract, waitForTx, ZERO_ADDRESS } from '../../helpers';
+import {
+  DelegationManager,
+  DelegationManagerV2,
+  eNetwork,
+  FORK,
+  getContract,
+  waitForTx,
+  ZERO_ADDRESS,
+} from '../../helpers';
 import {
   DELEGATION_MANAGER_IMPL_ID,
   DELEGATION_MANAGER_PROXY_ID,
@@ -72,5 +80,7 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     console.log(
       `[Deployment][INFO] DelegationManagerV2 impl deployed ${delegationManagerImplV2.address}`
     );
+
+    // MultiSig call DelegationManagerProxy updateWrappedTokenGateway
   }
 );

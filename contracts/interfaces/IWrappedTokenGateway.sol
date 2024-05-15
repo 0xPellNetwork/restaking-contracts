@@ -7,10 +7,10 @@ import {IDelegationManager} from '../interfaces/IDelegationManager.sol';
 interface IWrappedTokenGateway {
   function depositNativeToken(address staker) external payable;
 
-  function withdrawNativeToken(
-    IDelegationManager.Withdrawal calldata withdrawal,
-    IERC20[] calldata tokens,
-    uint256 middlewareTimesIndex,
-    bool receiveAsTokens
+  function withdrawNativeTokens(
+    IDelegationManager.Withdrawal[] calldata withdrawals,
+    IERC20[][] calldata tokens,
+    uint256[] calldata middlewareTimesIndexs,
+    bool[] calldata receiveAsTokens
   ) external;
 }

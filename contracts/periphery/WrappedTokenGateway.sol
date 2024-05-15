@@ -38,21 +38,24 @@ contract WrappedTokenGateway is IWrappedTokenGateway, Ownable {
     strategyManager.depositIntoStrategyWithStaker(staker, strategy, IERC20(address(wrappedToken)), msg.value);
   }
 
-  function withdrawNativeToken(
-    IDelegationManager.Withdrawal calldata withdrawal,
-    IERC20[] calldata tokens,
-    uint256 middlewareTimesIndex,
-    bool receiveAsTokens
+  function withdrawNativeTokens(
+    IDelegationManager.Withdrawal[] calldata withdrawals,
+    IERC20[][] calldata tokens,
+    uint256[] calldata middlewareTimesIndexs,
+    bool[] calldata receiveAsTokens
   ) external {
-    for (uint256 i = 0; i < withdrawal.strategies.length; i++) {
-      require(withdrawal.strategies[i] == strategy, 'Only support wrapped token strategy');
+    for (uint256 i = 0; i < withdrawals.length; i++) {
+      require(withdrawals[i].staker == msg.sender, 'Withdrawer must be staker');
+      for (uint256 j = 0; i < withdrawals[i].strategies.length; j++) {
+        require(withdrawals[i].strategies[j] == strategy, 'Only support wrapped token strategy');
+      }
     }
     uint256 beforeBalance = wrappedToken.balanceOf(address(this));
-    delegationManager.completeQueuedWithdrawal(withdrawal, tokens, middlewareTimesIndex, receiveAsTokens);
+    delegationManager.completeQueuedWithdrawals(withdrawals, tokens, middlewareTimesIndexs, receiveAsTokens);
     uint256 afterBalance = wrappedToken.balanceOf(address(this));
     uint256 amountToWithdraw = afterBalance - beforeBalance;
     wrappedToken.withdraw(amountToWithdraw);
-    _safeTransferNative(withdrawal.staker, amountToWithdraw);
+    _safeTransferNative(msg.sender, amountToWithdraw);
   }
 
   /**
