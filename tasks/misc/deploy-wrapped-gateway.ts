@@ -32,7 +32,7 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     const network = (FORK ? FORK : hre.network.name) as eNetwork;
     const owner = getParamPerNetwork(Configs.Owner, network);
 
-    const wrappedTokenAddress = '0x559852401e545f941F275B5674afAfcb1b51D147';
+    const wrappedTokenAddress = '0xff204e2681a6fa0e2c3fade68a1b28fb90e4fc5f';
 
     const { address: strategyAddress } = await hre.deployments.get(`WBTC${STRATEGY_PROXY_ID}`);
     const { address: strategyManagerAddress } = await hre.deployments.get(
@@ -43,7 +43,7 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     );
 
     const { deployer } = await hre.getNamedAccounts();
-    await hre.deployments.deploy(WRAPPED_TOKEN_GATEWAY_ID, {
+    const wrappedTokenGateway = await hre.deployments.deploy(WRAPPED_TOKEN_GATEWAY_ID, {
       contract: 'WrappedTokenGateway',
       from: deployer,
       args: [
@@ -54,7 +54,7 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
         delegationManagerAddress,
       ],
     });
-    console.log(`[Deployment][INFO] WrapperTokenGateway deployed`);
+    console.log(`[Deployment][INFO] WrapperTokenGateway deployed ${wrappedTokenGateway.address}`);
 
     const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
     const strategyManagerImplV2 = await hre.deployments.deploy(

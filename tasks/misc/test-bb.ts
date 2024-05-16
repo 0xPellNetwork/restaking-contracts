@@ -6,6 +6,7 @@ import {
   FORK,
   getContract,
   waitForTx,
+  WrappedTokenGateway,
   ZERO_ADDRESS,
 } from '../../helpers';
 import {
@@ -32,8 +33,15 @@ task(`test-bb`, `Deploys the WrappedTokenGateway contract`).setAction(async (_, 
     StrategyManagerProxyArtifact.address
   );
   const DelegationManagerProxyArtifact = await hre.deployments.get(DELEGATION_MANAGER_PROXY_ID);
-  const degationManagerInstance = await hre.ethers.getContractAt(
+  const delegationManagerInstance = await hre.ethers.getContractAt(
     'DelegationManagerV2',
     DelegationManagerProxyArtifact.address
   );
+
+  const wrappedTokenGateway = (await getContract(WRAPPED_TOKEN_GATEWAY_ID)) as WrappedTokenGateway;
+  const proxyAdmin = await getContract(PROXY_ADMIN_ID);
+  console.log(await proxyAdmin.owner());
+  console.log(await wrappedTokenGateway.owner());
+  console.log(await wrappedTokenGateway.getStrategyAddress());
+  console.log(await wrappedTokenGateway.getWrappedTokenAddress());
 });

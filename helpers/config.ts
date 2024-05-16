@@ -122,6 +122,16 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         withdrawalDelay: 180,
       },
+      SolvBTC: {
+        tokenAddress: '0xe8Cb1693Fe782f28EBafd55B4c94085722FBB89B',
+        tokenName: 'Solv BTC',
+        tokenSymbol: 'SolvBTC',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 180,
+      },
     },
     [eEthereumNetwork.main]: {
       WBTC: {
