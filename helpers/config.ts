@@ -166,16 +166,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '1500000000000000000000',
         withdrawalDelay: 604800,
       },
-      // stBBTC: {
-      //   tokenAddress: '0x7F150c293c97172C75983BD8ac084c187107eA19',
-      //   tokenName: 'Staked BounceBit BTC',
-      //   tokenSymbol: 'stBBTC',
-      //   maxPerDeposit:
-      //     '100000000000000000000',
-      //   maxDeposits:
-      //     '1500000000000000000000',
-      //   withdrawalDelay: 604800,
-      // },
+      stBBTC: {
+        tokenAddress: '0x7F150c293c97172C75983BD8ac084c187107eA19',
+        tokenName: 'Staked BounceBit BTC',
+        tokenSymbol: 'stBBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '1500000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eMerlinNetwork.merlin]: {
       mBTC: {
