@@ -78,6 +78,16 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         withdrawalDelay: 7200,
       },
+      bBBTC: {
+        tokenAddress: '0x3500a097646E5D04Ff1293b042f7A08a541E925c',
+        tokenName: 'LenB BounceBit BBTC',
+        tokenSymbol: 'bBBBBTC',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 120,
+      },
     },
     [eMerlinNetwork.merlinTestnet]: {
       mBTC: {
@@ -99,6 +109,26 @@ export const Configs: IConfiguration = {
         maxDeposits:
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         withdrawalDelay: 7200,
+      },
+      aMETH: {
+        tokenAddress: '0xbeB84B8E99D29b051E9f501553f9a6fa28b27888',
+        tokenName: 'AVALON Merlin ETH',
+        tokenSymbol: 'aMETH',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 120,
+      },
+      aMUSDT: {
+        tokenAddress: '0x2cb2C80e66eD830C52e5a7dd7ef399e89893C385',
+        tokenName: 'AVALON Merlin USDT',
+        tokenSymbol: 'aMUSDT',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 120,
       },
     },
     [eBitLayerNetwork.bitlayerTestnet]: {
@@ -126,6 +156,16 @@ export const Configs: IConfiguration = {
         tokenAddress: '0xe8Cb1693Fe782f28EBafd55B4c94085722FBB89B',
         tokenName: 'Solv BTC',
         tokenSymbol: 'SolvBTC',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 180,
+      },
+      ZBTC: {
+        tokenAddress: '0xa82088085da51a1Ee582fa037344C9BC3bEa7Bc8',
+        tokenName: 'ZBTC',
+        tokenSymbol: 'ZBTC',
         maxPerDeposit:
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         maxDeposits:
@@ -192,6 +232,30 @@ export const Configs: IConfiguration = {
         maxDeposits: '1000000000000000000000',
         withdrawalDelay: 604800,
       },
+      aWBTC: {
+        tokenAddress: '0xA984b70f7B41EE736B487D5F3D9C1e1026476Ea3',
+        tokenName: 'Avalon Merlin Wrapped BTC',
+        tokenSymbol: 'aMerWBTC',
+        maxPerDeposit: '20000000000000000000',
+        maxDeposits: '20000000000000000000',
+        withdrawalDelay: 259200,
+      },
+      aMBTC: {
+        tokenAddress: '0xF5b689D772e4Bd839AD9247A326A21a0A74a07f0',
+        tokenName: "Avalon Merlin's Seal BTC",
+        tokenSymbol: 'aMerMBTC',
+        maxPerDeposit: '20000000000000000000',
+        maxDeposits: '20000000000000000000',
+        withdrawalDelay: 259200,
+      },
+      aSolvBTC: {
+        tokenAddress: '0xC39E757dCb2b17B79A411eA1C2810735dc9032F8',
+        tokenName: 'Avalon Solv BTC',
+        tokenSymbol: 'aMerSolvBTC',
+        maxPerDeposit: '500000000000000000000',
+        maxDeposits: '500000000000000000000',
+        withdrawalDelay: 259200,
+      },
     },
     [eBitLayerNetwork.bitlayer]: {
       WBTC: {
@@ -201,6 +265,14 @@ export const Configs: IConfiguration = {
         maxPerDeposit: '100000000000000000000',
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
+      },
+      aWBTC: {
+        tokenAddress: '0xA984b70f7B41EE736B487D5F3D9C1e1026476Ea3',
+        tokenName: 'Avalon Bitlayer Wrapped BTC',
+        tokenSymbol: 'aBitWBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '100000000000000000000',
+        withdrawalDelay: 259200,
       },
     },
   },
