@@ -118,6 +118,9 @@ contract StrategyManagerV2 is
     IERC20 token,
     uint256 amount
   ) external onlyWhenNotPaused(PAUSED_DEPOSITS) nonReentrant returns (uint256 shares) {
+    if (staker != msg.sender) {
+      require(!thirdPartyTransfersForbidden[strategy], 'StrategyManager.depositIntoStrategyWithStaker: third transfers disabled');
+    }
     shares = _depositIntoStrategy(staker, strategy, token, amount);
   }
 
