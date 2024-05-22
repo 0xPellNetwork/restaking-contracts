@@ -101,7 +101,7 @@ contract StrategyManagerV2 is
   }
 
   /**
-   * @notice Deposits `amount` of `token` into the specified `strategy`, with the resultant shares credited to `msg.sender`
+   * @notice Deposits `amount` of `token` into the specified `strategy`, with the resultant shares credited to `staker`
    * @param staker Staker address
    * @param strategy is the specified strategy where deposit is to be made,
    * @param token is the denomination in which the deposit is to be made,
