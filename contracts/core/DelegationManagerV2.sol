@@ -64,6 +64,7 @@ contract DelegationManagerV2 is Initializable, OwnableUpgradeable, Pausable, Del
   ) external initializer {
     _initializePauser(_pauserRegistry, initialPausedStatus);
     _DOMAIN_SEPARATOR = _calculateDomainSeparator();
+    __ReentrancyGuard_init();
     _transferOwnership(initialOwner);
     _setMinWithdrawalDelay(_minWithdrawalDelay);
     _setStrategyWithdrawalDelay(_strategies, _withdrawalDelay);

@@ -75,6 +75,7 @@ contract StrategyManagerV2 is
     uint256 initialPausedStatus
   ) external initializer {
     _DOMAIN_SEPARATOR = _calculateDomainSeparator();
+    __ReentrancyGuard_init();
     _initializePauser(_pauserRegistry, initialPausedStatus);
     _transferOwnership(initialOwner);
     _setStrategyWhitelister(initialStrategyWhitelister);
