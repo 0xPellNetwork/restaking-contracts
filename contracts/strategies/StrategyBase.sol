@@ -141,10 +141,6 @@ contract StrategyBase is Initializable, Pausable, IStrategy {
 
     require(amountShares <= priorTotalShares, 'StrategyBase.withdraw: amountShares must be less than or equal to totalShares');
 
-    /**
-     * @notice calculation of amountToSend *mirrors* `sharesToUnderlying(amountShares)`, but is different since the `totalShares` has already
-     * been decremented. Specifically, notice how we use `priorTotalShares` here instead of `totalShares`.
-     */
     // account for virtual shares and balance
     uint256 virtualPriorTotalShares = priorTotalShares + SHARES_OFFSET;
     uint256 virtualTokenBalance = _tokenBalance() + BALANCE_OFFSET;
