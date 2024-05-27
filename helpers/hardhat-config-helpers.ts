@@ -61,7 +61,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eZetaChainNetwork.zeta]: `https://zetachain-evm.blockpi.network/v1/rpc/public`,
   [eZetaChainNetwork.zetaTestnet]: `https://zetachain-athens-evm.blockpi.network/v1/rpc/public`,
   [eBounceBitNetwork.bb]: `https://oracle-bakckend-private.bouncebitapi.com`, // https://fullnode-mainnet.bouncebitapi.com
-  [eBounceBitNetwork.bbTestnet]: `https://oracle-rpc-vip.bouncebitapi.com`,
+  [eBounceBitNetwork.bbTestnet]: `https://oracle-rpc-vip.bouncebitapi.com`, // https://fullnode-testnet.bouncebitapi.com
   [eMerlinNetwork.merlin]: `https://rpc.merlinchain.io`,
   [eMerlinNetwork.merlinTestnet]: `https://merlin-testnet.blockpi.network/v1/rpc/public`,
   [eBSquaredNetwork.bsquaredTestnet]: `https://haven-rpc.bsquared.network`,

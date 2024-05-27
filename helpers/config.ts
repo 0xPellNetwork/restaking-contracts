@@ -88,6 +88,16 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         withdrawalDelay: 120,
       },
+      wstBBTC: {
+        tokenAddress: '0xdcaC27eb1209e6A8C3Db75e43912923BEacE3A2B',
+        tokenName: 'Wrapped Staked BBTC',
+        tokenSymbol: 'wstBTC',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 180,
+      },
     },
     [eMerlinNetwork.merlinTestnet]: {
       mBTC: {
@@ -273,6 +283,22 @@ export const Configs: IConfiguration = {
         maxPerDeposit: '100000000000000000000',
         maxDeposits: '100000000000000000000',
         withdrawalDelay: 259200,
+      },
+      stBTC: {
+        tokenAddress: '0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3',
+        tokenName: 'Lorenzo Staked BTC',
+        tokenSymbol: 'stBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '2000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      ZBTC: {
+        tokenAddress: '0xd53E6f1d37f430d84eFad8060F9Fec558B36F6fa',
+        tokenName: 'Zearn Staked BTC',
+        tokenSymbol: 'ZBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '2000000000000000000000',
+        withdrawalDelay: 604800,
       },
     },
   },
