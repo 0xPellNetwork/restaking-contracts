@@ -106,4 +106,11 @@ task(`test-bb`, `Deploys the WrappedTokenGateway contract`).setAction(async (_, 
       strategyManagerInstance.address
     )
   );
+  // await waitForTx(await wrappedStakedBBTCGateway.notifyRewardAmount());
+
+  const stBBTC = await hre.ethers.getContractAt(
+    'WrappedStakedBBTCGateway',
+    '0xE3A844a2a9474ac7B5a15cBA4B1a02A83d40d0Ed'
+  );
+  // console.log(await stBBTC.earned());
 });

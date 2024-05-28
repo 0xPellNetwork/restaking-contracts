@@ -136,38 +136,38 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
     // );
 
     // 7. Upgrade StrategyManager & DelegationManager
-    const proxyAdmin = await getContract(PROXY_ADMIN_ID);
-    await waitForTx(
-      await proxyAdmin.upgrade(
-        strategyManagerAddress,
-        (
-          await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
-        ).address
-      )
-    );
-    console.log('Strategy upgrade successful');
-    await waitForTx(
-      await proxyAdmin.upgrade(
-        delegationManagerAddress,
-        (
-          await hre.deployments.get(`Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`)
-        ).address
-      )
-    );
-    console.log('Delegation upgrade successful');
+    // const proxyAdmin = await getContract(PROXY_ADMIN_ID);
+    // await waitForTx(
+    //   await proxyAdmin.upgrade(
+    //     strategyManagerAddress,
+    //     (
+    //       await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
+    //     ).address
+    //   )
+    // );
+    // console.log('Strategy upgrade successful');
+    // await waitForTx(
+    //   await proxyAdmin.upgrade(
+    //     delegationManagerAddress,
+    //     (
+    //       await hre.deployments.get(`Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`)
+    //     ).address
+    //   )
+    // );
+    // console.log('Delegation upgrade successful');
 
-    // 8. Update DelegationManager WrappedTokenGateway address
-    const delegationManagerInstance = await hre.ethers.getContractAt(
-      'DelegationManagerV2',
-      delegationManagerAddress
-    );
-    await waitForTx(
-      await delegationManagerInstance.updateWrappedTokenGateway(
-        (
-          await hre.deployments.get(WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID)
-        ).address
-      )
-    );
-    console.log('WrappedTokenGateway update successful');
+    // // 8. Update DelegationManager WrappedTokenGateway address
+    // const delegationManagerInstance = await hre.ethers.getContractAt(
+    //   'DelegationManagerV2',
+    //   delegationManagerAddress
+    // );
+    // await waitForTx(
+    //   await delegationManagerInstance.updateWrappedTokenGateway(
+    //     (
+    //       await hre.deployments.get(WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID)
+    //     ).address
+    //   )
+    // );
+    // console.log('WrappedTokenGateway update successful');
   }
 );

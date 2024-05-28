@@ -195,18 +195,6 @@ export const Configs: IConfiguration = {
         withdrawalDelay: 604800,
       },
     },
-    [eBscNetwork.bsc]: {
-      BTCB: {
-        tokenAddress: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
-        tokenName: 'Binance-Peg BTCB',
-        tokenSymbol: 'BTCB',
-        maxPerDeposit:
-          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
-        maxDeposits:
-          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
-        withdrawalDelay: 604800,
-      },
-    },
     [eBounceBitNetwork.bb]: {
       BBTC: {
         tokenAddress: '0xF5e11df1ebCf78b6b6D26E04FF19cD786a1e81dC',
@@ -309,6 +297,16 @@ export const Configs: IConfiguration = {
         withdrawalDelay: 259200,
       },
     },
+    [eBscNetwork.bsc]: {
+      BTCB: {
+        tokenAddress: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+        tokenName: 'Binance-Peg BTCB',
+        tokenSymbol: 'BTCB',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '3000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+    },
   },
   MinWithdrawalDelay: {
     [eEthereumNetwork.sepolia]: 60,
@@ -320,6 +318,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: 604800,
     [eMerlinNetwork.merlin]: 604800,
     [eBitLayerNetwork.bitlayer]: 604800,
+    [eBscNetwork.bsc]: 259200,
   },
   StrategyManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 0,
@@ -331,6 +330,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: 0,
     [eMerlinNetwork.merlin]: 0,
     [eBitLayerNetwork.bitlayer]: 0,
+    [eBscNetwork.bsc]: 0,
   },
   DelegationManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 1, // pause new delegation
@@ -342,6 +342,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: 1,
     [eMerlinNetwork.merlin]: 1,
     [eBitLayerNetwork.bitlayer]: 1,
+    [eBscNetwork.bsc]: 1,
   },
   SlasherPausedStatus: {
     [eEthereumNetwork.sepolia]:
@@ -362,6 +363,8 @@ export const Configs: IConfiguration = {
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eBitLayerNetwork.bitlayer]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eBscNetwork.bsc]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   },
   RewardsDuration: {
     [eBounceBitNetwork.bbTestnet]: 3600,
@@ -377,6 +380,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: '0x1297d797aC69da9Bd6260E5D932a4bB645b0cB69',
     [eMerlinNetwork.merlin]: '0xd41Ea5b3AbB4AE2fA2097EB081823291dAecC7c4',
     [eBitLayerNetwork.bitlayer]: '0x45B4e188d2F76fcF5Df98E8f21C7E8d2F63e1402',
+    [eBscNetwork.bsc]: '0x45B4e188d2F76fcF5Df98E8f21C7E8d2F63e1402',
   },
   WhiteLister: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -388,6 +392,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: '0x1B713049ea6d4490392687B62acaF731cD3e34C6',
     [eMerlinNetwork.merlin]: '0x853b480f808073c63A71C817277222D9901f3454',
     [eBitLayerNetwork.bitlayer]: '0x8C1362DB0eb0942C9aFdbEBb7E2Cdfdb9c649D15',
+    [eBscNetwork.bsc]: '0x8C1362DB0eb0942C9aFdbEBb7E2Cdfdb9c649D15',
   },
   Pauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -399,6 +404,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: '0x3f31a0Fa55d605286176500017CCd49bcc79A1e8',
     [eMerlinNetwork.merlin]: '0xB24e18BBD4918d4c2796D8D4de697bc14aec56Fb',
     [eBitLayerNetwork.bitlayer]: '0x2A67AA8B595fFC05c5567ab47992DfB00ebe02f6',
+    [eBscNetwork.bsc]: '0x2A67AA8B595fFC05c5567ab47992DfB00ebe02f6',
   },
   Unpauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -410,6 +416,7 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: '0xBA932f31e1f7641f5E1CB8640eDd409DF73636ce',
     [eMerlinNetwork.merlin]: '0x04a1C7D8e143648903fB7444da93995830ACe6ad',
     [eBitLayerNetwork.bitlayer]: '0xc203bEDb784a3Ee7eBEADa33CfDc1A2409395522',
+    [eBscNetwork.bsc]: '0xc203bEDb784a3Ee7eBEADa33CfDc1A2409395522',
   },
   Operator: {
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
