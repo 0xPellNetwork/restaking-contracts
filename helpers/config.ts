@@ -68,16 +68,6 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         withdrawalDelay: 180,
       },
-      stBTC: {
-        tokenAddress: '0x1fCf5744617D4AC02dFC4B9c850Fa73f47A11479',
-        tokenName: 'Staked BTC',
-        tokenSymbol: 'stBTC',
-        maxPerDeposit:
-          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
-        maxDeposits:
-          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
-        withdrawalDelay: 7200,
-      },
       bBBTC: {
         tokenAddress: '0x3500a097646E5D04Ff1293b042f7A08a541E925c',
         tokenName: 'LenB BounceBit BBTC',
@@ -88,10 +78,20 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         withdrawalDelay: 120,
       },
+      stBBTC: {
+        tokenAddress: '0xE3A844a2a9474ac7B5a15cBA4B1a02A83d40d0Ed',
+        tokenName: 'Staked BBTC',
+        tokenSymbol: 'stBBTC',
+        maxPerDeposit:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        maxDeposits:
+          '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 180,
+      },
       wstBBTC: {
-        tokenAddress: '0xdcaC27eb1209e6A8C3Db75e43912923BEacE3A2B',
+        tokenAddress: '0x4c630374F7ee11c69F0a5C786a1f435D6EBd5375',
         tokenName: 'Wrapped Staked BBTC',
-        tokenSymbol: 'wstBTC',
+        tokenSymbol: 'wstBBTC',
         maxPerDeposit:
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         maxDeposits:
@@ -300,6 +300,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
+      aSTBTC: {
+        tokenAddress: '0x9A6Ae5622990BA5eC1691648c3A2872469d161f9',
+        tokenName: 'Avalon Bitlayer Lorenzo stBTC',
+        tokenSymbol: 'aSTBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '100000000000000000000',
+        withdrawalDelay: 259200,
+      },
     },
   },
   MinWithdrawalDelay: {
@@ -355,6 +363,10 @@ export const Configs: IConfiguration = {
     [eBitLayerNetwork.bitlayer]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   },
+  RewardsDuration: {
+    [eBounceBitNetwork.bbTestnet]: 3600,
+    [eBounceBitNetwork.bb]: 86400,
+  },
   Owner: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eArbitrumNetwork.arbitrumSepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -398,5 +410,8 @@ export const Configs: IConfiguration = {
     [eBounceBitNetwork.bb]: '0xBA932f31e1f7641f5E1CB8640eDd409DF73636ce',
     [eMerlinNetwork.merlin]: '0x04a1C7D8e143648903fB7444da93995830ACe6ad',
     [eBitLayerNetwork.bitlayer]: '0xc203bEDb784a3Ee7eBEADa33CfDc1A2409395522',
+  },
+  Operator: {
+    [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
   },
 };

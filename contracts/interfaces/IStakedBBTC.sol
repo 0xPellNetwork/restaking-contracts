@@ -11,4 +11,10 @@ interface IStakedBBTC {
   function unlock(address account, uint256 amount) external;
 
   function approve(address guy, uint256 wad) external returns (bool);
+
+  function transfer(address to, uint256 amount) external returns (bool);
+
+  function transferFrom(address from, address to, uint256 amount) external returns (bool);
+
+  function getReward() external;
 }

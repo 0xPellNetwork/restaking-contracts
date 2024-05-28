@@ -17,11 +17,13 @@ import {
   STRATEGY_MANAGER_IMPL_ID,
   STRATEGY_MANAGER_PROXY_ID,
   STRATEGY_PROXY_ID,
-  WRAPPED_STAKED_BBTC_GATEWAY_ID,
+  WRAPPED_STAKED_BBTC_GATEWAY_IMPL_ID,
+  WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID,
   WRAPPED_TOKEN_GATEWAY_ID,
 } from '../../helpers/deploy-ids';
 import { Configs } from '../../helpers/config';
 import { getParamPerNetwork } from '../../helpers/config-helpers';
+import { ethers } from 'ethers';
 
 task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contract`).setAction(
   async (_, hre) => {
@@ -33,6 +35,11 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
 
     const network = (FORK ? FORK : hre.network.name) as eNetwork;
     const owner = getParamPerNetwork(Configs.Owner, network);
+    const rewardsDuration = getParamPerNetwork(Configs.RewardsDuration, network);
+    const operator = getParamPerNetwork(Configs.Operator, network);
+    if (!owner || !rewardsDuration || !operator) {
+      throw '[Deployment][Error] owner or rewardsDuration or operator not config';
+    }
 
     const stBBTCAddress = '0xE3A844a2a9474ac7B5a15cBA4B1a02A83d40d0Ed';
 
@@ -42,17 +49,52 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
     const { address: delegationManagerAddress } = await hre.deployments.get(
       DELEGATION_MANAGER_PROXY_ID
     );
+    const { address: proxyAdminAddress } = await hre.deployments.get(PROXY_ADMIN_ID);
 
     const { deployer } = await hre.getNamedAccounts();
-    // const wrappedStakedBBTCGateway = await hre.deployments.deploy(WRAPPED_STAKED_BBTC_GATEWAY_ID, {
-    //   contract: 'WrappedStakedBBTCGateway',
-    //   from: deployer,
-    //   args: [stBBTCAddress, owner, strategyManagerAddress, delegationManagerAddress],
-    // });
+    // 1. Deploy WrappedStakedBBTCGateway
+    // const WrappedStakedBBTCGatewayImplArtifact = await hre.deployments.deploy(
+    //   WRAPPED_STAKED_BBTC_GATEWAY_IMPL_ID,
+    //   {
+    //     contract: 'WrappedStakedBBTCGateway',
+    //     from: deployer,
+    //     args: [stBBTCAddress, strategyManagerAddress, delegationManagerAddress],
+    //   }
+    // );
     // console.log(
-    //   `[Deployment][INFO] WrapperStakedBBTCGateway deployed ${wrappedStakedBBTCGateway.address}`
+    //   `[Deployment][INFO] WrapperStakedBBTCGateway Impl deployed ${WrappedStakedBBTCGatewayImplArtifact.address}`
+    // );
+    // const ifaceStrategy = new ethers.utils.Interface(WrappedStakedBBTCGatewayImplArtifact.abi);
+    // const WrappedStakedBBTCGatewayProxyArtifact = await hre.deployments.deploy(
+    //   WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID,
+    //   {
+    //     from: deployer,
+    //     contract: 'TransparentUpgradeableProxy',
+    //     args: [
+    //       WrappedStakedBBTCGatewayImplArtifact.address,
+    //       proxyAdminAddress,
+    //       ifaceStrategy.encodeFunctionData('initialize', [deployer, rewardsDuration]),
+    //     ],
+    //   }
+    // );
+    // console.log(
+    //   `[Deployment][INFO] WrapperStakedBBTCGateway Proxy deployed ${WrappedStakedBBTCGatewayProxyArtifact.address}`
     // );
 
+    // // 2. Config operator
+    const { address: wrappedStakedBBTCGatewayProxyAddress } = await hre.deployments.get(
+      WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID
+    );
+    const wrappedStakedBBTCGatewayInstance = await hre.ethers.getContractAt(
+      'WrappedStakedBBTCGateway',
+      wrappedStakedBBTCGatewayProxyAddress
+    );
+    // console.log(await wrappedStakedBBTCGatewayInstance.owner());
+
+    // await waitForTx(await wrappedStakedBBTCGatewayInstance.addOperator(operator));
+    // console.log('WrappedStakedBBTCGateway operator config successful');
+
+    // // 3. Deploy upgradeable StrategyManagerV2 & DelegationManagerV2
     // const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
     // const strategyManagerImplV2 = await hre.deployments.deploy(
     //   `Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`,
@@ -78,42 +120,54 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
     //   `[Deployment][INFO] DelegationManagerV2 impl deployed ${delegationManagerImplV2.address}`
     // );
 
-    // MultiSig call DelegationManagerProxy updateWrappedTokenGateway
+    // 4. Add strategy
 
-    // Upgrade
+    // 5. Config WrappedStakedBBTCGateway strategy address
+    // await waitForTx(
+    //   await wrappedStakedBBTCGatewayInstance.setStrategy(
+    //     '0x87e7b0a40f5ead26bd2336E2a2c8F02975667fDC'
+    //   )
+    // );
+    // console.log('WrappedStakedBBTCGateway strategy config successful');
+    // // 6. Transfer ownership
+    // await waitForTx(await wrappedStakedBBTCGatewayInstance.transferOwnership(owner));
+    // console.log(
+    //   `WrappedStakedBBTCGateway transfer ownership successful ${await wrappedStakedBBTCGatewayInstance.owner()}`
+    // );
+
+    // 7. Upgrade StrategyManager & DelegationManager
     const proxyAdmin = await getContract(PROXY_ADMIN_ID);
     await waitForTx(
-      await proxyAdmin.upgrade(strategyManagerAddress, '0x3dD23e12c6285495596c68360f28e9E681E9D22F')
+      await proxyAdmin.upgrade(
+        strategyManagerAddress,
+        (
+          await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
+        ).address
+      )
     );
     console.log('Strategy upgrade successful');
     await waitForTx(
       await proxyAdmin.upgrade(
         delegationManagerAddress,
-        '0xF77033Df400f570Eb931A4E68fcC71C9B8895F82'
+        (
+          await hre.deployments.get(`Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`)
+        ).address
       )
     );
     console.log('Delegation upgrade successful');
 
-    // Update DelegationManager WrappedTokenGateway
+    // 8. Update DelegationManager WrappedTokenGateway address
     const delegationManagerInstance = await hre.ethers.getContractAt(
       'DelegationManagerV2',
       delegationManagerAddress
     );
     await waitForTx(
       await delegationManagerInstance.updateWrappedTokenGateway(
-        '0xdcaC27eb1209e6A8C3Db75e43912923BEacE3A2B'
+        (
+          await hre.deployments.get(WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID)
+        ).address
       )
     );
     console.log('WrappedTokenGateway update successful');
-
-    const wrappedStakedBBTCGatewayInstance = (await getContract(
-      WRAPPED_STAKED_BBTC_GATEWAY_ID
-    )) as WrappedStakedBBTCGateway;
-    await waitForTx(
-      await wrappedStakedBBTCGatewayInstance.setStrategy(
-        '0xe7228BbAB4B4eE1353DA05b2340cFc779D3E1756'
-      )
-    );
-    console.log('WrappedStakedBBTCGateway strategy config successful');
   }
 );

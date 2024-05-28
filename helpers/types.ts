@@ -118,8 +118,10 @@ export interface IConfiguration {
   StrategyManagerPausedStatus: iParamsPerNetwork<BigNumberish>;
   DelegationManagerPausedStatus: iParamsPerNetwork<BigNumberish>;
   SlasherPausedStatus: iParamsPerNetwork<BigNumberish>;
+  RewardsDuration: iParamsPerNetwork<BigNumberish>;
   Owner: iParamsPerNetwork<tEthereumAddress>;
   WhiteLister: iParamsPerNetwork<tEthereumAddress>;
   Pauser: iParamsPerNetwork<tEthereumAddress>;
   Unpauser: iParamsPerNetwork<tEthereumAddress>;
+  Operator: iParamsPerNetwork<tEthereumAddress>;
 }
