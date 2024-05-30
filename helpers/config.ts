@@ -212,6 +212,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '1500000000000000000000',
         withdrawalDelay: 604800,
       },
+      wstBBTC: {
+        tokenAddress: '0x8f083EaFcbba2e126AD9757639c3A1E25a061A08',
+        tokenName: 'Wrapped Staked BounceBit BTC',
+        tokenSymbol: 'wstBBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '1500000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eMerlinNetwork.merlin]: {
       mBTC: {
@@ -420,5 +428,6 @@ export const Configs: IConfiguration = {
   },
   Operator: {
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eBounceBitNetwork.bb]: '0xc8810eCCeC4098f641a842cC401648220B756c3C',
   },
 };

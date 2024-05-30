@@ -23,6 +23,7 @@ import {
 } from '../../helpers/deploy-ids';
 import { Configs } from '../../helpers/config';
 import { getParamPerNetwork } from '../../helpers/config-helpers';
+import { parseUnits } from 'ethers/lib/utils';
 
 task(`test-bb`, `Deploys the WrappedTokenGateway contract`).setAction(async (_, hre) => {
   if (!hre.network.config.chainId) {
@@ -44,6 +45,9 @@ task(`test-bb`, `Deploys the WrappedTokenGateway contract`).setAction(async (_, 
     'StrategyBaseTVLLimits',
     StrategyProxyArtifact.address
   );
+  console.log(await strategyInstance.getTVLLimits());
+  console.log(await strategyInstance.underlyingToken());
+  // return;
 
   // const aMUSDT = await hre.ethers.getContractAt(
   //   'ERC20',
@@ -66,10 +70,10 @@ task(`test-bb`, `Deploys the WrappedTokenGateway contract`).setAction(async (_, 
   //   )
   // );
 
-  console.log(await strategyManagerInstance.strategyWhitelister());
-  console.log(await delegationManagerInstance.owner());
-  console.log(await strategyInstance.pauserRegistry());
-  console.log(await strategyInstance.getTVLLimits());
+  // console.log(await strategyManagerInstance.strategyWhitelister());
+  // console.log(await delegationManagerInstance.owner());
+  // console.log(await strategyInstance.pauserRegistry());
+  // console.log(await strategyInstance.getTVLLimits());
   // console.log(StrategyProxyArtifact.address);
   // console.log(await strategyInstance.totalShares());
 
@@ -97,20 +101,40 @@ task(`test-bb`, `Deploys the WrappedTokenGateway contract`).setAction(async (_, 
     'WrappedStakedBBTCGateway',
     wrappedStakedBBTCGatewayProxyAddress
   );
-  console.log(await wrappedStakedBBTCGateway.owner());
-  console.log(await wrappedStakedBBTCGateway.getStrategyAddress());
-  console.log(await wrappedStakedBBTCGateway.getStakedBBTCAddress());
-  console.log(
-    await wrappedStakedBBTCGateway.allowance(
-      wrappedStakedBBTCGateway.address,
-      strategyManagerInstance.address
-    )
-  );
+  // console.log(await wrappedStakedBBTCGateway.owner());
+  // console.log(await wrappedStakedBBTCGateway.getStrategyAddress());
+  // console.log(await wrappedStakedBBTCGateway.getStakedBBTCAddress());
+  // console.log(
+  //   await wrappedStakedBBTCGateway.allowance(
+  //     wrappedStakedBBTCGateway.address,
+  //     strategyManagerInstance.address
+  //   )
+  // );
   // await waitForTx(await wrappedStakedBBTCGateway.notifyRewardAmount());
 
   const stBBTC = await hre.ethers.getContractAt(
     'WrappedStakedBBTCGateway',
-    '0xE3A844a2a9474ac7B5a15cBA4B1a02A83d40d0Ed'
+    '0x7F150c293c97172C75983BD8ac084c187107eA19'
   );
-  // console.log(await stBBTC.earned());
+
+  console.log(await wrappedStakedBBTCGateway.rewardRate());
+  console.log(await wrappedStakedBBTCGateway.periodFinish());
+  console.log(await wrappedStakedBBTCGateway.owner());
+  console.log(
+    await wrappedStakedBBTCGateway.isOperator('0x1297d797aC69da9Bd6260E5D932a4bB645b0cB69')
+  );
+  console.log(await wrappedStakedBBTCGateway.rewardsDuration());
+
+  // await waitForTx(
+  //   await wrappedStakedBBTCGateway.notifyRewardAmount({ value: parseUnits('0.5', 18) })
+  // );
+  // console.log(await wrappedStakedBBTCGateway.rewardRate());
+  // console.log(await wrappedStakedBBTCGateway.periodFinish());
+  // return;
+  // console.log(await stBBTC.balanceOf(wrappedStakedBBTCGateway.address));
+  // console.log(await stBBTC.earned(wrappedStakedBBTCGateway.address));
+  // console.log(await stBBTC.periodFinish());
+  // console.log(await stBBTC.rewardPerToken());
+  // console.log(await stBBTC.rewards(wrappedStakedBBTCGateway.address));
+  // console.log(await stBBTC.userRewardPerTokenPaid(wrappedStakedBBTCGateway.address));
 });

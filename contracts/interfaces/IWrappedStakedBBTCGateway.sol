@@ -25,10 +25,6 @@ interface IWrappedStakedBBTCGateway {
   /// @dev This error is thrown when the reward provided is too high and could cause an overflow.
   /// It ensures that the reward rate stays within the right range.
   error ProvidedRewardTooHigh();
-  /// @notice Error thrown when the caller is not operator.
-  /// @dev This error is thrown when the notify reward caller is not operator.
-  /// It ensures that the reward rate update by operator.
-  error OnlySupportOperator();
 
   function depositStakedBBTC(uint256 amount) external;
 

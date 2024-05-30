@@ -85,7 +85,7 @@ contract WrappedStakedBBTCGateway is
     _approve(address(this), address(strategyManager), type(uint256).max);
   }
 
-  function depositStakedBBTC(uint256 amount) external nonReentrant updateReward(msg.sender) {
+  function depositStakedBBTC(uint256 amount) external virtual override nonReentrant updateReward(msg.sender) {
     IERC20(address(stBBTC)).safeTransferFrom(msg.sender, address(this), amount);
     _mint(address(this), amount);
     _balancesOfStBBTC[msg.sender] += amount;
@@ -97,7 +97,7 @@ contract WrappedStakedBBTCGateway is
     IERC20[][] calldata tokens,
     uint256[] calldata middlewareTimesIndexs,
     bool[] calldata receiveAsTokens
-  ) external nonReentrant updateReward(msg.sender) {
+  ) external virtual override nonReentrant updateReward(msg.sender) {
     for (uint256 i = 0; i < withdrawals.length; i++) {
       require(withdrawals[i].staker == msg.sender, 'Withdrawer must be staker');
       for (uint256 j = 0; j < withdrawals[i].strategies.length; j++) {
@@ -131,6 +131,9 @@ contract WrappedStakedBBTCGateway is
     stBBTC.getReward();
     uint256 afterBalance = address(this).balance;
     uint256 reward = afterBalance - beforeBalance;
+    if (msg.value != 0) {
+      reward += msg.value;
+    }
 
     if (block.timestamp >= periodFinish) {
       rewardRate = reward / rewardsDuration;

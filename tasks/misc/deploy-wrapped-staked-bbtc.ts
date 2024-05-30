@@ -37,11 +37,12 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
     const owner = getParamPerNetwork(Configs.Owner, network);
     const rewardsDuration = getParamPerNetwork(Configs.RewardsDuration, network);
     const operator = getParamPerNetwork(Configs.Operator, network);
+    console.log(owner, rewardsDuration, operator);
     if (!owner || !rewardsDuration || !operator) {
       throw '[Deployment][Error] owner or rewardsDuration or operator not config';
     }
 
-    const stBBTCAddress = '0xE3A844a2a9474ac7B5a15cBA4B1a02A83d40d0Ed';
+    const stBBTCAddress = '0x7F150c293c97172C75983BD8ac084c187107eA19';
 
     const { address: strategyManagerAddress } = await hre.deployments.get(
       STRATEGY_MANAGER_PROXY_ID
@@ -94,7 +95,7 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
     // await waitForTx(await wrappedStakedBBTCGatewayInstance.addOperator(operator));
     // console.log('WrappedStakedBBTCGateway operator config successful');
 
-    // // 3. Deploy upgradeable StrategyManagerV2 & DelegationManagerV2
+    // 3. Deploy upgradeable StrategyManagerV2 & DelegationManagerV2
     // const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
     // const strategyManagerImplV2 = await hre.deployments.deploy(
     //   `Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`,
@@ -123,17 +124,17 @@ task(`deploy-wrapped-staked-bbtc`, `Deploys the WrappedStakedBBTCGateway contrac
     // 4. Add strategy
 
     // 5. Config WrappedStakedBBTCGateway strategy address
-    // await waitForTx(
-    //   await wrappedStakedBBTCGatewayInstance.setStrategy(
-    //     '0x87e7b0a40f5ead26bd2336E2a2c8F02975667fDC'
-    //   )
-    // );
-    // console.log('WrappedStakedBBTCGateway strategy config successful');
-    // // 6. Transfer ownership
-    // await waitForTx(await wrappedStakedBBTCGatewayInstance.transferOwnership(owner));
-    // console.log(
-    //   `WrappedStakedBBTCGateway transfer ownership successful ${await wrappedStakedBBTCGatewayInstance.owner()}`
-    // );
+    await waitForTx(
+      await wrappedStakedBBTCGatewayInstance.setStrategy(
+        '0xCf464Ecc9a295eDd53C1C3832fC41c2Bc394A474'
+      )
+    );
+    console.log('WrappedStakedBBTCGateway strategy config successful');
+    // 6. Transfer ownership
+    await waitForTx(await wrappedStakedBBTCGatewayInstance.transferOwnership(owner));
+    console.log(
+      `WrappedStakedBBTCGateway transfer ownership successful ${await wrappedStakedBBTCGatewayInstance.owner()}`
+    );
 
     // 7. Upgrade StrategyManager & DelegationManager
     // const proxyAdmin = await getContract(PROXY_ADMIN_ID);

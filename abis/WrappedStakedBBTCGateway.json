@@ -22,11 +22,6 @@
   },
   {
     "inputs": [],
-    "name": "OnlySupportOperator",
-    "type": "error"
-  },
-  {
-    "inputs": [],
     "name": "ProvidedRewardTooHigh",
     "type": "error"
   },
