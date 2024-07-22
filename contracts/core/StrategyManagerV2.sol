@@ -5,6 +5,7 @@ import '@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol';
 import '@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol';
 import '@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol';
 import '@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol';
+import {IERC20Metadata} from '@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol';
 import '../permissions/Pausable.sol';
 import './StrategyManagerStorage.sol';
 import '../libraries/EIP1271SignatureUtils.sol';
@@ -305,6 +306,13 @@ contract StrategyManagerV2 is
     IERC20 token,
     uint256 amount
   ) internal onlyStrategiesWhitelistedForDeposit(strategy) returns (uint256 shares) {
+    // get the token's decimals
+    uint8 decimals = IERC20Metadata(address(token)).decimals();
+    // calculate the minimum deposit amount based on token's decimals
+    uint256 minimumDepositAmount = 10 ** (decimals - 5); // 0.00001 * 10^(decimals)
+    // check if the deposit amount meets the minimum requirement
+    require(amount >= minimumDepositAmount, 'Deposit amount must be at least 0.00001 of the token');
+
     // transfer tokens from the sender to the strategy
     token.safeTransferFrom(msg.sender, address(strategy), amount);
 
