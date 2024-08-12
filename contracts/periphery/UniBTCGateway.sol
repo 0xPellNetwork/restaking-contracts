@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: AGPL-3.0
+// SPDX-License-Identifier: LGPL-3.0
 pragma solidity 0.8.20;
 
 import {Ownable} from '@openzeppelin/contracts/access/Ownable.sol';
@@ -23,7 +23,7 @@ contract UniBTCGateway is IUniBTCGateway, Ownable {
     uniBTCVault = IUniBTCVault(_uniBTCVault);
     strategy = _strategy;
     strategyManager = _strategyManager;
-    transferOwnership(_owner);
+    _transferOwnership(_owner);
     IERC20(_uniBTC).approve(address(strategyManager), type(uint256).max);
   }
 
