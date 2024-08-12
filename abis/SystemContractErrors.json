@@ -1,0 +1,27 @@
+[
+  {
+    "inputs": [],
+    "name": "CallerIsNotFungibleModule",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CantBeIdenticalAddresses",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "CantBeZeroAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidTarget",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  }
+]
