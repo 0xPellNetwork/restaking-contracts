@@ -1,0 +1,48 @@
+{
+  "address": "0x2430f99ee4d4B097f2424A19365e79Fd37fE148D",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "foo",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xd823983600cb162cf2c28f4ff5a55f1a0fcf38498be1df834188d7e5113e9269",
+  "receipt": {
+    "to": null,
+    "from": "0x1Ee532cf775be02E0B306571e3555321FC75988d",
+    "contractAddress": "0x2430f99ee4d4B097f2424A19365e79Fd37fE148D",
+    "transactionIndex": 0,
+    "gasUsed": "75247",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x64eff847dfecf17e8cb1d7fbc7d289a1982e6f0d6bd22d652f0bb52763dee282",
+    "transactionHash": "0xd823983600cb162cf2c28f4ff5a55f1a0fcf38498be1df834188d7e5113e9269",
+    "logs": [],
+    "blockNumber": 6243030,
+    "cumulativeGasUsed": "101127",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "840031ada70ec4148538db51328a7190",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"foo\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/mocks/EmptyContract.sol\":\"EmptyContract\"},\"evmVersion\":\"berlin\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1500},\"remappings\":[]},\"sources\":{\"contracts/mocks/EmptyContract.sol\":{\"content\":\"// SPDX-License-Identifier: LGPL-3.0\\n\\npragma solidity 0.8.20;\\n\\ncontract EmptyContract {\\n  function foo() public {}\\n}\\n\",\"keccak256\":\"0x574a223a10514ff9d4e8ff3386c7ea5570b5a35030d703053ca4eabb663e3617\",\"license\":\"LGPL-3.0\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50606580601d6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063c298557814602d575b600080fd5b00fea2646970667358221220951ec01a6fcd48084beaba14e9192c2fe34ea825b59ce824ba40ccc85727e8f464736f6c63430008140033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063c298557814602d575b600080fd5b00fea2646970667358221220951ec01a6fcd48084beaba14e9192c2fe34ea825b59ce824ba40ccc85727e8f464736f6c63430008140033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
