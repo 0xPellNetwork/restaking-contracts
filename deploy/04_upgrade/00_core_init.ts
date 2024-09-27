@@ -71,7 +71,7 @@ const func: DeployFunction = async function ({
       DelegationManagerProxyArtifact.address,
       DelegationManagerImplArtifact.address,
       ifaceDelegation.encodeFunctionData('initialize', [
-        owner,
+        deployer, // need transfer ownership
         pauserRegistryAddress,
         delegationManagerPausedStatus,
         minWithdrawalDelay,

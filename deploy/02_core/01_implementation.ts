@@ -27,14 +27,14 @@ const func: DeployFunction = async function ({
 
   await deploy(DELEGATION_MANAGER_IMPL_ID, {
     from: deployer,
-    contract: 'DelegationManager',
+    contract: 'DelegationManagerV2',
     args: [StrategyManagerProxyArtifact.address, SlasherProxyArtifact.address],
     ...COMMON_DEPLOY_PARAMS,
   });
 
   await deploy(STRATEGY_MANAGER_IMPL_ID, {
     from: deployer,
-    contract: 'StrategyManager',
+    contract: 'StrategyManagerV2',
     args: [DelegationManagerProxyArtifact.address, SlasherProxyArtifact.address],
     ...COMMON_DEPLOY_PARAMS,
   });

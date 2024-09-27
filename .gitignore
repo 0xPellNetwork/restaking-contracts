@@ -18,4 +18,7 @@ subgraph.yaml
 
 .vscode
 
+cache-zk
+artifacts-zk
+
 

@@ -17,11 +17,12 @@ import {
   STRATEGY_MANAGER_PROXY_ID,
   STRATEGY_PROXY_ID,
   WRAPPED_TOKEN_GATEWAY_ID,
+  ZETA_CHAIN_GATEWAY_ID,
 } from '../../helpers/deploy-ids';
 import { Configs } from '../../helpers/config';
 import { getParamPerNetwork } from '../../helpers/config-helpers';
 
-task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAction(
+task(`deploy-zetachain-gateway`, `Deploys the ZetaChainGateway contract`).setAction(
   async (_, hre) => {
     if (!hre.network.config.chainId) {
       throw new Error('INVALID_CHAIN_ID');
@@ -29,17 +30,19 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
 
     await hre.run('compile');
 
-    console.log(`\n- WrappedTokenGateway deployment`);
+    console.log(`\n- ZetaChainGateway deployment`);
 
     const network = (FORK ? FORK : hre.network.name) as eNetwork;
     const owner = getParamPerNetwork(Configs.Owner, network);
 
-    // bevm testnet
-    // const wrappedTokenAddress = '0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0';
-    // bevm mainnet
-    const wrappedTokenAddress = '0xB5136FEba197f5fF4B765E5b50c74db717796dcD';
+    // zetachain testnet
+    const zetachainSystemContractAddress = '0xEdf1c3275d13489aCdC6cD6eD246E72458B8795B';
+    const bitcoinZRC20Address = '0x65a45c57636f9BcCeD4fe193A602008578BcA90b';
+    // zetachain mainnet
+    // const zetachainSystemContractAddress = "0x91d18e54DAf4F677cB28167158d6dd21F6aB3921";
+    // const bitcoinZRC20Address = '0x13A0c5930C028511Dc02665E7285134B6d11A5f4';
 
-    const { address: strategyAddress } = await hre.deployments.get(`WBTC${STRATEGY_PROXY_ID}`);
+    const { address: strategyAddress } = await hre.deployments.get(`BTC.BTC${STRATEGY_PROXY_ID}`);
     const { address: strategyManagerAddress } = await hre.deployments.get(
       STRATEGY_MANAGER_PROXY_ID
     );
@@ -48,18 +51,19 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     );
 
     const { deployer } = await hre.getNamedAccounts();
-    const wrappedTokenGateway = await hre.deployments.deploy(WRAPPED_TOKEN_GATEWAY_ID, {
-      contract: 'WrappedTokenGateway',
+    const zetachainGateway = await hre.deployments.deploy(ZETA_CHAIN_GATEWAY_ID, {
+      contract: 'ZetaChainGateway',
       from: deployer,
       args: [
-        wrappedTokenAddress,
+        zetachainSystemContractAddress,
+        bitcoinZRC20Address,
         owner,
         strategyAddress,
         strategyManagerAddress,
         delegationManagerAddress,
       ],
     });
-    console.log(`[Deployment][INFO] WrapperTokenGateway deployed ${wrappedTokenGateway.address}`);
+    console.log(`[Deployment][INFO] ZetaChainGateway deployed ${zetachainGateway.address}`);
 
     const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
     const strategyManagerImplV2 = await hre.deployments.deploy(
@@ -114,7 +118,7 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
       delegationManagerAddress
     );
 
-    await waitForTx(await delegationManager.updateWrappedTokenGateway(wrappedTokenGateway.address));
-    console.log('Config WrappedTokenGateway successful');
+    await waitForTx(await delegationManager.updateWrappedTokenGateway(zetachainGateway.address));
+    console.log('Config ZetaChainGateway successful');
   }
 );
