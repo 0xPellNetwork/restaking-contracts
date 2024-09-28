@@ -14,6 +14,13 @@ import {
   eMerlinNetwork,
   eBSquaredNetwork,
   eBitLayerNetwork,
+  eBEVMNetwork,
+  eCoreNetwork,
+  eScrollNetwork,
+  eBOBNetwork,
+  eAILayerNetwork,
+  eModeNetwork,
+  eZKSyncNetwork,
 } from './types';
 
 require('dotenv').config();
@@ -57,16 +64,31 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eBscNetwork.bsc]: `https://bsc-dataseed.bnbchain.org`,
   [eBscNetwork.bscTestnet]: `https://bsc-testnet-dataseed.bnbchain.org`,
   [eMantleNetwork.mantle]: `https://rpc.mantle.xyz`,
-  [eMantleNetwork.mantleTestnet]: `https://rpc.testnet.mantle.xyz`,
+  [eMantleNetwork.mantleTestnet]: `https://rpc.sepolia.mantle.xyz`,
   [eZetaChainNetwork.zeta]: `https://zetachain-evm.blockpi.network/v1/rpc/public`,
   [eZetaChainNetwork.zetaTestnet]: `https://zetachain-athens-evm.blockpi.network/v1/rpc/public`,
   [eBounceBitNetwork.bb]: `https://oracle-bakckend-private.bouncebitapi.com`, // https://fullnode-mainnet.bouncebitapi.com
   [eBounceBitNetwork.bbTestnet]: `https://fullnode-testnet.bouncebitapi.com`, // https://oracle-rpc-vip.bouncebitapi.com
   [eMerlinNetwork.merlin]: `https://rpc.merlinchain.io`,
   [eMerlinNetwork.merlinTestnet]: `https://merlin-testnet.blockpi.network/v1/rpc/public`,
-  [eBSquaredNetwork.bsquaredTestnet]: `https://haven-rpc.bsquared.network`,
+  [eBSquaredNetwork.bsquared]: `https://b2-mainnet.alt.technology`,
+  [eBSquaredNetwork.bsquaredTestnet]: `https://b2-testnet.alt.technology`,
   [eBitLayerNetwork.bitlayer]: `https://rpc.bitlayer.org`,
   [eBitLayerNetwork.bitlayerTestnet]: `https://testnet-rpc.bitlayer.org`,
+  [eBEVMNetwork.bevm]: `https://rpc-mainnet-1.bevm.io`,
+  [eBEVMNetwork.bevmTestnet]: `https://testnet.bevm.io`,
+  [eCoreNetwork.core]: `https://rpc.coredao.org`,
+  [eCoreNetwork.coreTestnet]: `https://rpc.test.btcs.network`,
+  [eScrollNetwork.scroll]: `https://rpc.scroll.io`,
+  [eScrollNetwork.scrollTestnet]: `https://sepolia-rpc.scroll.io`,
+  [eBOBNetwork.bob]: `https://rpc.gobob.xyz`,
+  [eBOBNetwork.bobTestnet]: `https://testnet.rpc.gobob.xyz`,
+  [eAILayerNetwork.ailayer]: `https://mainnet-rpc.ailayer.xyz`,
+  [eAILayerNetwork.ailayerTestnet]: `https://testnet-rpc.ailayer.xyz`,
+  [eModeNetwork.mode]: `https://mainnet.mode.network`,
+  [eModeNetwork.modeTestnet]: `https://sepolia.mode.network`,
+  [eZKSyncNetwork.zksync]: `https://mainnet.era.zksync.io`,
+  [eZKSyncNetwork.zksyncTestnet]: `https://sepolia.era.zksync.dev`,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
@@ -150,3 +172,17 @@ export const BSCSCAN_KEY = process.env.BSCSCAN_KEY || '';
 export const MANTLESCAN_KEY = process.env.MANTLESCAN_KEY || '';
 
 export const MERLINSCAN_KEY = process.env.MERLINSCAN_KEY || '';
+
+export const BSQUAREDSCAN_KEY = process.env.BSQUAREDSCAN_KEY || '';
+
+export const CORESCAN_KEY = process.env.CORESCAN_KEY || '';
+
+export const CORESCAN_TESTNET_KEY = process.env.CORESCAN_TESTNET_KEY || '';
+
+export const SCROLLSCAN_KEY = process.env.SCROLLSCAN_KEY || '';
+
+export const ZETASCAN_TESTNET_KEY = process.env.ZETASCAN_TESTNET_KEY || '';
+
+export const ZETASCAN_KEY = process.env.ZETASCAN_KEY || '';
+
+export const ZKSYNCSCAN_KEY = process.env.ZKSYNCSCAN_KEY || '';

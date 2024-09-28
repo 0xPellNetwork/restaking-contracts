@@ -14,3 +14,6 @@ export const PROXY_ADMIN_ID = 'ProxyAdmin';
 export const WRAPPED_TOKEN_GATEWAY_ID = 'WrappedTokenGateway';
 export const WRAPPED_STAKED_BBTC_GATEWAY_IMPL_ID = `WrappedStakedBBTCGateway-${IMPL_ID}`;
 export const WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID = `WrappedStakedBBTCGateway-${PROXY_ID}`;
+export const STAKED_BBTC_STRATEGY_REWARD_CLAIM_IMPL_ID = `StakedBBTCStrategyRewardClaim-${IMPL_ID}`;
+export const UNI_BTC_GATEWAY_ID = 'UniBTCGateway';
+export const ZETA_CHAIN_GATEWAY_ID = 'ZetaChainGateway';

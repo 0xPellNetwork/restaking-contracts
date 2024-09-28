@@ -11,7 +11,14 @@ export type eNetwork =
   | eBounceBitNetwork
   | eMerlinNetwork
   | eBSquaredNetwork
-  | eBitLayerNetwork;
+  | eBitLayerNetwork
+  | eBEVMNetwork
+  | eCoreNetwork
+  | eScrollNetwork
+  | eBOBNetwork
+  | eAILayerNetwork
+  | eModeNetwork
+  | eZKSyncNetwork;
 
 export enum eEthereumNetwork {
   main = 'main',
@@ -63,6 +70,41 @@ export enum eBSquaredNetwork {
 export enum eBitLayerNetwork {
   bitlayer = 'bitlayer',
   bitlayerTestnet = 'bitlayer-testnet',
+}
+
+export enum eBEVMNetwork {
+  bevm = 'bevm',
+  bevmTestnet = 'bevm-testnet',
+}
+
+export enum eCoreNetwork {
+  core = 'core',
+  coreTestnet = 'core-testnet',
+}
+
+export enum eScrollNetwork {
+  scroll = 'scroll',
+  scrollTestnet = 'scroll-testnet',
+}
+
+export enum eBOBNetwork {
+  bob = 'bob',
+  bobTestnet = 'bob-testnet',
+}
+
+export enum eAILayerNetwork {
+  ailayer = 'ailayer',
+  ailayerTestnet = 'ailayer-testnet',
+}
+
+export enum eModeNetwork {
+  mode = 'mode',
+  modeTestnet = 'mode-testnet',
+}
+
+export enum eZKSyncNetwork {
+  zksync = 'zksync',
+  zksyncTestnet = 'zksync-testnet',
 }
 
 export type tEthereumAddress = string;
