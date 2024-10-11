@@ -1,0 +1,2243 @@
+{
+  "address": "0x57DcEdeee6e76A4Bbc6A5e1fcAA5385EC7ad9955",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IStrategyManager",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IDelegationManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previouslySlashedAddress",
+          "type": "address"
+        }
+      ],
+      "name": "FrozenStatusReset",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "stalestUpdateTimestamp",
+          "type": "uint32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "latestServeUntilTimestamp",
+          "type": "uint32"
+        }
+      ],
+      "name": "MiddlewareTimesAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "slashedOperator",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "slashingContract",
+          "type": "address"
+        }
+      ],
+      "name": "OperatorFrozen",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "contractAddress",
+          "type": "address"
+        }
+      ],
+      "name": "OptedIntoSlashing",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newPausedStatus",
+          "type": "uint256"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "contract IPauserRegistry",
+          "name": "pauserRegistry",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IPauserRegistry",
+          "name": "newPauserRegistry",
+          "type": "address"
+        }
+      ],
+      "name": "PauserRegistrySet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "contractAddress",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint32",
+          "name": "contractCanSlashOperatorUntilTimestamp",
+          "type": "uint32"
+        }
+      ],
+      "name": "SlashingAbilityRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newPausedStatus",
+          "type": "uint256"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "canSlash",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "canWithdraw",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "contractCanSlashOperatorUntilTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "delegation",
+      "outputs": [
+        {
+          "internalType": "contract IDelegationManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "freezeOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "getCorrectValueForInsertAfter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "getMiddlewareTimesIndexServeUntilTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "getMiddlewareTimesIndexStalestUpdateTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IPauserRegistry",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isFrozen",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "latestUpdateTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "middlewareTimesLength",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "operatorToMiddlewareTimes",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "stalestUpdateTimestamp",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "latestServeUntilTimestamp",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct ISlasher.MiddlewareTimes",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "operatorWhitelistedContractsLinkedListEntry",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "operatorWhitelistedContractsLinkedListSize",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "optIntoSlashing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newPausedStatus",
+          "type": "uint256"
+        }
+      ],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pauseAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "index",
+          "type": "uint8"
+        }
+      ],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pauserRegistry",
+      "outputs": [
+        {
+          "internalType": "contract IPauserRegistry",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "recordFirstStakeUpdate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "name": "recordLastStakeUpdateAndRevokeSlashingAbility",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "recordStakeUpdate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "name": "resetFrozenStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract IPauserRegistry",
+          "name": "newPauserRegistry",
+          "type": "address"
+        }
+      ],
+      "name": "setPauserRegistry",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "strategyManager",
+      "outputs": [
+        {
+          "internalType": "contract IStrategyManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newPausedStatus",
+          "type": "uint256"
+        }
+      ],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "whitelistedContractDetails",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "registrationMayBeginAtTimestamp",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "contractCanSlashOperatorUntilTimestamp",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "latestUpdateTimestamp",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct ISlasher.MiddlewareDetails",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+  "receipt": {
+    "to": "0x0000000000000000000000000000000000008006",
+    "from": "0xB2d72888E96ED3027A4bed955f4dD144FcC4C2e3",
+    "contractAddress": "0x57DcEdeee6e76A4Bbc6A5e1fcAA5385EC7ad9955",
+    "transactionIndex": 0,
+    "gasUsed": "3934053",
+    "logsBloom": "0x00000000000400080000010000000000000000000000400000000000000000000000084000000000000800000001000000000000000000000008000000000000000100000000040080000028000040000400000402000000000000000000080000000000020100000000000000000800000000000000400000000010000000000000001000000000000004000100000000000100000000000000000000000080800000000000100000000000800100000000000000000000102000810000000000000002008000000000000000000000020010000100000000000000000020000000000000000000000000000000000000000040000000000040000080000000",
+    "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db",
+    "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 45245479,
+        "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+        "address": "0x000000000000000000000000000000000000800A",
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x000000000000000000000000b2d72888e96ed3027a4bed955f4dd144fcc4c2e3",
+          "0x0000000000000000000000000000000000000000000000000000000000008001"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000013132d8a860f0",
+        "logIndex": 0,
+        "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db"
+      },
+      {
+        "transactionIndex": 0,
+        "blockNumber": 45245479,
+        "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+        "address": "0x0000000000000000000000000000000000008008",
+        "topics": [
+          "0x27fe8c0b49f49507b9d4fe5968c9f49edfe5c9df277d433a07a0717ede97638d"
+        ],
+        "data": "0x000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000fc50000000000000000000000000000000000000000000000000000000000008008000000000000000000000000000000000000000000000000000000000000800e73a9a654e23d0cacf9fbd9df737ed4c35c5991d53ad1f036302742628985208c",
+        "logIndex": 1,
+        "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db"
+      },
+      {
+        "transactionIndex": 0,
+        "blockNumber": 45245479,
+        "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+        "address": "0x0000000000000000000000000000000000008008",
+        "topics": [
+          "0x3a36e47291f4201faf137fab081d92295bce2d53be2c6ca68ba82c7faa9ce241",
+          "0x000000000000000000000000000000000000000000000000000000000000800e",
+          "0x73a9a654e23d0cacf9fbd9df737ed4c35c5991d53ad1f036302742628985208c"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000001b32021b0000000000000000000003b20000c13d000003b20000413d000003b20000213d000000000002004b000000000200041600000000004304350000002004000039000000200030008c000000000101043b000003bf0001042e000003b20000013d000000000202043b000000800010043fffffffffffffffff000000f10010009c00000004021003700000000004034019000000f40010009c0000000401100370000000240030008c000000f40020009c000003c00001043000000001002001900000004001100210000000c001100210000000f1010080410000002401100370000000400010043f000000440030008c000000000001004b00000000010004160000000001000414000000c403200039000000e40320003900000084032001bf00000000003104350000012703000041000000000003004b000000f10020009c0000800d02000039000000000006004b000000000201041a000000000701034f0000006501000039000000f10330019700000060033002700000000003010019000000000001042d000000000048004b0000000008980436000000007907043c0000000008020019000003530000613d0000000004620019000000400200043d000000f3063001980000001f0530018f000000000112019f000000f102008041000000000200041400000080012001bf000000600210018f0000001f01400039000000000003001f0000000000650435000000000686019f00000000066701cf000000000767022f0000010006600089000000000707043b000000000868022f00000000086801cf00000000080504330000000306600210000000000771034f00000080057001bf00000020074001900000001f0640018f03be03b90000040f000000840010043f000000800000043f00000136010000410000000003000031000000040020008c02000000000000005061757361626c650000000001000019000003530000013d0000000000320435000000a402200039000000800300043d000000000058004b0000000008a80436000000009a09043c000000000901034f0000008008000039000000c0022002100000006603000039000000f402200197000003790000013d0000037c0000a13d000000000053004b00000000050004110000003301000039000000c00000043f000000a00000043f000000d50000613d00000020010000394f776e61626c653a696f6e616c69747973652066756e637400000000ffffffff00000000020000190000000102000039000003b20000613d03be03b40000040f000003960000013d0000012904000041000000000043004b000000010400c03900000000040000390000013c011001c700000002030000390000012d011001c70000032e0000c13d00000126011001c7000000000034004b000000000101041a00000000010004110000013b01000041000300000003001d000000000301043b000000640030008c0000015a0000613d0000013104000041000000030300003900000130011001c7000000000021041b0000012f022001970000010c0000613d000000c40010043f000000a40010043f0000012701000041000001f80000c13d000000f4032001970000011f0000613d000000e00000043f0000012501000041000000400020043f97355588d649fdfc3a2e0d8ea5bafc615b207801abcc15af166d2ccf470989b1000000a40000000073000000000000006f206164647265737472793a206e657773657252656769732e5f73657450617520746865207a6572616e6e6f74206265676973747279206350617573657252659ba7f565869acdb6e48a6b0f7df013b80e8b0f01dd5802336e9fcd539896fca60000004000000000617474656d707420696e76616c6964202e70617573653a20746f20756e70617500000040000000c07320706175736572e09f88f3c616ef3decdc08dfdaef0bb62200a8bc981af8c9ab40a374bc51de37000000240000008046fbf68e0000000000000064000000806865206f776e65726973206e6f7420742063616c6c6572200000006000000080000000200000008000000060000000e00000008400000080646472657373000065207a65726f20616572206973207468206e6577206f776ee3b4186f6b6457e019497f9722a3daaf1344cd1fd0a4f2848be0079c53165914ffffffff000000006b45593c8fad389cbc8afb57c826e498bd801502bc021ac03582d1828e26bf5600000020000000006420617474656d703a20696e76616c692e756e70617573657420746f20706175000000840000000073696f6e6564206174207065726d69736572206973206e6f6d73672e73656e6465720000000000007320756e7061757308c379a0000000000000000400000080eab66d7a000000000000000010d67a2f000000000ffabbce00000000175d320500000000136439dd00000000136439dc00000000282670fc000000001794bb3c0000000039b70e380000000038c8ee640000000038c8ee63000000001794bb3b000000005ac86ab700000000595c6a6700000000715018a6000000005c975abb000000005c975aba00000000723e59c70000000071e7bbaf000000008105e043000000007cf72bba000000007cf72bb90000000071e7bbae00000000595c6a6600000000886f119500000000855fcc4a00000000a49db732000000008da5cb5b000000008da5cb5a00000000d1b70e6400000000c747075b00000000d98128c000000000d7b7fa1300000000d7b7fa1200000000c747075a00000000e442994e00000000df5cf72300000000e921d4fa00000000e583983600000000e583983500000000f2fde38b00000000e9b164e800000000fabc1cbc00000000f73b751900000000f73b751800000000e9b164e700000000df5cf72200000000855fcc490000004000000100000000020000000000000000ffffffe000000001ffffffe0000003be00000432000003bc00210423000003b700210421000000000012041b000000650200003900000003011001af0000012f0110019700000001010000290000014304000041000000010300003900000142011001c7000000a002200039000000000041043500000002040000290000012a011001c700000038030000390000012c040000410000012b04000041000003930000013d000001410400004100000140040000410000013d040000410000000000610435000000000063041b0000037e0000c13d000000000045004b000000000564016f0000000306000029000000000403041a000000400220021000000060013002100000000000140435000000000161019f00000000015101cf000000000151022f0000010005500089000000000656022f00000000065601cf00000000060404330000000305500210000000000161034f000003600000613d000000000005004b0000034f0000c13d000000000262019f0000002a030000390000012804000041000003290000c13d0000031d0000c13d000003110000c13d00000147011001c7000001460300004100000104022001bf0000004904000039000000a403200039000001450400004100000144040000410000039a0000c13d00000003030000290000000004000411000000f40030009c000003480000613d000002e40000613d000002d30000c13d000002d70000613d00000028030000390000013e04000041000003660000c13d000003220000613d000002a30000613d000002920000c13d000002960000613d000003700000013d0000000000210435000000000023041b000000010200008a000002b40000613d000003160000613d000002690000613d000002580000c13d0000025c0000613d0000012e040000410000000000810435000000000083041b000003890000c13d000000000046004b000000000664016f0000014804700167000000000703041a000001480680016700000003080000290000000003000411000000f40050009c000000800500043d0000030a0000613d000002230000613d000002120000c13d00000000005a004b000000000a9a0436000000008908043c000000000801034f000002160000613d000000800a0000390000013a010000410000013901000041000000000031004b000000240110003900000000011200190000000501100210000001380010009c000000000141034f0000000404200039000003b20000813d0000002304200039000001380020009c0000013501000041000001200000043f000001000000043f000000e0010000390000006601000039000000f401100197000002a60000013d000002810000c13d000000e60000013d00000044011003700000002402100370000000840030008c000001600000013d0000026c0000013d000002470000c13d0000013701000041000002260000013d000002010000c13d000000fb0020009c000000fa0020009c000001120020009c000001e10000613d000001110020009c0000013e0000a13d000001060020009c000001ca0000613d000001050020009c0000013e0000613d0000011d0020009c0000011c0020009c000001290000013d000001000020009c000000ff0020009c0000000006000019000001170020009c000001c20000613d000001160020009c0000010b0020009c000001b90000613d0000010a0020009c000001220020009c000001a20000613d000001210020009c000001330000813d0000013401000041000000e40010043f0000013301000041000001320100004100000026010000390000033c0000c13d000000f40060009c000000000601043b000000fd0020009c000000fc0020009c000001410000213d000000f90020009c000001140020009c000001130020009c0000012d0000213d000001100020009c000001080020009c000001930000613d000001070020009c0000011b0000213d000001040020009c0000013f01000041000000c0010000390000011f0020009c000001880000613d0000011e0020009c000001130000213d0000011b0020009c000001020020009c000001170000613d000001010020009c000001080000213d000000fe0020009c000000b20000213d000000f80020009c000000010110018f000000000112022f000000000202041a0000006602000039000000ff0010008c000001190020009c000001760000613d000001180020009c000000ef0000213d000001150020009c000000ab0000213d0000010f0020009c000001bd0000013d0000010d0020009c000001640000613d0000010c0020009c000000ea0000213d000001090020009c000000a40000213d000001030020009c000000840000213d000000f70020009c000000f50100004100000120000004430000010000100443000000a00100043d000000800100043d000000400030008c0000000000120435000000000151019f00000000014101cf000000000141022f0000010004400089000000000545022f00000000054501cf00000000050204330000000304400210000000000151034f000000500000613d000000000004004b0000003f0000c13d000000000026004b0000000006860436000000007807043c0000008006000039000000430000613d0000008002500039000000f3053001980000001f0430018f0000008002200039000000f2022001970000001f02300039000002e70000013d000002c20000c13d000200000002001d000100000003001d000000f402300197000000000301041a000300000001001d000001240020009c000000dc0000613d000001230020009c000000d80000213d000001200020009c0000008d0000213d0000011a0020009c0000006c0000213d0000010e0020009c0000005d0000213d000000f60020009c000000e002200270000000000201043b000000040030008c0000008002000039000000320000c13d00030000000000020001000000000002021a0219002f002e002d001702180217009502160002021502140213021202110210020f020e020d020c020b020a020900010014000200050004000100130009020800120003002c02070094000d002002060054020502040203005300080007001102020005000400010201020001ff009501fe01fd01fc01fb01fa002b01f901f801f701f601f501f401f301f201f101f001ef000901ee01ed01ec01eb01ea01e9000201e80012000301e700120003006c01e601e501e4000a01e301e201e101e001df01de01dd01dc01db0001001f001e0001002c01da01d901d801d701d601d501d401d30001001400020005000400010013000901d2000301d101d001cf01ce000d0052000a01cd01cc01cb01ca01c901c801c7006b000b01c601c501c401c301c20001001d0002000500040001001300090012000301c1001c0051006a0069009301c0000a01bf01be01bd01bc01bb0092000b01ba01b901b8009201b7006b000b01b601b501b4006b01b3000100140002000500040001001301b201b100030068002a0091006700660090002901b0008f000d006c005001af008e01ae008d01ad01ac01ab0016001d01aa000b01a901a801a70001001d00020005000400010010000c00150003001b0009000f0065000b01a601a501a4008c000b01a301a201a10001001f001e00010068002a0091006700660090008b008a0020000f001a0019008900280088008701a00064019f008c019e0001001400020005000400010013019d019c0086019b0001001f001e019a000b0199019801970001001d00020005000400010010000c00150003001b000900120196000b0195019401930001008500020005000400010010000c00150003001b0009000f000300510052000a01920086019100010014000200050004000100130084002c002a0094000d002000630054008301900053000800070011018f001400020005000400010013000900120065000b001d00020005000400010010000c00150003001b0009001200030051006a0069018e000a001f001e0001002c002a0082000d00810050002000630054018d0053000800070011018c008500020005000400010010000c00150003001b018b018a00020005000400010010000c001500030189000c00270003018801870014000200050004000100130084002c002a0082000d008100500020006300540083018600530008000700110185001f001e0001006800800184000d0052000a001f001e000101830080000d0052000a001d00020005000400010010000c00150003001b0009001200030182001c0051006a0069009301810180017f000a001400020005000400010010000c017e0003017d007f017c017b017a00090179000301780177017601750065000b008f000d006c0050008e0174008d01730016000f001a0019007e004f0172002f002e002d000800070011004e004d004c01710170016f016e016d016c0029016b004b004a00490048004700460045004400430042004100400017016a003f003e003d001c0008000201690168000301670066007d01660165006201640163016201610160015f015e0018003c0027003b0061003a007c0028007b015d0064000f001a0019007a004f002f002e002d000800070011004e004d004c015c0060005f005e005d005c015b0029015a004b004a004900480047004600450044004300420041004000170159003f003e003d001c00080002005b002600790078007700010026015801570062015601550018003c0154000f001a0019007a004f002f002e002d000800070011004e004d004c01530060005f005e005d005c015200290151004b004a004900480047004600450044004300420041004000170150003f003e003d001c00080002005b002600790078007700010026014f002500240023000700060022014e0006002100760006005a014d0075000f001a0019007e004f002f002e002d000800070011004e004d004c014c0060005f005e005d005c014b0029014a004b004a004900480047004600450044004300420041004000170149003f003e003d001c00080002005b014800030147007f007d014600260145002500240023000700060022014400060021014300060142014100060140013f00590018013e001600390038003700360035002b0034003300320031013d005800390038003700360035002b0034003300320031013c005800390038003700360035002b0034003300320031013b0058002500240023000700060022013a0006002100760006005a01390075008b0138008a0020000f001a00190089002800880087006400390038003700360035002b0034003300320031013701360135013401330132013101300009012f012e012d012c012b012a0027003b0129003a0016006201280127012601250124012301220018003c0027003b0061003a007c0028007b012100670074001700730057000a002500240023000700060022012000060021011f011e002500240023000700060022011d00060021011c0006005a011b00590018011a001601190118011700590018003c0027003b0061003a01160028011501140074001700730113011201110110010f0057000a00570016010e0072003000710030010d0072003000710030010c000a00160000000000000000000000000070000000000000010b000000000000010a00000070000e000e01090000010800000000000000000107000000000000010600000000000001050000000000000104000000000000010300000000000001020000000000000101000000000000010000000000000000ff00000000000000fe00000000000000fd00000000000000fc00000000000000fb00000000000000fa00000000000000f900000000000000f800000000000000f700000000000000f600000000000000f500000000000000f400000000000000f300000000000000f200000000000000f100000000000000f000000000000000ef00000000000000ee00000000000000ed00000000000000ec00000000000000eb00000000000000ea00000000000000e900000000000000e800000000000000e700000000000000e600000000000000e500000000000000e400000000000000e300000000000000e200000000000000e100000000000000e000000000000000df00000000000000de00000000000000dd00000000000000dc00000000000000db00000000000000da00000000000000d900d80000000000000000000000d7000000d600000000000000d500d40000000000d300d200d100d00000000000cf000000ce006f006e0000005600cd00cc00cb0055000000ca000000c900c800c700c6000e00c500000000005500000000000000c400c300c200c1006d00c000bf00be00bd0000000000000000000000bc00000000000000bb00000000000000ba00000000000000b90000000000000000000e006d00b800b700b60000000000b5000000b40000000000000000000000b3000000b200b100b000af00ae0000000000000000000000ad000000ac006f006e0000005600ab00aa00a90055000000a8000000a700a600a500a400a300a200a100a00056009f009e009d009c009b0000000000000000009a0000000e000e000e000e000000000000000000990098009700960000000000000000000000000000",
+        "logIndex": 2,
+        "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db"
+      },
+      {
+        "transactionIndex": 0,
+        "blockNumber": 45245479,
+        "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+        "address": "0x0000000000000000000000000000000000008004",
+        "topics": [
+          "0xc94722ff13eacf53547c4741dab5228353a05938ffcdd5d4a2d533ae0e618287",
+          "0x0100014b4a5aabae7693a3dc3d5266da9bee5d5d175fd6e154424a1bffe2e6f2",
+          "0x0000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        "data": "0x",
+        "logIndex": 3,
+        "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db"
+      },
+      {
+        "transactionIndex": 0,
+        "blockNumber": 45245479,
+        "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+        "address": "0x0000000000000000000000000000000000008006",
+        "topics": [
+          "0x290afdae231a3fc0bbae8b1af63698b0a1d79b21ad17df0342dfb952fe74f8e5",
+          "0x000000000000000000000000b2d72888e96ed3027a4bed955f4dd144fcc4c2e3",
+          "0x0100014b4a5aabae7693a3dc3d5266da9bee5d5d175fd6e154424a1bffe2e6f2",
+          "0x00000000000000000000000057dcedeee6e76a4bbc6a5e1fcaa5385ec7ad9955"
+        ],
+        "data": "0x",
+        "logIndex": 4,
+        "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db"
+      },
+      {
+        "transactionIndex": 0,
+        "blockNumber": 45245479,
+        "transactionHash": "0x69f688a7832bf355f46a669add16bbdd9c27db5eb656f45dbac7bad889e00fe6",
+        "address": "0x000000000000000000000000000000000000800A",
+        "topics": [
+          "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+          "0x0000000000000000000000000000000000000000000000000000000000008001",
+          "0x000000000000000000000000b2d72888e96ed3027a4bed955f4dd144fcc4c2e3"
+        ],
+        "data": "0x00000000000000000000000000000000000000000000000000008f4b4a4735e0",
+        "logIndex": 5,
+        "blockHash": "0x3c9e3129f448974f2be4ae417f890a740d60f63edc6675b2ae9b59a762bfd2db"
+      }
+    ],
+    "blockNumber": 45245479,
+    "cumulativeGasUsed": "0",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xD05f8d7e1CD77115BbCD17887c9cE37f60Da2CBc",
+    "0x81a0B0b4E4f0cd7A6959729100a8C0bacCDD5286"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "2f716b56c2665171a3b09b3102bb2921",
+  "metadata": {
+    "llvm_options": [],
+    "optimizer_settings": {
+      "is_debug_logging_enabled": false,
+      "is_fallback_to_size_enabled": false,
+      "is_verify_each_enabled": false,
+      "level_back_end": "Aggressive",
+      "level_middle_end": "Aggressive",
+      "level_middle_end_size": "Zero"
+    },
+    "solc_version": "0.8.20",
+    "solc_zkvm_edition": "1.0.1",
+    "source_metadata": {
+      "compiler": {
+        "version": "0.8.20+commit.9f2a5241"
+      },
+      "language": "Solidity",
+      "output": {
+        "abi": [
+          {
+            "inputs": [
+              {
+                "internalType": "contract IStrategyManager",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "contract IDelegationManager",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previouslySlashedAddress",
+                "type": "address"
+              }
+            ],
+            "name": "FrozenStatusReset",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "version",
+                "type": "uint8"
+              }
+            ],
+            "name": "Initialized",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "index",
+                "type": "uint256"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "stalestUpdateTimestamp",
+                "type": "uint32"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "latestServeUntilTimestamp",
+                "type": "uint32"
+              }
+            ],
+            "name": "MiddlewareTimesAdded",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "slashedOperator",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "slashingContract",
+                "type": "address"
+              }
+            ],
+            "name": "OperatorFrozen",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "contractAddress",
+                "type": "address"
+              }
+            ],
+            "name": "OptedIntoSlashing",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "OwnershipTransferred",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "newPausedStatus",
+                "type": "uint256"
+              }
+            ],
+            "name": "Paused",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": false,
+                "internalType": "contract IPauserRegistry",
+                "name": "pauserRegistry",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "contract IPauserRegistry",
+                "name": "newPauserRegistry",
+                "type": "address"
+              }
+            ],
+            "name": "PauserRegistrySet",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "operator",
+                "type": "address"
+              },
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "contractAddress",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "contractCanSlashOperatorUntilTimestamp",
+                "type": "uint32"
+              }
+            ],
+            "name": "SlashingAbilityRevoked",
+            "type": "event"
+          },
+          {
+            "anonymous": false,
+            "inputs": [
+              {
+                "indexed": true,
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+              },
+              {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "newPausedStatus",
+                "type": "uint256"
+              }
+            ],
+            "name": "Unpaused",
+            "type": "event"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "canSlash",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "name": "canWithdraw",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "contractCanSlashOperatorUntilTimestamp",
+            "outputs": [
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "delegation",
+            "outputs": [
+              {
+                "internalType": "contract IDelegationManager",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "freezeOperator",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "name": "getCorrectValueForInsertAfter",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "name": "getMiddlewareTimesIndexServeUntilTimestamp",
+            "outputs": [
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "name": "getMiddlewareTimesIndexStalestUpdateTimestamp",
+            "outputs": [
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "contract IPauserRegistry",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "name": "initialize",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "isFrozen",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "latestUpdateTimestamp",
+            "outputs": [
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "middlewareTimesLength",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "name": "operatorToMiddlewareTimes",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint32",
+                    "name": "stalestUpdateTimestamp",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "latestServeUntilTimestamp",
+                    "type": "uint32"
+                  }
+                ],
+                "internalType": "struct ISlasher.MiddlewareTimes",
+                "name": "",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "operatorWhitelistedContractsLinkedListEntry",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              },
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "operatorWhitelistedContractsLinkedListSize",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "optIntoSlashing",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "newPausedStatus",
+                "type": "uint256"
+              }
+            ],
+            "name": "pause",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "pauseAll",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint8",
+                "name": "index",
+                "type": "uint8"
+              }
+            ],
+            "name": "paused",
+            "outputs": [
+              {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "paused",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "pauserRegistry",
+            "outputs": [
+              {
+                "internalType": "contract IPauserRegistry",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "name": "recordFirstStakeUpdate",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              }
+            ],
+            "name": "recordLastStakeUpdateAndRevokeSlashingAbility",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "name": "recordStakeUpdate",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "renounceOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+              }
+            ],
+            "name": "resetFrozenStatus",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "contract IPauserRegistry",
+                "name": "newPauserRegistry",
+                "type": "address"
+              }
+            ],
+            "name": "setPauserRegistry",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [],
+            "name": "strategyManager",
+            "outputs": [
+              {
+                "internalType": "contract IStrategyManager",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+              }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "uint256",
+                "name": "newPausedStatus",
+                "type": "uint256"
+              }
+            ],
+            "name": "unpause",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              },
+              {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+              }
+            ],
+            "name": "whitelistedContractDetails",
+            "outputs": [
+              {
+                "components": [
+                  {
+                    "internalType": "uint32",
+                    "name": "registrationMayBeginAtTimestamp",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "contractCanSlashOperatorUntilTimestamp",
+                    "type": "uint32"
+                  },
+                  {
+                    "internalType": "uint32",
+                    "name": "latestUpdateTimestamp",
+                    "type": "uint32"
+                  }
+                ],
+                "internalType": "struct ISlasher.MiddlewareDetails",
+                "name": "",
+                "type": "tuple"
+              }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+          }
+        ],
+        "devdoc": {
+          "events": {
+            "Initialized(uint8)": {
+              "details": "Triggered when the contract has been initialized or reinitialized."
+            },
+            "OperatorFrozen(address,address)": {
+              "details": "The `slashingContract` must have permission to slash the `slashedOperator`, i.e. `canSlash(slasherOperator, slashingContract)` must return 'true'."
+            }
+          },
+          "kind": "dev",
+          "methods": {
+            "owner()": {
+              "details": "Returns the address of the current owner."
+            },
+            "pause(uint256)": {
+              "details": "This function can only pause functionality, and thus cannot 'unflip' any bit in `_paused` from 1 to 0.",
+              "params": {
+                "newPausedStatus": "represents the new value for `_paused` to take, which means it may flip several bits at once."
+              }
+            },
+            "renounceOwnership()": {
+              "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+            },
+            "transferOwnership(address)": {
+              "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+            },
+            "unpause(uint256)": {
+              "details": "This function can only unpause functionality, and thus cannot 'flip' any bit in `_paused` from 0 to 1.",
+              "params": {
+                "newPausedStatus": "represents the new value for `_paused` to take, which means it may flip several bits at once."
+              }
+            }
+          },
+          "version": 1
+        },
+        "userdoc": {
+          "events": {
+            "FrozenStatusReset(address)": {
+              "notice": "Emitted when `previouslySlashedAddress` is 'unfrozen', allowing them to again move deposited funds within Pell."
+            },
+            "MiddlewareTimesAdded(address,uint256,uint32,uint32)": {
+              "notice": "Emitted when a middleware times is added to `operator`'s array."
+            },
+            "OperatorFrozen(address,address)": {
+              "notice": "Emitted when `slashingContract` 'freezes' the `slashedOperator`."
+            },
+            "OptedIntoSlashing(address,address)": {
+              "notice": "Emitted when `operator` begins to allow `contractAddress` to slash them."
+            },
+            "Paused(address,uint256)": {
+              "notice": "Emitted when the pause is triggered by `account`, and changed to `newPausedStatus`."
+            },
+            "PauserRegistrySet(address,address)": {
+              "notice": "Emitted when the `pauserRegistry` is set to `newPauserRegistry`."
+            },
+            "SlashingAbilityRevoked(address,address,uint32)": {
+              "notice": "Emitted when `contractAddress` signals that it will no longer be able to slash `operator` after the `contractCanSlashOperatorUntilTimestamp`."
+            },
+            "Unpaused(address,uint256)": {
+              "notice": "Emitted when the pause is lifted by `account`, and changed to `newPausedStatus`."
+            }
+          },
+          "kind": "user",
+          "methods": {
+            "delegation()": {
+              "notice": "The DelegationManager contract of Pell"
+            },
+            "pause(uint256)": {
+              "notice": "This function is used to pause an Pell contract's functionality. It is permissioned to the `pauser` address, which is expected to be a low threshold multisig."
+            },
+            "pauseAll()": {
+              "notice": "Alias for `pause(type(uint256).max)`."
+            },
+            "paused()": {
+              "notice": "Returns the current paused status as a uint256."
+            },
+            "paused(uint8)": {
+              "notice": "Returns 'true' if the `indexed`th bit of `_paused` is 1, and 'false' otherwise"
+            },
+            "pauserRegistry()": {
+              "notice": "Address of the `PauserRegistry` contract that this contract defers to for determining access control (for pausing)."
+            },
+            "setPauserRegistry(address)": {
+              "notice": "Allows the unpauser to set a new pauser registry"
+            },
+            "strategyManager()": {
+              "notice": "The StrategyManager contract of Pell"
+            },
+            "unpause(uint256)": {
+              "notice": "This function is used to unpause an Pell contract's functionality. It is permissioned to the `unpauser` address, which is expected to be a high threshold multisig or governance contract."
+            }
+          },
+          "notice": "This contract is not in use as of the Pell release.",
+          "version": 1
+        }
+      },
+      "settings": {
+        "compilationTarget": {
+          "contracts/core/Slasher.sol": "Slasher"
+        },
+        "evmVersion": "berlin",
+        "libraries": {},
+        "metadata": {
+          "bytecodeHash": "ipfs"
+        },
+        "optimizer": {
+          "details": {
+            "constantOptimizer": false,
+            "cse": false,
+            "deduplicate": false,
+            "inliner": false,
+            "jumpdestRemover": false,
+            "orderLiterals": false,
+            "peephole": false,
+            "yul": true,
+            "yulDetails": {
+              "optimizerSteps": "dhfoDgvulfnTUtnIf[xa[r]EscLMcCTUtTOntnfDIulLculVcul [j]Tpeulxa[rul]xa[r]cLgvifCTUca[r]LSsTFOtfDnca[r]Iulc]jmul[jul] VcTOcul jmul:fDnTOc",
+              "stackAllocation": true
+            }
+          },
+          "runs": 200
+        },
+        "remappings": []
+      },
+      "sources": {
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+          "keccak256": "0x359a1ab89b46b9aba7bcad3fb651924baf4893d15153049b9976b0fc9be1358e",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://e89863421b4014b96a4b62be76eb3b9f0a8afe9684664a6f389124c0964bfe5c",
+            "dweb:/ipfs/Qmbk7xr1irpDuU1WdxXgxELBXxs61rHhCgod7heVcvFx16"
+          ]
+        },
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+          "keccak256": "0x89be10e757d242e9b18d5a32c9fbe2019f6d63052bbe46397a430a1d60d7f794",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://f103ee2e4aecd37aac6ceefe670709cdd7613dee25fa2d4d9feaf7fc0aaa155e",
+            "dweb:/ipfs/QmRiNZLoJk5k3HPMYGPGjZFd2ke1ZxjhJZkM45Ec9GH9hv"
+          ]
+        },
+        "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+          "keccak256": "0x9c80f545915582e63fe206c6ce27cbe85a86fc10b9cd2a0e8c9488fb7c2ee422",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://310136ad60820af4177a11a61d77a3686faf5fca4942b600e08fc940db38396b",
+            "dweb:/ipfs/QmbCzMNSTL7Zi7M4UCSqBrkHtp4jjxUnGbkneCZKdR1qeq"
+          ]
+        },
+        "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+          "keccak256": "0x75097e35253e7fb282ee4d7f27a80eaacfa759923185bf17302a89cbc059c5ef",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://8b06267c5f80bad727af3e48b1382333d591dad51376399ef2f6b0ee6d58bf95",
+            "dweb:/ipfs/QmdU5La1agcQvghnfMpWZGDPz2TUDTCxUwTLKmuMRXBpAx"
+          ]
+        },
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+          "keccak256": "0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5",
+            "dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53"
+          ]
+        },
+        "contracts/core/Slasher.sol": {
+          "keccak256": "0x5f91eff28c5ba8bbe5908e32d5372a41dd33be70dadcf29c2431025692e4265c",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://4d1256c52d14bd4800bb2822692014e72386f2e9296034a1e2f7031a1ab75819",
+            "dweb:/ipfs/QmZyySXhDEzeFK91JTUofWLMoSRopcAqj76oRYjfLrPkja"
+          ]
+        },
+        "contracts/interfaces/IDelegationManager.sol": {
+          "keccak256": "0xeed707fd0cb7f87ac44db8719f98a42e094f2f97af99e61ed9ba1b7fd6b0455c",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://cfb1d9892d662f71836a02126251ef5f4305a91693529f61efd4449fc1feae86",
+            "dweb:/ipfs/QmQCkS2EcNj5qgCxD1AC4Wt1Y6mLeQi9k1vNzWTg1kggwR"
+          ]
+        },
+        "contracts/interfaces/IPausable.sol": {
+          "keccak256": "0x1d416ba60a1bcc72d446246cc09d8d088fe36983a14090d274aef48e8d40ff42",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://43a78dd570130a0e6b35005e76f2be48b88bdba2e6ef8ffab561133ce475e5b1",
+            "dweb:/ipfs/QmPWyJyZwdzaRvYBYk5qavcdrcdFaPs6UQCPfpa7kQSDXQ"
+          ]
+        },
+        "contracts/interfaces/IPauserRegistry.sol": {
+          "keccak256": "0x55bbced6095c87669e298ee7818c4d1df93fb9988965009594fe8facb2065b46",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://0b171e8d60a57bdb78ccb0b52c3014bb3ff56cb97f422e0984790ca6c7d726bf",
+            "dweb:/ipfs/QmQLmXZkeLZFtsd8nqT8UKGKpadgRkaKYU4gBJsR1h5rY3"
+          ]
+        },
+        "contracts/interfaces/ISignatureUtils.sol": {
+          "keccak256": "0xd2f901c14d08037588427527905fafbe1610b68a38d62c93925ea0f258f226a4",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://977edf82a3e05253c99426b53df37db7fa323ac0b1d1248c0c4544788b3cdadc",
+            "dweb:/ipfs/QmThpSvBGnzqQ1rSFcGiqL4DmbZPxCausHAk1BURNrEvYD"
+          ]
+        },
+        "contracts/interfaces/ISlasher.sol": {
+          "keccak256": "0x4181ddb2142bcf6075a7d69fcf56bcab8420a8ac4d75631cc5b4550a041b9379",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://4d521e5a26cbcfab81c6f4a82b7b2961888efde3d53d34a68960bfd9086f5951",
+            "dweb:/ipfs/Qmd9nZVok5BgHWTxrmJXiZRKwHaNBnczHs9VRgc7p3JF14"
+          ]
+        },
+        "contracts/interfaces/IStrategy.sol": {
+          "keccak256": "0x3435d819a62bf13c8f41498f27fb2117adb2095890b75b86005af1ed238a78bb",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://e71bb93955086c57b7fd29f5a61d49bea0ae64125d554d258bd10c21ce914cdf",
+            "dweb:/ipfs/QmNbthEsN3RYFQ6JA9UKZmUKhZA1gSRhZCgmk9CjCEEYVP"
+          ]
+        },
+        "contracts/interfaces/IStrategyManager.sol": {
+          "keccak256": "0x9fcb477f8dd489fe7acacaca7b170f4e56b3ef86f6b632fe953f28777610a4b0",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://e435b80f5acb386a7d6df291ae4b402882d6a3a00576bf026bf978e759a91ba1",
+            "dweb:/ipfs/QmbaRcPWuNmX3bf2cSgBH7RfV7wmpFQ5veqct97qEf6JfM"
+          ]
+        },
+        "contracts/libraries/StructuredLinkedList.sol": {
+          "keccak256": "0xa9e38d2564a82547482e61efd97d00f30c662e95abfdcb319a8bf63cddfe2120",
+          "license": "MIT",
+          "urls": [
+            "bzz-raw://09970fe4e49a78b121552fcc65fbb5ec1918bb5afc2c904391f84c57a2cae629",
+            "dweb:/ipfs/QmRdYK7KbpVbJbCeLmT1EVewQfqERkc6JWAjiq9GQoRspH"
+          ]
+        },
+        "contracts/permissions/Pausable.sol": {
+          "keccak256": "0xc536e4cc91fd0c2daf44215bb96031f90bf8e26ed0979df127217d627119944a",
+          "license": "LGPL-3.0",
+          "urls": [
+            "bzz-raw://b57cb04996f63504cb878cdb4ff658d86f779123fc425ecd3b60007f6e7249a6",
+            "dweb:/ipfs/QmRXrsyjUfjdoLBnZSy2q9FVomVGwn27Wzg844viLACLMD"
+          ]
+        }
+      },
+      "version": 1
+    },
+    "zk_version": "1.5.4"
+  },
+  "bytecode": "0x0001000000000002000300000000000200000000030100190000006003300270000000f1033001970000000100200190000000320000c13d0000008002000039000000400020043f000000040030008c000003b20000413d000000000201043b000000e002200270000000f60020009c0000005d0000213d0000010e0020009c0000006c0000213d0000011a0020009c0000008d0000213d000001200020009c000000d80000213d000001230020009c000000dc0000613d000001240020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000300000001001d000000f40010009c000003b20000213d0000006501000039000000000301041a0000012501000041000000800010043f0000000001000414000000f402300197000000040020008c000100000003001d000200000002001d000002c20000c13d0000000003000031000000200030008c00000020040000390000000004034019000002e70000013d0000000002000416000000000002004b000003b20000c13d0000001f02300039000000f2022001970000008002200039000000400020043f0000001f0430018f000000f3053001980000008002500039000000430000613d0000008006000039000000000701034f000000007807043c0000000006860436000000000026004b0000003f0000c13d000000000004004b000000500000613d000000000151034f0000000304400210000000000502043300000000054501cf000000000545022f000000000101043b0000010004400089000000000141022f00000000014101cf000000000151019f0000000000120435000000400030008c000003b20000413d000000800100043d000000f40010009c000003b20000213d000000a00100043d000000f40010009c000003b20000213d000000200100003900000100001004430000012000000443000000f501000041000003bf0001042e000000f70020009c000000840000213d000001030020009c000000a40000213d000001090020009c000000ea0000213d0000010c0020009c000001640000613d0000010d0020009c000003b20000c13d0000000001000416000000000001004b000003b20000c13d0000006501000039000001bd0000013d0000010f0020009c000000ab0000213d000001150020009c000000ef0000213d000001180020009c000001760000613d000001190020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000000ff0010008c000003b20000213d0000006602000039000000000202041a000000000112022f000000010110018f000000800010043f0000013601000041000003bf0001042e000000f80020009c000000b20000213d000000fe0020009c000001080000213d000001010020009c000001170000613d000001020020009c000000d50000613d000003b20000013d0000011b0020009c000001130000213d0000011e0020009c000001880000613d0000011f0020009c000003b20000c13d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000000f40010009c000003b20000213d000000c001000039000000400010043f000000800000043f000000a00000043f000000c00000043f000000e00000043f0000013f01000041000003bf0001042e000001040020009c0000011b0000213d000001070020009c000001930000613d000001080020009c0000011f0000613d000003b20000013d000001100020009c0000012d0000213d000001130020009c0000011f0000613d000001140020009c000000d50000613d000003b20000013d000000f90020009c000001410000213d000000fc0020009c000000d50000613d000000fd0020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000601043b000000f40060009c000003b20000213d0000003301000039000000000201041a000000f4032001970000000005000411000000000053004b000001f80000c13d000000000006004b0000033c0000c13d0000012701000041000000800010043f0000002001000039000000840010043f0000002601000039000000a40010043f0000013201000041000000c40010043f0000013301000041000000e40010043f0000013401000041000003c000010430000000440030008c000001330000813d000003b20000013d000001210020009c000001a20000613d000001220020009c000003b20000c13d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f10010009c0000037c0000a13d000003b20000013d0000010a0020009c000001b90000613d0000010b0020009c0000010c0000613d000003b20000013d000001160020009c000001c20000613d000001170020009c000003b20000c13d0000000001000416000000000001004b000003b20000c13d0000003301000039000000000201041a000000f4032001970000000005000411000000000053004b000001f80000c13d0000012f02200197000000000021041b0000000001000414000000f10010009c000000f101008041000000c00110021000000130011001c70000800d02000039000000030300003900000131040000410000000006000019000003790000013d000000ff0020009c0000010c0000613d000001000020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000001290000013d0000011c0020009c0000015a0000613d0000011d0020009c000003b20000c13d0000000001000416000000000001004b0000013e0000613d000003b20000013d000001050020009c000001ca0000613d000001060020009c000003b20000c13d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f40010009c0000013e0000a13d000003b20000013d000001110020009c000001e10000613d000001120020009c000003b20000c13d000000640030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f10010009c000003b20000213d000000800000043f0000013601000041000003bf0001042e000000fa0020009c0000015a0000613d000000fb0020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000301043b0000006501000039000000000201041a0000012501000041000000800010043f0000000001000414000000f402200197000000040020008c000300000003001d000002010000c13d0000000003000031000000200030008c00000020040000390000000004034019000002260000013d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000000f40010009c0000037c0000a13d000003b20000013d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f40010009c000003b20000213d000000800000043f000000a00000043f000000c00000043f0000013701000041000003bf0001042e0000000001000416000000000001004b000003b20000c13d0000006501000039000000000201041a0000013b01000041000000800010043f0000000001000411000000840010043f0000000001000414000000f402200197000000040020008c000002470000c13d0000000003000031000000200030008c000000200400003900000000040340190000026c0000013d000000640030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000001600000013d000000840030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002402100370000000000202043b000000f10020009c000003b20000213d0000004401100370000000e60000013d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000301043b0000006501000039000000000201041a0000013b01000041000000800010043f0000000001000411000000840010043f0000000001000414000000f402200197000000040020008c000300000003001d000002810000c13d0000000003000031000000200030008c00000020040000390000000004034019000002a60000013d0000000001000416000000000001004b000003b20000c13d0000003301000039000000000101041a000000f401100197000000800010043f0000013601000041000003bf0001042e0000000001000416000000000001004b000003b20000c13d0000006601000039000000000101041a000000800010043f0000013601000041000003bf0001042e000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f40010009c000003b20000213d000000e001000039000000400010043f000000800000043f000000a00000043f000000c00000043f000000e00000043f000001000000043f000001200000043f0000013501000041000003bf0001042e000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000001380020009c000003b20000213d0000002304200039000000000034004b000003b20000813d0000000404200039000000000141034f000000000101043b000001380010009c000003b20000213d000000050110021000000000011200190000002401100039000000000031004b0000037c0000a13d000003b20000013d0000012701000041000000800010043f0000002001000039000000840010043f000000a40010043f0000013901000041000000c40010043f0000013a01000041000003c000010430000000f10010009c000000f101008041000000c00110021000000126011001c703be03b90000040f000000800a00003900000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf000002160000613d000000000801034f000000008908043c000000000a9a043600000000005a004b000002120000c13d000000000006004b000002230000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f00000001002001900000030a0000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800500043d000000f40050009c000003b20000213d0000000003000411000000000053004b0000032e0000c13d000000030800002900000148068001670000006603000039000000000703041a0000014804700167000000000664016f000000000046004b000003890000c13d000000000083041b000000000081043500000040011002100000000002000414000000f10020009c000000f102008041000000c002200210000000000112019f0000012d011001c70000800d0200003900000002030000390000012e04000041000003790000013d000000f10010009c000000f101008041000000c0011002100000013c011001c703be03b90000040f00000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf0000025c0000613d0000008008000039000000000901034f000000009a09043c0000000008a80436000000000058004b000002580000c13d000000000006004b000002690000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f0000000100200190000003160000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800300043d000000000003004b0000000004000039000000010400c039000000000043004b000003b20000c13d000000000003004b000002b40000613d000000010200008a0000006603000039000000000023041b000000000021043500000040011002100000000002000414000003700000013d000000f10010009c000000f101008041000000c0011002100000013c011001c703be03b90000040f00000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf000002960000613d0000008008000039000000000901034f000000009a09043c0000000008a80436000000000058004b000002920000c13d000000000006004b000002a30000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f0000000100200190000003220000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800300043d000000000003004b0000000004000039000000010400c039000000000043004b000003b20000c13d000000000003004b000003660000c13d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e4032000390000013e040000410000000000430435000000c40320003900000129040000410000000000430435000000a4022000390000002803000039000003960000013d000000f10010009c000000f101008041000000c00110021000000126011001c703be03b90000040f00000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf000002d70000613d0000008008000039000000000901034f000000009a09043c0000000008a80436000000000058004b000002d30000c13d000000000006004b000002e40000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f0000000100200190000003480000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800300043d000000f40030009c000003b20000213d0000000004000411000000000034004b0000032e0000c13d0000000303000029000000000003004b0000039a0000c13d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e40320003900000144040000410000000000430435000000c40320003900000145040000410000000000430435000000a4032000390000004904000039000000000043043500000104022001bf00000146030000410000000000320435000000400110021000000147011001c7000003c0000104300000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b000003110000c13d000003530000013d0000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b0000031d0000c13d000003530000013d0000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b000003290000c13d000003530000013d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e40320003900000128040000410000000000430435000000c40320003900000129040000410000000000430435000000a4022000390000002a03000039000003960000013d0000012f02200197000000000262019f000000000021041b0000000001000414000000f10010009c000000f101008041000000c00110021000000130011001c70000800d0200003900000003030000390000013104000041000003790000013d0000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b0000034f0000c13d000000000005004b000003600000613d000000000161034f0000000305500210000000000604043300000000065601cf000000000656022f000000000101043b0000010005500089000000000151022f00000000015101cf000000000161019f00000000001404350000006001300210000000f10020009c000000f1020080410000004002200210000000000112019f000003c0000104300000006603000039000000000403041a0000000306000029000000000564016f000000000045004b0000037e0000c13d000000000063041b000000000061043500000040011002100000000002000414000000f10020009c000000f102008041000000c002200210000000000112019f0000012d011001c70000800d0200003900000002030000390000013d04000041000000000500041103be03b40000040f0000000100200190000003b20000613d0000000001000019000003bf0001042e0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e40320003900000140040000410000000000430435000000c4032000390000014104000041000003930000013d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e4032000390000012b040000410000000000430435000000c4032000390000012c040000410000000000430435000000a4022000390000003803000039000000000032043500000040011002100000012a011001c7000003c00001043000000002040000290000000000410435000000a002200039000000000032043500000040011002100000000002000414000000f10020009c000000f102008041000000c002200210000000000112019f00000142011001c70000800d020000390000000103000039000001430400004103be03b40000040f0000000100200190000003b20000613d00000001010000290000012f0110019700000003011001af0000006502000039000000000012041b0000000001000019000003bf0001042e0000000001000019000003c000010430000003b7002104210000000102000039000000000001042d0000000002000019000000000001042d000003bc002104230000000102000039000000000001042d0000000002000019000000000001042d000003be00000432000003bf0001042e000003c00001043000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000001ffffffe000000000000000000000000000000000000000000000000000000000ffffffe0000000000000000000000000ffffffffffffffffffffffffffffffffffffffff000000020000000000000000000000000000004000000100000000000000000000000000000000000000000000000000000000000000000000000000855fcc4900000000000000000000000000000000000000000000000000000000df5cf72200000000000000000000000000000000000000000000000000000000e9b164e700000000000000000000000000000000000000000000000000000000f73b751800000000000000000000000000000000000000000000000000000000f73b751900000000000000000000000000000000000000000000000000000000fabc1cbc00000000000000000000000000000000000000000000000000000000e9b164e800000000000000000000000000000000000000000000000000000000f2fde38b00000000000000000000000000000000000000000000000000000000e583983500000000000000000000000000000000000000000000000000000000e583983600000000000000000000000000000000000000000000000000000000e921d4fa00000000000000000000000000000000000000000000000000000000df5cf72300000000000000000000000000000000000000000000000000000000e442994e00000000000000000000000000000000000000000000000000000000c747075a00000000000000000000000000000000000000000000000000000000d7b7fa1200000000000000000000000000000000000000000000000000000000d7b7fa1300000000000000000000000000000000000000000000000000000000d98128c000000000000000000000000000000000000000000000000000000000c747075b00000000000000000000000000000000000000000000000000000000d1b70e64000000000000000000000000000000000000000000000000000000008da5cb5a000000000000000000000000000000000000000000000000000000008da5cb5b00000000000000000000000000000000000000000000000000000000a49db73200000000000000000000000000000000000000000000000000000000855fcc4a00000000000000000000000000000000000000000000000000000000886f119500000000000000000000000000000000000000000000000000000000595c6a660000000000000000000000000000000000000000000000000000000071e7bbae000000000000000000000000000000000000000000000000000000007cf72bb9000000000000000000000000000000000000000000000000000000007cf72bba000000000000000000000000000000000000000000000000000000008105e0430000000000000000000000000000000000000000000000000000000071e7bbaf00000000000000000000000000000000000000000000000000000000723e59c7000000000000000000000000000000000000000000000000000000005c975aba000000000000000000000000000000000000000000000000000000005c975abb00000000000000000000000000000000000000000000000000000000715018a600000000000000000000000000000000000000000000000000000000595c6a67000000000000000000000000000000000000000000000000000000005ac86ab7000000000000000000000000000000000000000000000000000000001794bb3b0000000000000000000000000000000000000000000000000000000038c8ee630000000000000000000000000000000000000000000000000000000038c8ee640000000000000000000000000000000000000000000000000000000039b70e38000000000000000000000000000000000000000000000000000000001794bb3c00000000000000000000000000000000000000000000000000000000282670fc00000000000000000000000000000000000000000000000000000000136439dc00000000000000000000000000000000000000000000000000000000136439dd00000000000000000000000000000000000000000000000000000000175d3205000000000000000000000000000000000000000000000000000000000ffabbce0000000000000000000000000000000000000000000000000000000010d67a2feab66d7a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000080000000000000000008c379a0000000000000000000000000000000000000000000000000000000007320756e706175736572000000000000000000000000000000000000000000006d73672e73656e646572206973206e6f74207065726d697373696f6e6564206100000000000000000000000000000000000000840000000000000000000000007420746f2070617573652066756e6374696f6e616c69747900000000000000005061757361626c652e756e70617573653a20696e76616c696420617474656d7002000000000000000000000000000000000000200000000000000000000000003582d1828e26bf56bd801502bc021ac0bc8afb57c826e4986b45593c8fad389cffffffffffffffffffffffff000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000008be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e04f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000840000008000000000000000000000000000000000000000000000000000000060000000e0000000000000000000000000000000000000000000000000000000200000008000000000000000000000000000000000000000000000000000000060000000800000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572000000000000000000000000000000000000006400000080000000000000000046fbf68e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024000000800000000000000000ab40a374bc51de372200a8bc981af8c9ecdc08dfdaef0bb6e09f88f3c616ef3d73207061757365720000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000c00000000000000000746f20756e70617573652066756e6374696f6e616c69747900000000000000005061757361626c652e70617573653a20696e76616c696420617474656d70742002000000000000000000000000000000000000400000000000000000000000006e9fcd539896fca60e8b0f01dd580233e48a6b0f7df013b89ba7f565869acdb650617573657252656769737472792063616e6e6f7420626520746865207a65725061757361626c652e5f73657450617573657252656769737472793a206e65776f2061646472657373000000000000000000000000000000000000000000000000000000000000000000000000000000000000a4000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000166d2ccf470989b15b207801abcc15af3a2e0d8ea5bafc6197355588d649fdfc",
+  "deployedBytecode": "0x0001000000000002000300000000000200000000030100190000006003300270000000f1033001970000000100200190000000320000c13d0000008002000039000000400020043f000000040030008c000003b20000413d000000000201043b000000e002200270000000f60020009c0000005d0000213d0000010e0020009c0000006c0000213d0000011a0020009c0000008d0000213d000001200020009c000000d80000213d000001230020009c000000dc0000613d000001240020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000300000001001d000000f40010009c000003b20000213d0000006501000039000000000301041a0000012501000041000000800010043f0000000001000414000000f402300197000000040020008c000100000003001d000200000002001d000002c20000c13d0000000003000031000000200030008c00000020040000390000000004034019000002e70000013d0000000002000416000000000002004b000003b20000c13d0000001f02300039000000f2022001970000008002200039000000400020043f0000001f0430018f000000f3053001980000008002500039000000430000613d0000008006000039000000000701034f000000007807043c0000000006860436000000000026004b0000003f0000c13d000000000004004b000000500000613d000000000151034f0000000304400210000000000502043300000000054501cf000000000545022f000000000101043b0000010004400089000000000141022f00000000014101cf000000000151019f0000000000120435000000400030008c000003b20000413d000000800100043d000000f40010009c000003b20000213d000000a00100043d000000f40010009c000003b20000213d000000200100003900000100001004430000012000000443000000f501000041000003bf0001042e000000f70020009c000000840000213d000001030020009c000000a40000213d000001090020009c000000ea0000213d0000010c0020009c000001640000613d0000010d0020009c000003b20000c13d0000000001000416000000000001004b000003b20000c13d0000006501000039000001bd0000013d0000010f0020009c000000ab0000213d000001150020009c000000ef0000213d000001180020009c000001760000613d000001190020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000000ff0010008c000003b20000213d0000006602000039000000000202041a000000000112022f000000010110018f000000800010043f0000013601000041000003bf0001042e000000f80020009c000000b20000213d000000fe0020009c000001080000213d000001010020009c000001170000613d000001020020009c000000d50000613d000003b20000013d0000011b0020009c000001130000213d0000011e0020009c000001880000613d0000011f0020009c000003b20000c13d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000000f40010009c000003b20000213d000000c001000039000000400010043f000000800000043f000000a00000043f000000c00000043f000000e00000043f0000013f01000041000003bf0001042e000001040020009c0000011b0000213d000001070020009c000001930000613d000001080020009c0000011f0000613d000003b20000013d000001100020009c0000012d0000213d000001130020009c0000011f0000613d000001140020009c000000d50000613d000003b20000013d000000f90020009c000001410000213d000000fc0020009c000000d50000613d000000fd0020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000601043b000000f40060009c000003b20000213d0000003301000039000000000201041a000000f4032001970000000005000411000000000053004b000001f80000c13d000000000006004b0000033c0000c13d0000012701000041000000800010043f0000002001000039000000840010043f0000002601000039000000a40010043f0000013201000041000000c40010043f0000013301000041000000e40010043f0000013401000041000003c000010430000000440030008c000001330000813d000003b20000013d000001210020009c000001a20000613d000001220020009c000003b20000c13d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f10010009c0000037c0000a13d000003b20000013d0000010a0020009c000001b90000613d0000010b0020009c0000010c0000613d000003b20000013d000001160020009c000001c20000613d000001170020009c000003b20000c13d0000000001000416000000000001004b000003b20000c13d0000003301000039000000000201041a000000f4032001970000000005000411000000000053004b000001f80000c13d0000012f02200197000000000021041b0000000001000414000000f10010009c000000f101008041000000c00110021000000130011001c70000800d02000039000000030300003900000131040000410000000006000019000003790000013d000000ff0020009c0000010c0000613d000001000020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000001290000013d0000011c0020009c0000015a0000613d0000011d0020009c000003b20000c13d0000000001000416000000000001004b0000013e0000613d000003b20000013d000001050020009c000001ca0000613d000001060020009c000003b20000c13d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f40010009c0000013e0000a13d000003b20000013d000001110020009c000001e10000613d000001120020009c000003b20000c13d000000640030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f10010009c000003b20000213d000000800000043f0000013601000041000003bf0001042e000000fa0020009c0000015a0000613d000000fb0020009c000003b20000c13d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000301043b0000006501000039000000000201041a0000012501000041000000800010043f0000000001000414000000f402200197000000040020008c000300000003001d000002010000c13d0000000003000031000000200030008c00000020040000390000000004034019000002260000013d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000101043b000000f40010009c0000037c0000a13d000003b20000013d000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f40010009c000003b20000213d000000800000043f000000a00000043f000000c00000043f0000013701000041000003bf0001042e0000000001000416000000000001004b000003b20000c13d0000006501000039000000000201041a0000013b01000041000000800010043f0000000001000411000000840010043f0000000001000414000000f402200197000000040020008c000002470000c13d0000000003000031000000200030008c000000200400003900000000040340190000026c0000013d000000640030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000001600000013d000000840030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002402100370000000000202043b000000f10020009c000003b20000213d0000004401100370000000e60000013d000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000401100370000000000301043b0000006501000039000000000201041a0000013b01000041000000800010043f0000000001000411000000840010043f0000000001000414000000f402200197000000040020008c000300000003001d000002810000c13d0000000003000031000000200030008c00000020040000390000000004034019000002a60000013d0000000001000416000000000001004b000003b20000c13d0000003301000039000000000101041a000000f401100197000000800010043f0000013601000041000003bf0001042e0000000001000416000000000001004b000003b20000c13d0000006601000039000000000101041a000000800010043f0000013601000041000003bf0001042e000000440030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000000f40020009c000003b20000213d0000002401100370000000000101043b000000f40010009c000003b20000213d000000e001000039000000400010043f000000800000043f000000a00000043f000000c00000043f000000e00000043f000001000000043f000001200000043f0000013501000041000003bf0001042e000000240030008c000003b20000413d0000000002000416000000000002004b000003b20000c13d0000000402100370000000000202043b000001380020009c000003b20000213d0000002304200039000000000034004b000003b20000813d0000000404200039000000000141034f000000000101043b000001380010009c000003b20000213d000000050110021000000000011200190000002401100039000000000031004b0000037c0000a13d000003b20000013d0000012701000041000000800010043f0000002001000039000000840010043f000000a40010043f0000013901000041000000c40010043f0000013a01000041000003c000010430000000f10010009c000000f101008041000000c00110021000000126011001c703be03b90000040f000000800a00003900000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf000002160000613d000000000801034f000000008908043c000000000a9a043600000000005a004b000002120000c13d000000000006004b000002230000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f00000001002001900000030a0000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800500043d000000f40050009c000003b20000213d0000000003000411000000000053004b0000032e0000c13d000000030800002900000148068001670000006603000039000000000703041a0000014804700167000000000664016f000000000046004b000003890000c13d000000000083041b000000000081043500000040011002100000000002000414000000f10020009c000000f102008041000000c002200210000000000112019f0000012d011001c70000800d0200003900000002030000390000012e04000041000003790000013d000000f10010009c000000f101008041000000c0011002100000013c011001c703be03b90000040f00000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf0000025c0000613d0000008008000039000000000901034f000000009a09043c0000000008a80436000000000058004b000002580000c13d000000000006004b000002690000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f0000000100200190000003160000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800300043d000000000003004b0000000004000039000000010400c039000000000043004b000003b20000c13d000000000003004b000002b40000613d000000010200008a0000006603000039000000000023041b000000000021043500000040011002100000000002000414000003700000013d000000f10010009c000000f101008041000000c0011002100000013c011001c703be03b90000040f00000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf000002960000613d0000008008000039000000000901034f000000009a09043c0000000008a80436000000000058004b000002920000c13d000000000006004b000002a30000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f0000000100200190000003220000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800300043d000000000003004b0000000004000039000000010400c039000000000043004b000003b20000c13d000000000003004b000003660000c13d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e4032000390000013e040000410000000000430435000000c40320003900000129040000410000000000430435000000a4022000390000002803000039000003960000013d000000f10010009c000000f101008041000000c00110021000000126011001c703be03b90000040f00000000030100190000006003300270000000f103300197000000200030008c000000200400003900000000040340190000001f0640018f000000200740019000000080057001bf000002d70000613d0000008008000039000000000901034f000000009a09043c0000000008a80436000000000058004b000002d30000c13d000000000006004b000002e40000613d000000000771034f0000000306600210000000000805043300000000086801cf000000000868022f000000000707043b0000010006600089000000000767022f00000000066701cf000000000686019f0000000000650435000000000003001f0000000100200190000003480000613d0000001f01400039000000600210018f00000080012001bf000000400010043f000000200030008c000003b20000413d000000800300043d000000f40030009c000003b20000213d0000000004000411000000000034004b0000032e0000c13d0000000303000029000000000003004b0000039a0000c13d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e40320003900000144040000410000000000430435000000c40320003900000145040000410000000000430435000000a4032000390000004904000039000000000043043500000104022001bf00000146030000410000000000320435000000400110021000000147011001c7000003c0000104300000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b000003110000c13d000003530000013d0000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b0000031d0000c13d000003530000013d0000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b000003290000c13d000003530000013d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e40320003900000128040000410000000000430435000000c40320003900000129040000410000000000430435000000a4022000390000002a03000039000003960000013d0000012f02200197000000000262019f000000000021041b0000000001000414000000f10010009c000000f101008041000000c00110021000000130011001c70000800d0200003900000003030000390000013104000041000003790000013d0000001f0530018f000000f306300198000000400200043d0000000004620019000003530000613d000000000701034f0000000008020019000000007907043c0000000008980436000000000048004b0000034f0000c13d000000000005004b000003600000613d000000000161034f0000000305500210000000000604043300000000065601cf000000000656022f000000000101043b0000010005500089000000000151022f00000000015101cf000000000161019f00000000001404350000006001300210000000f10020009c000000f1020080410000004002200210000000000112019f000003c0000104300000006603000039000000000403041a0000000306000029000000000564016f000000000045004b0000037e0000c13d000000000063041b000000000061043500000040011002100000000002000414000000f10020009c000000f102008041000000c002200210000000000112019f0000012d011001c70000800d0200003900000002030000390000013d04000041000000000500041103be03b40000040f0000000100200190000003b20000613d0000000001000019000003bf0001042e0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e40320003900000140040000410000000000430435000000c4032000390000014104000041000003930000013d0000012703000041000000000031043500000084032001bf00000020040000390000000000430435000000e4032000390000012b040000410000000000430435000000c4032000390000012c040000410000000000430435000000a4022000390000003803000039000000000032043500000040011002100000012a011001c7000003c00001043000000002040000290000000000410435000000a002200039000000000032043500000040011002100000000002000414000000f10020009c000000f102008041000000c002200210000000000112019f00000142011001c70000800d020000390000000103000039000001430400004103be03b40000040f0000000100200190000003b20000613d00000001010000290000012f0110019700000003011001af0000006502000039000000000012041b0000000001000019000003bf0001042e0000000001000019000003c000010430000003b7002104210000000102000039000000000001042d0000000002000019000000000001042d000003bc002104230000000102000039000000000001042d0000000002000019000000000001042d000003be00000432000003bf0001042e000003c00001043000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000ffffffff00000000000000000000000000000000000000000000000000000001ffffffe000000000000000000000000000000000000000000000000000000000ffffffe0000000000000000000000000ffffffffffffffffffffffffffffffffffffffff000000020000000000000000000000000000004000000100000000000000000000000000000000000000000000000000000000000000000000000000855fcc4900000000000000000000000000000000000000000000000000000000df5cf72200000000000000000000000000000000000000000000000000000000e9b164e700000000000000000000000000000000000000000000000000000000f73b751800000000000000000000000000000000000000000000000000000000f73b751900000000000000000000000000000000000000000000000000000000fabc1cbc00000000000000000000000000000000000000000000000000000000e9b164e800000000000000000000000000000000000000000000000000000000f2fde38b00000000000000000000000000000000000000000000000000000000e583983500000000000000000000000000000000000000000000000000000000e583983600000000000000000000000000000000000000000000000000000000e921d4fa00000000000000000000000000000000000000000000000000000000df5cf72300000000000000000000000000000000000000000000000000000000e442994e00000000000000000000000000000000000000000000000000000000c747075a00000000000000000000000000000000000000000000000000000000d7b7fa1200000000000000000000000000000000000000000000000000000000d7b7fa1300000000000000000000000000000000000000000000000000000000d98128c000000000000000000000000000000000000000000000000000000000c747075b00000000000000000000000000000000000000000000000000000000d1b70e64000000000000000000000000000000000000000000000000000000008da5cb5a000000000000000000000000000000000000000000000000000000008da5cb5b00000000000000000000000000000000000000000000000000000000a49db73200000000000000000000000000000000000000000000000000000000855fcc4a00000000000000000000000000000000000000000000000000000000886f119500000000000000000000000000000000000000000000000000000000595c6a660000000000000000000000000000000000000000000000000000000071e7bbae000000000000000000000000000000000000000000000000000000007cf72bb9000000000000000000000000000000000000000000000000000000007cf72bba000000000000000000000000000000000000000000000000000000008105e0430000000000000000000000000000000000000000000000000000000071e7bbaf00000000000000000000000000000000000000000000000000000000723e59c7000000000000000000000000000000000000000000000000000000005c975aba000000000000000000000000000000000000000000000000000000005c975abb00000000000000000000000000000000000000000000000000000000715018a600000000000000000000000000000000000000000000000000000000595c6a67000000000000000000000000000000000000000000000000000000005ac86ab7000000000000000000000000000000000000000000000000000000001794bb3b0000000000000000000000000000000000000000000000000000000038c8ee630000000000000000000000000000000000000000000000000000000038c8ee640000000000000000000000000000000000000000000000000000000039b70e38000000000000000000000000000000000000000000000000000000001794bb3c00000000000000000000000000000000000000000000000000000000282670fc00000000000000000000000000000000000000000000000000000000136439dc00000000000000000000000000000000000000000000000000000000136439dd00000000000000000000000000000000000000000000000000000000175d3205000000000000000000000000000000000000000000000000000000000ffabbce0000000000000000000000000000000000000000000000000000000010d67a2feab66d7a00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000400000080000000000000000008c379a0000000000000000000000000000000000000000000000000000000007320756e706175736572000000000000000000000000000000000000000000006d73672e73656e646572206973206e6f74207065726d697373696f6e6564206100000000000000000000000000000000000000840000000000000000000000007420746f2070617573652066756e6374696f6e616c69747900000000000000005061757361626c652e756e70617573653a20696e76616c696420617474656d7002000000000000000000000000000000000000200000000000000000000000003582d1828e26bf56bd801502bc021ac0bc8afb57c826e4986b45593c8fad389cffffffffffffffffffffffff000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000008be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e04f776e61626c653a206e6577206f776e657220697320746865207a65726f2061646472657373000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000840000008000000000000000000000000000000000000000000000000000000060000000e0000000000000000000000000000000000000000000000000000000200000008000000000000000000000000000000000000000000000000000000060000000800000000000000000000000000000000000000000000000000000000000000000ffffffffffffffff4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572000000000000000000000000000000000000006400000080000000000000000046fbf68e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000024000000800000000000000000ab40a374bc51de372200a8bc981af8c9ecdc08dfdaef0bb6e09f88f3c616ef3d73207061757365720000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000c00000000000000000746f20756e70617573652066756e6374696f6e616c69747900000000000000005061757361626c652e70617573653a20696e76616c696420617474656d70742002000000000000000000000000000000000000400000000000000000000000006e9fcd539896fca60e8b0f01dd580233e48a6b0f7df013b89ba7f565869acdb650617573657252656769737472792063616e6e6f7420626520746865207a65725061757361626c652e5f73657450617573657252656769737472793a206e65776f2061646472657373000000000000000000000000000000000000000000000000000000000000000000000000000000000000a4000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000166d2ccf470989b15b207801abcc15af3a2e0d8ea5bafc6197355588d649fdfc",
+  "devdoc": {
+    "events": {
+      "Initialized(uint8)": {
+        "details": "Triggered when the contract has been initialized or reinitialized."
+      },
+      "OperatorFrozen(address,address)": {
+        "details": "The `slashingContract` must have permission to slash the `slashedOperator`, i.e. `canSlash(slasherOperator, slashingContract)` must return 'true'."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "pause(uint256)": {
+        "details": "This function can only pause functionality, and thus cannot 'unflip' any bit in `_paused` from 1 to 0.",
+        "params": {
+          "newPausedStatus": "represents the new value for `_paused` to take, which means it may flip several bits at once."
+        }
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "unpause(uint256)": {
+        "details": "This function can only unpause functionality, and thus cannot 'flip' any bit in `_paused` from 0 to 1.",
+        "params": {
+          "newPausedStatus": "represents the new value for `_paused` to take, which means it may flip several bits at once."
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "FrozenStatusReset(address)": {
+        "notice": "Emitted when `previouslySlashedAddress` is 'unfrozen', allowing them to again move deposited funds within Pell."
+      },
+      "MiddlewareTimesAdded(address,uint256,uint32,uint32)": {
+        "notice": "Emitted when a middleware times is added to `operator`'s array."
+      },
+      "OperatorFrozen(address,address)": {
+        "notice": "Emitted when `slashingContract` 'freezes' the `slashedOperator`."
+      },
+      "OptedIntoSlashing(address,address)": {
+        "notice": "Emitted when `operator` begins to allow `contractAddress` to slash them."
+      },
+      "Paused(address,uint256)": {
+        "notice": "Emitted when the pause is triggered by `account`, and changed to `newPausedStatus`."
+      },
+      "PauserRegistrySet(address,address)": {
+        "notice": "Emitted when the `pauserRegistry` is set to `newPauserRegistry`."
+      },
+      "SlashingAbilityRevoked(address,address,uint32)": {
+        "notice": "Emitted when `contractAddress` signals that it will no longer be able to slash `operator` after the `contractCanSlashOperatorUntilTimestamp`."
+      },
+      "Unpaused(address,uint256)": {
+        "notice": "Emitted when the pause is lifted by `account`, and changed to `newPausedStatus`."
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "delegation()": {
+        "notice": "The DelegationManager contract of Pell"
+      },
+      "pause(uint256)": {
+        "notice": "This function is used to pause an Pell contract's functionality. It is permissioned to the `pauser` address, which is expected to be a low threshold multisig."
+      },
+      "pauseAll()": {
+        "notice": "Alias for `pause(type(uint256).max)`."
+      },
+      "paused()": {
+        "notice": "Returns the current paused status as a uint256."
+      },
+      "paused(uint8)": {
+        "notice": "Returns 'true' if the `indexed`th bit of `_paused` is 1, and 'false' otherwise"
+      },
+      "pauserRegistry()": {
+        "notice": "Address of the `PauserRegistry` contract that this contract defers to for determining access control (for pausing)."
+      },
+      "setPauserRegistry(address)": {
+        "notice": "Allows the unpauser to set a new pauser registry"
+      },
+      "strategyManager()": {
+        "notice": "The StrategyManager contract of Pell"
+      },
+      "unpause(uint256)": {
+        "notice": "This function is used to unpause an Pell contract's functionality. It is permissioned to the `unpauser` address, which is expected to be a high threshold multisig or governance contract."
+      }
+    },
+    "notice": "This contract is not in use as of the Pell release.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 549,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "_initialized",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint8"
+      },
+      {
+        "astId": 552,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "_initializing",
+        "offset": 1,
+        "slot": "0",
+        "type": "t_bool"
+      },
+      {
+        "astId": 1892,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_uint256)50_storage"
+      },
+      {
+        "astId": 421,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "51",
+        "type": "t_address"
+      },
+      {
+        "astId": 541,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "52",
+        "type": "t_array(t_uint256)49_storage"
+      },
+      {
+        "astId": 23337,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "pauserRegistry",
+        "offset": 0,
+        "slot": "101",
+        "type": "t_contract(IPauserRegistry)16770"
+      },
+      {
+        "astId": 23340,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "_paused",
+        "offset": 0,
+        "slot": "102",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 23622,
+        "contract": "contracts/core/Slasher.sol:Slasher",
+        "label": "__gap",
+        "offset": 0,
+        "slot": "103",
+        "type": "t_array(t_uint256)49_storage"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_uint256)49_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[49]",
+        "numberOfBytes": "1568"
+      },
+      "t_array(t_uint256)50_storage": {
+        "base": "t_uint256",
+        "encoding": "inplace",
+        "label": "uint256[50]",
+        "numberOfBytes": "1600"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_contract(IPauserRegistry)16770": {
+        "encoding": "inplace",
+        "label": "contract IPauserRegistry",
+        "numberOfBytes": "20"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
