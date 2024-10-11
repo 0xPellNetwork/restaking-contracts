@@ -21,6 +21,7 @@ import {
   eAILayerNetwork,
   eModeNetwork,
   eZKSyncNetwork,
+  eIoTeXNetwork,
 } from './types';
 
 require('dotenv').config();
@@ -61,6 +62,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   )}`,
   [eBaseNetwork.base]: `https://mainnet.base.org`,
   [eBaseNetwork.baseGoerli]: `https://goerli.base.org`,
+  [eBaseNetwork.baseSepolia]: `https://sepolia.base.org`,
   [eBscNetwork.bsc]: `https://bsc-dataseed.bnbchain.org`,
   [eBscNetwork.bscTestnet]: `https://bsc-testnet-dataseed.bnbchain.org`,
   [eMantleNetwork.mantle]: `https://rpc.mantle.xyz`,
@@ -89,6 +91,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eModeNetwork.modeTestnet]: `https://sepolia.mode.network`,
   [eZKSyncNetwork.zksync]: `https://mainnet.era.zksync.io`,
   [eZKSyncNetwork.zksyncTestnet]: `https://sepolia.era.zksync.dev`,
+  [eIoTeXNetwork.iotex]: `https://babel-api.mainnet.iotex.io`,
+  [eIoTeXNetwork.iotexTestnet]: `https://babel-api.testnet.iotex.io`,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {

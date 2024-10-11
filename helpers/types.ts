@@ -18,7 +18,8 @@ export type eNetwork =
   | eBOBNetwork
   | eAILayerNetwork
   | eModeNetwork
-  | eZKSyncNetwork;
+  | eZKSyncNetwork
+  | eIoTeXNetwork;
 
 export enum eEthereumNetwork {
   main = 'main',
@@ -35,6 +36,7 @@ export enum eArbitrumNetwork {
 export enum eBaseNetwork {
   base = 'base',
   baseGoerli = 'base-goerli',
+  baseSepolia = 'base-sepolia',
 }
 
 export enum eBscNetwork {
@@ -105,6 +107,11 @@ export enum eModeNetwork {
 export enum eZKSyncNetwork {
   zksync = 'zksync',
   zksyncTestnet = 'zksync-testnet',
+}
+
+export enum eIoTeXNetwork {
+  iotex = 'iotex',
+  iotexTestnet = 'iotex-testnet',
 }
 
 export type tEthereumAddress = string;

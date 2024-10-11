@@ -6,11 +6,13 @@ import {
   eBEVMNetwork,
   eBOBNetwork,
   eBSquaredNetwork,
+  eBaseNetwork,
   eBitLayerNetwork,
   eBounceBitNetwork,
   eBscNetwork,
   eCoreNetwork,
   eEthereumNetwork,
+  eIoTeXNetwork,
   eMantleNetwork,
   eMerlinNetwork,
   eModeNetwork,
@@ -74,6 +76,14 @@ export const Configs: IConfiguration = {
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
         maxDeposits:
           '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+        withdrawalDelay: 180,
+      },
+      stBTC: {
+        tokenAddress: '0x0C519B951759C2f98BB1281324b1663C666bE128',
+        tokenName: 'stBTC',
+        tokenSymbol: 'stBTC',
+        maxPerDeposit: '200000000000000000000',
+        maxDeposits: '2000000000000000000000',
         withdrawalDelay: 180,
       },
     },
@@ -423,6 +433,34 @@ export const Configs: IConfiguration = {
         withdrawalDelay: 180,
       },
     },
+    [eIoTeXNetwork.iotexTestnet]: {
+      WBTC: {
+        tokenAddress: '0x7C346C27Ef3A48B1AE0454D994A49005C720D6FA',
+        tokenName: 'WBTC',
+        tokenSymbol: 'WBTC',
+        maxPerDeposit: '20000000000',
+        maxDeposits: '200000000000',
+        withdrawalDelay: 180,
+      },
+      tBTC: {
+        tokenAddress: '0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0',
+        tokenName: 'tBTC',
+        tokenSymbol: 'tBTC',
+        maxPerDeposit: '200000000000000000000',
+        maxDeposits: '2000000000000000000000',
+        withdrawalDelay: 180,
+      },
+    },
+    [eBaseNetwork.baseSepolia]: {
+      'SolvBTC.BBN': {
+        tokenAddress: '0x7C346C27Ef3A48B1AE0454D994A49005C720D6FA',
+        tokenName: 'SolvBTC Babylon',
+        tokenSymbol: 'SolvBTC.BBN',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '500000000000000000000',
+        withdrawalDelay: 604800,
+      },
+    },
     [eEthereumNetwork.main]: {
       FBTC: {
         tokenAddress: '0xC96dE26018A54D51c097160568752c4E3BD6C364',
@@ -448,6 +486,30 @@ export const Configs: IConfiguration = {
       //   maxDeposits: '1500000000000000000000',
       //   withdrawalDelay: 604800,
       // },
+      tBTC: {
+        tokenAddress: '0x18084fbA666a33d37592fA2633fD49a74DD93a88',
+        tokenName: 'tBTC',
+        tokenSymbol: 'tBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      stBTC: {
+        tokenAddress: '0xdF217EFD8f3ecb5E837aedF203C28c1f06854017',
+        tokenName: 'stBTC',
+        tokenSymbol: 'stBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      'SolvBTC.BBN': {
+        tokenAddress: '0xd9D920AA40f578ab794426F5C90F6C731D159DEf',
+        tokenName: 'SolvBTC Babylon',
+        tokenSymbol: 'SolvBTC.BBN',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '500000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eArbitrumNetwork.arbitrum]: {
       WBTC: {
@@ -474,6 +536,14 @@ export const Configs: IConfiguration = {
       //   maxDeposits: '50000000000',
       //   withdrawalDelay: 604800,
       // },
+      'SolvBTC.BBN': {
+        tokenAddress: '0x346c574c56e1a4aaa8dc88cda8f7eb12b39947ab',
+        tokenName: 'SolvBTC Babylon',
+        tokenSymbol: 'SolvBTC.BBN',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '500000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBounceBitNetwork.bb]: {
       BBTC: {
@@ -792,6 +862,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
+      uBTC: {
+        tokenAddress: '0x782e2b85fda9a8224c17b191fc5de1e085a962b2',
+        tokenName: 'uBTC',
+        tokenSymbol: 'uBTC',
+        maxPerDeposit: '200000000000000000000',
+        maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eMantleNetwork.mantle]: {
       WBTC: {
@@ -824,6 +902,14 @@ export const Configs: IConfiguration = {
         tokenSymbol: 'PumpBTC',
         maxPerDeposit: '5000000000',
         maxDeposits: '50000000000',
+        withdrawalDelay: 604800,
+      },
+      'SolvBTC.BBN': {
+        tokenAddress: '0x1d40bafc49c37cda49f2a5427e2fb95e1e3fcf20',
+        tokenName: 'SolvBTC Babylon',
+        tokenSymbol: 'SolvBTC.BBN',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '500000000000000000000',
         withdrawalDelay: 604800,
       },
     },
@@ -916,6 +1002,34 @@ export const Configs: IConfiguration = {
         maxDeposits: '20000000000',
         withdrawalDelay: 604800,
       },
+      syBTC: {
+        tokenAddress: '0xED0c95EBe5a3E687cB2224687024FeC6518E683e',
+        tokenName: 'syBTC',
+        tokenSymbol: 'syBTC',
+        maxPerDeposit: '2000000000',
+        maxDeposits: '20000000000',
+        withdrawalDelay: 604800,
+      },
+    },
+    [eIoTeXNetwork.iotex]: {
+      WBTC: {
+        tokenAddress: '',
+        tokenName: 'WBTC',
+        tokenSymbol: 'WBTC',
+        maxPerDeposit: '200000000000000000000',
+        maxDeposits: '2000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+    },
+    [eBaseNetwork.base]: {
+      'SolvBTC.BBN': {
+        tokenAddress: '0xc26c9099bd3789107888c35bb41178079b282561',
+        tokenName: 'SolvBTC Babylon',
+        tokenSymbol: 'SolvBTC.BBN',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '500000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
   },
   MinWithdrawalDelay: {
@@ -935,6 +1049,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: 60,
     [eModeNetwork.modeTestnet]: 60,
     [eZKSyncNetwork.zksyncTestnet]: 60,
+    [eIoTeXNetwork.iotexTestnet]: 60,
+    [eBaseNetwork.baseSepolia]: 60,
     [eEthereumNetwork.main]: 259200,
     [eArbitrumNetwork.arbitrum]: 259200,
     [eBounceBitNetwork.bb]: 604800,
@@ -950,6 +1066,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: 259200,
     [eAILayerNetwork.ailayer]: 259200,
     [eZKSyncNetwork.zksync]: 259200,
+    [eIoTeXNetwork.iotex]: 259200,
+    [eBaseNetwork.base]: 259200,
   },
   StrategyManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 0,
@@ -968,6 +1086,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: 0,
     [eModeNetwork.modeTestnet]: 0,
     [eZKSyncNetwork.zksyncTestnet]: 0,
+    [eIoTeXNetwork.iotexTestnet]: 0,
+    [eBaseNetwork.baseSepolia]: 0,
     [eEthereumNetwork.main]: 0,
     [eArbitrumNetwork.arbitrum]: 0,
     [eBounceBitNetwork.bb]: 0,
@@ -983,6 +1103,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: 0,
     [eAILayerNetwork.ailayer]: 0,
     [eZKSyncNetwork.zksync]: 0,
+    [eIoTeXNetwork.iotex]: 0,
+    [eBaseNetwork.base]: 0,
   },
   DelegationManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 1, // pause new delegation
@@ -1001,6 +1123,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: 1,
     [eModeNetwork.modeTestnet]: 1,
     [eZKSyncNetwork.zksyncTestnet]: 1,
+    [eIoTeXNetwork.iotexTestnet]: 1,
+    [eBaseNetwork.baseSepolia]: 1,
     [eEthereumNetwork.main]: 1,
     [eArbitrumNetwork.arbitrum]: 1,
     [eBounceBitNetwork.bb]: 1,
@@ -1016,6 +1140,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: 1,
     [eAILayerNetwork.ailayer]: 1,
     [eZKSyncNetwork.zksync]: 1,
+    [eIoTeXNetwork.iotex]: 1,
+    [eBaseNetwork.base]: 1,
   },
   SlasherPausedStatus: {
     [eEthereumNetwork.sepolia]:
@@ -1050,6 +1176,10 @@ export const Configs: IConfiguration = {
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eZKSyncNetwork.zksyncTestnet]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eIoTeXNetwork.iotexTestnet]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eBaseNetwork.baseSepolia]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eEthereumNetwork.main]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eArbitrumNetwork.arbitrum]:
@@ -1080,6 +1210,10 @@ export const Configs: IConfiguration = {
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eZKSyncNetwork.zksync]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eIoTeXNetwork.iotex]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eBaseNetwork.base]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   },
   RewardsDuration: {
     [eBounceBitNetwork.bbTestnet]: 3600,
@@ -1102,6 +1236,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eModeNetwork.modeTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eZKSyncNetwork.zksyncTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eIoTeXNetwork.iotexTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eBaseNetwork.baseSepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0xEE033Faad50753828275BF95cc191986599396DF',
     [eArbitrumNetwork.arbitrum]: '0x154EcCd879a76ca5500Cb8EE7dd5c079e8a6e966',
     [eBounceBitNetwork.bb]: '0x1297d797aC69da9Bd6260E5D932a4bB645b0cB69',
@@ -1117,6 +1253,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0x154EcCd879a76ca5500Cb8EE7dd5c079e8a6e966',
     [eZKSyncNetwork.zksync]: '0xA556C449C835336b0038f6Effc2C1EF3A2c3255F',
+    [eIoTeXNetwork.iotex]: '',
+    [eBaseNetwork.base]: '0x15949bf20dd75C6c734C30026285448De0870Bc4',
   },
   WhiteLister: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1135,6 +1273,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eModeNetwork.modeTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eZKSyncNetwork.zksyncTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eIoTeXNetwork.iotexTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eBaseNetwork.baseSepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0xa4a968Ad2F4C9Ec3396BA792d16aBE1F9Eec7E27',
     [eArbitrumNetwork.arbitrum]: '0x2BbE45C3af8185fe54811705b9072C6dB71B9368',
     [eBounceBitNetwork.bb]: '0x1B713049ea6d4490392687B62acaF731cD3e34C6',
@@ -1150,6 +1290,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0x2BbE45C3af8185fe54811705b9072C6dB71B9368',
     [eZKSyncNetwork.zksync]: '0x6A6dB0a5Bd5EA4FA622Bd7a955BFf525A90C183E',
+    [eIoTeXNetwork.iotex]: '',
+    [eBaseNetwork.base]: '0xEF8337C795D63a9c7e78FAE5eEB990Ed96C815dA',
   },
   Pauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1168,6 +1310,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eModeNetwork.modeTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eZKSyncNetwork.zksyncTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eIoTeXNetwork.iotexTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eBaseNetwork.baseSepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0x6bDd40DCcEa8eB852d26981Dbe6D890f3Ad3D657',
     [eArbitrumNetwork.arbitrum]: '0xa64DC4680698515c7dbB5499F5417B056BF20F5B',
     [eBounceBitNetwork.bb]: '0x3f31a0Fa55d605286176500017CCd49bcc79A1e8',
@@ -1183,6 +1327,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0xa64DC4680698515c7dbB5499F5417B056BF20F5B',
     [eZKSyncNetwork.zksync]: '0x4614E2c54d86b456C868BE2618132Bb1c0B901F6',
+    [eIoTeXNetwork.iotex]: '',
+    [eBaseNetwork.base]: '0xD2b66beE2A8244D97fDBF1c2cBa9A8AE832324F9',
   },
   Unpauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1201,6 +1347,8 @@ export const Configs: IConfiguration = {
     [eAILayerNetwork.ailayerTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eModeNetwork.modeTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eZKSyncNetwork.zksyncTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eIoTeXNetwork.iotexTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eBaseNetwork.baseSepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0xE08b4A90b0Ba85d0b7EB001225Acb49728d69B6A',
     [eArbitrumNetwork.arbitrum]: '0xcd81C0929957a960a6Ee8d5DB6fA928BEcdFEBCB',
     [eBounceBitNetwork.bb]: '0xBA932f31e1f7641f5E1CB8640eDd409DF73636ce',
@@ -1216,6 +1364,8 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0xcd81C0929957a960a6Ee8d5DB6fA928BEcdFEBCB',
     [eZKSyncNetwork.zksync]: '0x661B149aa79C92b3A91c0D736496b0348827fCE3',
+    [eIoTeXNetwork.iotex]: '',
+    [eBaseNetwork.base]: '0x6eED6720E2ABF58b2051c67F6510C924541205d8',
   },
   Operator: {
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
