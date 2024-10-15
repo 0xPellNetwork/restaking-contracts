@@ -34,12 +34,9 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     const network = (FORK ? FORK : hre.network.name) as eNetwork;
     const owner = getParamPerNetwork(Configs.Owner, network);
 
-    // bevm testnet
-    // const wrappedTokenAddress = '0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0';
-    // bevm mainnet
-    const wrappedTokenAddress = '0xB5136FEba197f5fF4B765E5b50c74db717796dcD';
+    const wrappedTokenAddress = '0xa00744882684c3e4747faefd68d283ea44099d03';
 
-    const { address: strategyAddress } = await hre.deployments.get(`WBTC${STRATEGY_PROXY_ID}`);
+    const { address: strategyAddress } = await hre.deployments.get(`WIOTX${STRATEGY_PROXY_ID}`);
     const { address: strategyManagerAddress } = await hre.deployments.get(
       STRATEGY_MANAGER_PROXY_ID
     );
@@ -61,53 +58,53 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     });
     console.log(`[Deployment][INFO] WrapperTokenGateway deployed ${wrappedTokenGateway.address}`);
 
-    const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
-    const strategyManagerImplV2 = await hre.deployments.deploy(
-      `Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`,
-      {
-        contract: 'StrategyManagerV2',
-        from: deployer,
-        args: [delegationManagerAddress, slasherAddress],
-      }
-    );
-    console.log(
-      `[Deployment][INFO] StrategyManagerV2 impl deployed ${strategyManagerImplV2.address}`
-    );
+    // const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
+    // const strategyManagerImplV2 = await hre.deployments.deploy(
+    //   `Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`,
+    //   {
+    //     contract: 'StrategyManagerV2',
+    //     from: deployer,
+    //     args: [delegationManagerAddress, slasherAddress],
+    //   }
+    // );
+    // console.log(
+    //   `[Deployment][INFO] StrategyManagerV2 impl deployed ${strategyManagerImplV2.address}`
+    // );
 
-    const delegationManagerImplV2 = await hre.deployments.deploy(
-      `Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`,
-      {
-        contract: 'DelegationManagerV2',
-        from: deployer,
-        args: [strategyManagerAddress, slasherAddress],
-      }
-    );
-    console.log(
-      `[Deployment][INFO] DelegationManagerV2 impl deployed ${delegationManagerImplV2.address}`
-    );
+    // const delegationManagerImplV2 = await hre.deployments.deploy(
+    //   `Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`,
+    //   {
+    //     contract: 'DelegationManagerV2',
+    //     from: deployer,
+    //     args: [strategyManagerAddress, slasherAddress],
+    //   }
+    // );
+    // console.log(
+    //   `[Deployment][INFO] DelegationManagerV2 impl deployed ${delegationManagerImplV2.address}`
+    // );
 
-    // MultiSig call DelegationManagerProxy updateWrappedTokenGateway
+    // // MultiSig call DelegationManagerProxy updateWrappedTokenGateway
 
-    const proxyAdmin = await getContract(PROXY_ADMIN_ID);
-    await waitForTx(
-      await proxyAdmin.upgrade(
-        strategyManagerAddress,
-        (
-          await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
-        ).address
-      )
-    );
-    console.log('StrategyManager upgrade successful!');
+    // const proxyAdmin = await getContract(PROXY_ADMIN_ID);
+    // await waitForTx(
+    //   await proxyAdmin.upgrade(
+    //     strategyManagerAddress,
+    //     (
+    //       await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
+    //     ).address
+    //   )
+    // );
+    // console.log('StrategyManager upgrade successful!');
 
-    await waitForTx(
-      await proxyAdmin.upgrade(
-        delegationManagerAddress,
-        (
-          await hre.deployments.get(`Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`)
-        ).address
-      )
-    );
-    console.log('DelegationManager upgrade successful!');
+    // await waitForTx(
+    //   await proxyAdmin.upgrade(
+    //     delegationManagerAddress,
+    //     (
+    //       await hre.deployments.get(`Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`)
+    //     ).address
+    //   )
+    // );
+    // console.log('DelegationManager upgrade successful!');
 
     const delegationManager = await hre.ethers.getContractAt(
       'DelegationManagerV2',

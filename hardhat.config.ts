@@ -27,6 +27,7 @@ import {
   eBSquaredNetwork,
   eCoreNetwork,
   eEthereumNetwork,
+  eIoTeXNetwork,
   eMantleNetwork,
   eMerlinNetwork,
   eModeNetwork,
@@ -164,6 +165,15 @@ export default {
       verify: {
         etherscan: {
           apiUrl: 'https://api-goerli.basescan.org',
+          apiKey: BASESCAN_KEY,
+        },
+      },
+    },
+    [eBaseNetwork.baseSepolia]: {
+      ...getCommonNetworkConfig(eBaseNetwork.baseSepolia, 84532),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://api-sepolia.basescan.org',
           apiKey: BASESCAN_KEY,
         },
       },
@@ -414,6 +424,24 @@ export default {
       ethNetwork: 'sepolia',
       verifyURL: 'https://explorer.sepolia.era.zksync.dev/contract_verification',
     },
+    [eIoTeXNetwork.iotex]: {
+      ...getCommonNetworkConfig(eIoTeXNetwork.iotex, 4689),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://iotexscout.io',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eIoTeXNetwork.iotexTestnet]: {
+      ...getCommonNetworkConfig(eIoTeXNetwork.iotexTestnet, 4690),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://testnet.iotexscout.io',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
   },
   namedAccounts: {
     ...DEFAULT_NAMED_ACCOUNTS,
@@ -435,6 +463,7 @@ export default {
       [eArbitrumNetwork.arbitrumSepolia]: ARBISCAN_KEY,
       [eBaseNetwork.base]: BASESCAN_KEY,
       [eBaseNetwork.baseGoerli]: BASESCAN_KEY,
+      [eBaseNetwork.baseSepolia]: BASESCAN_KEY,
       [eBscNetwork.bsc]: BSCSCAN_KEY,
       [eBscNetwork.bscTestnet]: BSCSCAN_KEY,
       [eMantleNetwork.mantle]: ETHERSCAN_KEY,
@@ -460,6 +489,8 @@ export default {
       [eModeNetwork.modeTestnet]: ETHERSCAN_KEY,
       [eZKSyncNetwork.zksync]: ZKSYNCSCAN_KEY,
       [eZKSyncNetwork.zksyncTestnet]: ZKSYNCSCAN_KEY,
+      [eIoTeXNetwork.iotex]: ETHERSCAN_KEY,
+      [eIoTeXNetwork.iotexTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -484,6 +515,14 @@ export default {
         urls: {
           apiURL: 'https://api-goerli.basescan.org/api',
           browserURL: 'https://goerli.basescan.org',
+        },
+      },
+      {
+        network: 'base-sepolia',
+        chainId: 84532,
+        urls: {
+          apiURL: 'https://api-sepolia.basescan.org/api',
+          browserURL: 'https://sepolia.basescan.org',
         },
       },
       {
@@ -684,6 +723,22 @@ export default {
         urls: {
           apiURL: 'https://api-sepolia-era.zksync.network/api',
           browserURL: 'https://sepolia-era.zksync.network',
+        },
+      },
+      {
+        network: 'iotex',
+        chainId: 4689,
+        urls: {
+          apiURL: 'https://iotexscout.io/api',
+          browserURL: 'https://iotexscan.io',
+        },
+      },
+      {
+        network: 'iotex-testnet',
+        chainId: 4690,
+        urls: {
+          apiURL: 'https://testnet.iotexscout.io/api',
+          browserURL: 'https://testnet.iotexscan.io',
         },
       },
     ],

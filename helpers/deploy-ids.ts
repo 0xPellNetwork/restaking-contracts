@@ -16,4 +16,5 @@ export const WRAPPED_STAKED_BBTC_GATEWAY_IMPL_ID = `WrappedStakedBBTCGateway-${I
 export const WRAPPED_STAKED_BBTC_GATEWAY_PROXY_ID = `WrappedStakedBBTCGateway-${PROXY_ID}`;
 export const STAKED_BBTC_STRATEGY_REWARD_CLAIM_IMPL_ID = `StakedBBTCStrategyRewardClaim-${IMPL_ID}`;
 export const UNI_BTC_GATEWAY_ID = 'UniBTCGateway';
+export const UNI_IOTX_GATEWAY_ID = 'UniIOTXGateway';
 export const ZETA_CHAIN_GATEWAY_ID = 'ZetaChainGateway';

@@ -450,6 +450,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 180,
       },
+      WIOTX: {
+        tokenAddress: '0xD5dbA71698E52271438B90E1fC658cB94F637aa1',
+        tokenName: 'Wrapped IOTX',
+        tokenSymbol: 'WIOTX',
+        maxPerDeposit: '20000000000000000000000',
+        maxDeposits: '200000000000000000000000',
+        withdrawalDelay: 180,
+      },
     },
     [eBaseNetwork.baseSepolia]: {
       'SolvBTC.BBN': {
@@ -1012,12 +1020,28 @@ export const Configs: IConfiguration = {
       },
     },
     [eIoTeXNetwork.iotex]: {
-      WBTC: {
-        tokenAddress: '',
-        tokenName: 'WBTC',
-        tokenSymbol: 'WBTC',
-        maxPerDeposit: '200000000000000000000',
-        maxDeposits: '2000000000000000000000',
+      ioWBTC: {
+        tokenAddress: '0xc7b93720f73b037394ce00f954f849ed484a3dea',
+        tokenName: 'ioWBTC',
+        tokenSymbol: 'ioWBTC',
+        maxPerDeposit: '20000000000',
+        maxDeposits: '100000000000',
+        withdrawalDelay: 604800,
+      },
+      WIOTX: {
+        tokenAddress: '0xa00744882684c3e4747faefd68d283ea44099d03',
+        tokenName: 'Wrapped IOTX',
+        tokenSymbol: 'WIOTX',
+        maxPerDeposit: '500000000000000000000000',
+        maxDeposits: '10000000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      uniIOTX: {
+        tokenAddress: '0x236f8c0a61da474db21b693fb2ea7aab0c803894',
+        tokenName: 'uniIOTX',
+        tokenSymbol: 'uniIOTX',
+        maxPerDeposit: '500000000000000000000000',
+        maxDeposits: '10000000000000000000000000',
         withdrawalDelay: 604800,
       },
     },
@@ -1253,7 +1277,7 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0x154EcCd879a76ca5500Cb8EE7dd5c079e8a6e966',
     [eZKSyncNetwork.zksync]: '0xA556C449C835336b0038f6Effc2C1EF3A2c3255F',
-    [eIoTeXNetwork.iotex]: '',
+    [eIoTeXNetwork.iotex]: '0x9724Cb69eEd10018994E20D627303566308B75B4',
     [eBaseNetwork.base]: '0x15949bf20dd75C6c734C30026285448De0870Bc4',
   },
   WhiteLister: {
@@ -1290,7 +1314,7 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0x2BbE45C3af8185fe54811705b9072C6dB71B9368',
     [eZKSyncNetwork.zksync]: '0x6A6dB0a5Bd5EA4FA622Bd7a955BFf525A90C183E',
-    [eIoTeXNetwork.iotex]: '',
+    [eIoTeXNetwork.iotex]: '0x31DCeDedD7302f89C1b44E8D9F2eb97AeC03e804',
     [eBaseNetwork.base]: '0xEF8337C795D63a9c7e78FAE5eEB990Ed96C815dA',
   },
   Pauser: {
@@ -1327,7 +1351,7 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0xa64DC4680698515c7dbB5499F5417B056BF20F5B',
     [eZKSyncNetwork.zksync]: '0x4614E2c54d86b456C868BE2618132Bb1c0B901F6',
-    [eIoTeXNetwork.iotex]: '',
+    [eIoTeXNetwork.iotex]: '0xb78b5E62b86E5222E1D33C08Be56bf032c09e8f1',
     [eBaseNetwork.base]: '0xD2b66beE2A8244D97fDBF1c2cBa9A8AE832324F9',
   },
   Unpauser: {
@@ -1364,7 +1388,7 @@ export const Configs: IConfiguration = {
     [eZetaChainNetwork.zeta]: '',
     [eAILayerNetwork.ailayer]: '0xcd81C0929957a960a6Ee8d5DB6fA928BEcdFEBCB',
     [eZKSyncNetwork.zksync]: '0x661B149aa79C92b3A91c0D736496b0348827fCE3',
-    [eIoTeXNetwork.iotex]: '',
+    [eIoTeXNetwork.iotex]: '0x53a747FDD5e838b18E2ae3c144F76D984e6D9d8D',
     [eBaseNetwork.base]: '0x6eED6720E2ABF58b2051c67F6510C924541205d8',
   },
   Operator: {
