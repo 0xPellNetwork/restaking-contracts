@@ -810,6 +810,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '200000000000',
         withdrawalDelay: 604800,
       },
+      stBTC: {
+        tokenAddress: '0xf6718b2701D4a6498eF77D7c152b2137Ab28b8A3',
+        tokenName: 'stBTC',
+        tokenSymbol: 'stBTC',
+        maxPerDeposit: '200000000000000000000',
+        maxDeposits: '2000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBEVMNetwork.bevm]: {
       WBTC: {
