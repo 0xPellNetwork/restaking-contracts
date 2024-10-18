@@ -886,6 +886,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '1000000000000000000000',
         withdrawalDelay: 604800,
       },
+      oBTC: {
+        tokenAddress: '0x000734cF9E469BAd78c8EC1b0dEeD83D0A03C1F8',
+        tokenName: 'oBTC',
+        tokenSymbol: 'oBTC',
+        maxPerDeposit: '30000000000',
+        maxDeposits: '150000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eMantleNetwork.mantle]: {
       WBTC: {
