@@ -19,7 +19,8 @@ export type eNetwork =
   | eAILayerNetwork
   | eModeNetwork
   | eZKSyncNetwork
-  | eIoTeXNetwork;
+  | eIoTeXNetwork
+  | eRootstockNetwork;
 
 export enum eEthereumNetwork {
   main = 'main',
@@ -112,6 +113,11 @@ export enum eZKSyncNetwork {
 export enum eIoTeXNetwork {
   iotex = 'iotex',
   iotexTestnet = 'iotex-testnet',
+}
+
+export enum eRootstockNetwork {
+  rsk = 'rsk',
+  rskTestnet = 'rsk-testnet',
 }
 
 export type tEthereumAddress = string;

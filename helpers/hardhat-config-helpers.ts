@@ -22,6 +22,7 @@ import {
   eModeNetwork,
   eZKSyncNetwork,
   eIoTeXNetwork,
+  eRootstockNetwork,
 } from './types';
 
 require('dotenv').config();
@@ -93,6 +94,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eZKSyncNetwork.zksyncTestnet]: `https://sepolia.era.zksync.dev`,
   [eIoTeXNetwork.iotex]: `https://babel-api.mainnet.iotex.io`,
   [eIoTeXNetwork.iotexTestnet]: `https://babel-api.testnet.iotex.io`,
+  [eRootstockNetwork.rsk]: `https://public-node.rsk.co`,
+  [eRootstockNetwork.rskTestnet]: `https://public-node.testnet.rsk.co`,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {

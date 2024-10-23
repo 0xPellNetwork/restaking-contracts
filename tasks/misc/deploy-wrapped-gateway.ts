@@ -34,9 +34,9 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     const network = (FORK ? FORK : hre.network.name) as eNetwork;
     const owner = getParamPerNetwork(Configs.Owner, network);
 
-    const wrappedTokenAddress = '0xa00744882684c3e4747faefd68d283ea44099d03';
+    const wrappedTokenAddress = '0x542fda317318ebf1d3deaf76e0b632741a7e677d';
 
-    const { address: strategyAddress } = await hre.deployments.get(`WIOTX${STRATEGY_PROXY_ID}`);
+    const { address: strategyAddress } = await hre.deployments.get(`WRBTC${STRATEGY_PROXY_ID}`);
     const { address: strategyManagerAddress } = await hre.deployments.get(
       STRATEGY_MANAGER_PROXY_ID
     );
@@ -106,12 +106,12 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     // );
     // console.log('DelegationManager upgrade successful!');
 
-    const delegationManager = await hre.ethers.getContractAt(
-      'DelegationManagerV2',
-      delegationManagerAddress
-    );
+    // const delegationManager = await hre.ethers.getContractAt(
+    //   'DelegationManagerV2',
+    //   delegationManagerAddress
+    // );
 
-    await waitForTx(await delegationManager.updateWrappedTokenGateway(wrappedTokenGateway.address));
-    console.log('Config WrappedTokenGateway successful');
+    // await waitForTx(await delegationManager.updateWrappedTokenGateway(wrappedTokenGateway.address));
+    // console.log('Config WrappedTokenGateway successful');
   }
 );

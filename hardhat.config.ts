@@ -31,6 +31,7 @@ import {
   eMantleNetwork,
   eMerlinNetwork,
   eModeNetwork,
+  eRootstockNetwork,
   eScrollNetwork,
   eZetaChainNetwork,
   eZKSyncNetwork,
@@ -442,6 +443,24 @@ export default {
         },
       },
     },
+    [eRootstockNetwork.rsk]: {
+      ...getCommonNetworkConfig(eRootstockNetwork.rsk, 30),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://rootstock.blockscout.com',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eRootstockNetwork.rskTestnet]: {
+      ...getCommonNetworkConfig(eRootstockNetwork.rskTestnet, 31),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://rootstock-testnet.blockscout.com',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
   },
   namedAccounts: {
     ...DEFAULT_NAMED_ACCOUNTS,
@@ -491,6 +510,8 @@ export default {
       [eZKSyncNetwork.zksyncTestnet]: ZKSYNCSCAN_KEY,
       [eIoTeXNetwork.iotex]: ETHERSCAN_KEY,
       [eIoTeXNetwork.iotexTestnet]: ETHERSCAN_KEY,
+      [eRootstockNetwork.rsk]: ETHERSCAN_KEY,
+      [eRootstockNetwork.rskTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -739,6 +760,22 @@ export default {
         urls: {
           apiURL: 'https://testnet.iotexscout.io/api',
           browserURL: 'https://testnet.iotexscan.io',
+        },
+      },
+      {
+        network: 'rsk',
+        chainId: 30,
+        urls: {
+          apiURL: 'https://rootstock.blockscout.com/api/',
+          browserURL: 'https://rootstock.blockscout.com/',
+        },
+      },
+      {
+        network: 'rsk-testnet',
+        chainId: 31,
+        urls: {
+          apiURL: 'https://rootstock-testnet.blockscout.com/api/',
+          browserURL: 'https://rootstock-testnet.blockscout.com/',
         },
       },
     ],
