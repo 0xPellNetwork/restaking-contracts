@@ -898,7 +898,7 @@ export const Configs: IConfiguration = {
         withdrawalDelay: 604800,
       },
       uBTC: {
-        tokenAddress: '0x782e2b85fda9a8224c17b191fc5de1e085a962b2',
+        tokenAddress: '0xbb4a26a053b217bb28766a4ed4b062c3b4de58ce',
         tokenName: 'uBTC',
         tokenSymbol: 'uBTC',
         maxPerDeposit: '200000000000000000000',
