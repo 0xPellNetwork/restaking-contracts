@@ -837,6 +837,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
+      suBTC: {
+        tokenAddress: '0xe85411C030fB32A9D8b14Bbbc6CB19417391F711',
+        tokenName: 'suBTC',
+        tokenSymbol: 'suBTC',
+        maxPerDeposit: '200000000000000000000',
+        maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBEVMNetwork.bevm]: {
       WBTC: {
