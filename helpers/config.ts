@@ -845,6 +845,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '1000000000000000000000',
         withdrawalDelay: 604800,
       },
+      uoBTC: {
+        tokenAddress: '0xBFb4B5F54Ef69692Bb36963fA846e8855D73DBC0',
+        tokenName: 'uoBTC',
+        tokenSymbol: 'uoBTC',
+        maxPerDeposit: '20000000000',
+        maxDeposits: '200000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBEVMNetwork.bevm]: {
       WBTC: {
