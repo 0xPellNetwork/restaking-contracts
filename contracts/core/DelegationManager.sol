@@ -331,7 +331,7 @@ contract DelegationManager is Initializable, OwnableUpgradeable, Pausable, Deleg
    * @param shares The number of shares to decrease.
    *
    * @dev *If the staker is actively delegated*, then decreases the `staker`'s delegated shares in `strategy` by `shares`. Otherwise does nothing.
-   * @dev Callable only by the StrategyManager or EigenPodManager.
+   * @dev Callable only by the StrategyManager.
    */
   function decreaseDelegatedShares(address staker, IStrategy strategy, uint256 shares) external onlyStrategyManager {
     // if the staker is delegated to an operator
@@ -500,7 +500,7 @@ contract DelegationManager is Initializable, OwnableUpgradeable, Pausable, Deleg
           ++i;
         }
       }
-      // Award shares back in StrategyManager/EigenPodManager. If withdrawer is delegated, increase the shares delegated to the operator
+      // Award shares back in StrategyManager. If withdrawer is delegated, increase the shares delegated to the operator
     } else {
       address currentOperator = delegatedTo[msg.sender];
       for (uint256 i = 0; i < withdrawal.strategies.length; ) {

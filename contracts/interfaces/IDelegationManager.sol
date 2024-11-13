@@ -211,7 +211,7 @@ interface IDelegationManager is ISignatureUtils {
   ) external;
 
   /**
-   * @notice Undelegates the staker from the operator who they are delegated to. Puts the staker into the "undelegation limbo" mode of the EigenPodManager
+   * @notice Undelegates the staker from the operator who they are delegated to. Puts the staker into the "undelegation limbo" mode of DelegationManager
    * and queues a withdrawal of all of the staker's shares in the StrategyManager (to the staker), if necessary.
    * @param staker The account to be undelegated.
    * @return withdrawalRoot The root of the newly queued withdrawal, if a withdrawal was queued. Otherwise just bytes32(0).
@@ -275,7 +275,7 @@ interface IDelegationManager is ISignatureUtils {
    * @param shares The number of shares to increase.
    *
    * @dev *If the staker is actively delegated*, then increases the `staker`'s delegated shares in `strategy` by `shares`. Otherwise does nothing.
-   * @dev Callable only by the StrategyManager or EigenPodManager.
+   * @dev Callable only by the StrategyManager.
    */
   function increaseDelegatedShares(address staker, IStrategy strategy, uint256 shares) external;
 
@@ -286,7 +286,7 @@ interface IDelegationManager is ISignatureUtils {
    * @param shares The number of shares to decrease.
    *
    * @dev *If the staker is actively delegated*, then decreases the `staker`'s delegated shares in `strategy` by `shares`. Otherwise does nothing.
-   * @dev Callable only by the StrategyManager or EigenPodManager.
+   * @dev Callable only by the StrategyManager.
    */
   function decreaseDelegatedShares(address staker, IStrategy strategy, uint256 shares) external;
 
