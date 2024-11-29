@@ -27,6 +27,7 @@ import {
   eBSquaredNetwork,
   eCoreNetwork,
   eEthereumNetwork,
+  eExsatNetwork,
   eIoTeXNetwork,
   eMantleNetwork,
   eMerlinNetwork,
@@ -461,6 +462,24 @@ export default {
         },
       },
     },
+    [eExsatNetwork.exsat]: {
+      ...getCommonNetworkConfig(eExsatNetwork.exsat, 7200),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://scan.exsat.network',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eExsatNetwork.exsatTestnet]: {
+      ...getCommonNetworkConfig(eExsatNetwork.exsatTestnet, 839999),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://scan-testnet.exsat.network',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
   },
   namedAccounts: {
     ...DEFAULT_NAMED_ACCOUNTS,
@@ -512,6 +531,8 @@ export default {
       [eIoTeXNetwork.iotexTestnet]: ETHERSCAN_KEY,
       [eRootstockNetwork.rsk]: ETHERSCAN_KEY,
       [eRootstockNetwork.rskTestnet]: ETHERSCAN_KEY,
+      [eExsatNetwork.exsat]: ETHERSCAN_KEY,
+      [eExsatNetwork.exsatTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -662,7 +683,7 @@ export default {
         network: 'core-testnet',
         chainId: 1115,
         urls: {
-          apiURL: 'https://scan.test.btcs.network/api',
+          apiURL: 'https://api.test.btcs.network/api',
           browserURL: 'https://scan.test.btcs.network',
         },
       },
@@ -776,6 +797,22 @@ export default {
         urls: {
           apiURL: 'https://rootstock-testnet.blockscout.com/api/',
           browserURL: 'https://rootstock-testnet.blockscout.com/',
+        },
+      },
+      {
+        network: 'exsat',
+        chainId: 7200,
+        urls: {
+          apiURL: 'https://scan.exsat.network/api',
+          browserURL: 'https://scan.exsat.network',
+        },
+      },
+      {
+        network: 'exsat-testnet',
+        chainId: 839999,
+        urls: {
+          apiURL: 'https://scan-testnet.exsat.network/api',
+          browserURL: 'https://scan-testnet.exsat.network',
         },
       },
     ],

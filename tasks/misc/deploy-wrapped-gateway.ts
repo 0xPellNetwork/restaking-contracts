@@ -34,9 +34,9 @@ task(`deploy-wrapped-gateway`, `Deploys the WrappedTokenGateway contract`).setAc
     const network = (FORK ? FORK : hre.network.name) as eNetwork;
     const owner = getParamPerNetwork(Configs.Owner, network);
 
-    const wrappedTokenAddress = '0x542fda317318ebf1d3deaf76e0b632741a7e677d';
+    const wrappedTokenAddress = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
 
-    const { address: strategyAddress } = await hre.deployments.get(`WRBTC${STRATEGY_PROXY_ID}`);
+    const { address: strategyAddress } = await hre.deployments.get(`WBNB${STRATEGY_PROXY_ID}`);
     const { address: strategyManagerAddress } = await hre.deployments.get(
       STRATEGY_MANAGER_PROXY_ID
     );

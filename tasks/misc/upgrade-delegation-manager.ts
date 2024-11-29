@@ -43,7 +43,7 @@ task(`upgrade-delegation-manager`, `Upgrade delegation manager contract`).setAct
     const { address: slasherAddress } = await hre.deployments.get(SLASHER_PROXY_ID);
 
     const delegationManagerImplV2 = await hre.deployments.deploy(
-      `Upgradeable-${DELEGATION_MANAGER_IMPL_ID}`,
+      `Upgradeable-V2-${DELEGATION_MANAGER_IMPL_ID}`,
       {
         contract: 'DelegationManagerV2',
         from: deployer,

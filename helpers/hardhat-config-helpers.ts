@@ -23,6 +23,7 @@ import {
   eZKSyncNetwork,
   eIoTeXNetwork,
   eRootstockNetwork,
+  eExsatNetwork,
 } from './types';
 
 require('dotenv').config();
@@ -96,6 +97,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eIoTeXNetwork.iotexTestnet]: `https://babel-api.testnet.iotex.io`,
   [eRootstockNetwork.rsk]: `https://public-node.rsk.co`,
   [eRootstockNetwork.rskTestnet]: `https://public-node.testnet.rsk.co`,
+  [eExsatNetwork.exsat]: `https://evm.exsat.network`,
+  [eExsatNetwork.exsatTestnet]: `https://evm-tst3.exactsat.io`,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {

@@ -20,7 +20,8 @@ export type eNetwork =
   | eModeNetwork
   | eZKSyncNetwork
   | eIoTeXNetwork
-  | eRootstockNetwork;
+  | eRootstockNetwork
+  | eExsatNetwork;
 
 export enum eEthereumNetwork {
   main = 'main',
@@ -118,6 +119,11 @@ export enum eIoTeXNetwork {
 export enum eRootstockNetwork {
   rsk = 'rsk',
   rskTestnet = 'rsk-testnet',
+}
+
+export enum eExsatNetwork {
+  exsat = 'exsat',
+  exsatTestnet = 'exsat-testnet',
 }
 
 export type tEthereumAddress = string;
