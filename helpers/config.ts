@@ -886,6 +886,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '150000000000000000000000',
         withdrawalDelay: 604800,
       },
+      slisBNB: {
+        tokenAddress: '0xB0b84D294e0C75A6abe60171b70edEb2EFd14A1B',
+        tokenName: 'Staked Lista BNB',
+        tokenSymbol: 'slisBNB',
+        maxPerDeposit: '1000000000000000000000',
+        maxDeposits: '150000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBSquaredNetwork.bsquared]: {
       uBTC: {

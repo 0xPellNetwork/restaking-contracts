@@ -18,3 +18,4 @@ export const STAKED_BBTC_STRATEGY_REWARD_CLAIM_IMPL_ID = `StakedBBTCStrategyRewa
 export const UNI_BTC_GATEWAY_ID = 'UniBTCGateway';
 export const UNI_IOTX_GATEWAY_ID = 'UniIOTXGateway';
 export const ZETA_CHAIN_GATEWAY_ID = 'ZetaChainGateway';
+export const LISTA_GATEWAY_ID = 'ListaGateway';
