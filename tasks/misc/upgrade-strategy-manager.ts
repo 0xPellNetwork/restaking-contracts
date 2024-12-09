@@ -53,14 +53,14 @@ task(`upgrade-strategy-manager`, `Upgrade strategy manager contract`).setAction(
 
   // MultiSig
 
-  // const proxyAdmin = await getContract(PROXY_ADMIN_ID);
-  // await waitForTx(
-  //   await proxyAdmin.upgrade(
-  //     strategyManagerAddress,
-  //     (
-  //       await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
-  //     ).address
-  //   )
-  // );
-  // console.log('StrategyManager upgrade successful!');
+  const proxyAdmin = await getContract(PROXY_ADMIN_ID);
+  await waitForTx(
+    await proxyAdmin.upgrade(
+      strategyManagerAddress,
+      (
+        await hre.deployments.get(`Upgradeable-${STRATEGY_MANAGER_IMPL_ID}`)
+      ).address
+    )
+  );
+  console.log('StrategyManager upgrade successful!');
 });

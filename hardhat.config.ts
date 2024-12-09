@@ -28,6 +28,7 @@ import {
   eCoreNetwork,
   eEthereumNetwork,
   eExsatNetwork,
+  eHemiNetwork,
   eIoTeXNetwork,
   eMantleNetwork,
   eMerlinNetwork,
@@ -480,6 +481,24 @@ export default {
         },
       },
     },
+    [eHemiNetwork.hemi]: {
+      ...getCommonNetworkConfig(eHemiNetwork.hemi, 43111),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://explorer-b81c3bd8.hemi.xyz',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eHemiNetwork.hemiTestnet]: {
+      ...getCommonNetworkConfig(eHemiNetwork.hemiTestnet, 743111),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://testnet.explorer.hemi.xyz',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
   },
   namedAccounts: {
     ...DEFAULT_NAMED_ACCOUNTS,
@@ -533,6 +552,8 @@ export default {
       [eRootstockNetwork.rskTestnet]: ETHERSCAN_KEY,
       [eExsatNetwork.exsat]: ETHERSCAN_KEY,
       [eExsatNetwork.exsatTestnet]: ETHERSCAN_KEY,
+      [eHemiNetwork.hemi]: ETHERSCAN_KEY,
+      [eHemiNetwork.hemiTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -813,6 +834,22 @@ export default {
         urls: {
           apiURL: 'https://scan-testnet.exsat.network/api',
           browserURL: 'https://scan-testnet.exsat.network',
+        },
+      },
+      {
+        network: 'hemi',
+        chainId: 43111,
+        urls: {
+          apiURL: 'https://explorer-b81c3bd8.hemi.xyz/api',
+          browserURL: 'https://explorer-b81c3bd8.hemi.xyz',
+        },
+      },
+      {
+        network: 'hemi-testnet',
+        chainId: 743111,
+        urls: {
+          apiURL: 'https://testnet.explorer.hemi.xyz/api',
+          browserURL: 'https://testnet.explorer.hemi.xyz',
         },
       },
     ],
