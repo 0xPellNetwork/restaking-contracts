@@ -937,6 +937,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '20000000000000000000000000',
         withdrawalDelay: 259200,
       },
+      USDC: {
+        tokenAddress: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+        tokenName: 'USDC',
+        tokenSymbol: 'USDC',
+        maxPerDeposit: '10000000000000000000000',
+        maxDeposits: '2000000000000000000000000',
+        withdrawalDelay: 259200,
+      },
     },
     [eBSquaredNetwork.bsquared]: {
       uBTC: {
