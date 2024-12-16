@@ -326,7 +326,7 @@ export default {
       ...getCommonNetworkConfig(eCoreNetwork.coreTestnet, 1115),
       verify: {
         etherscan: {
-          apiUrl: 'https://scan.test.btcs.network',
+          apiUrl: 'https://api.test.btcs.network',
           apiKey: CORESCAN_TESTNET_KEY,
         },
       },

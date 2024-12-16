@@ -99,7 +99,7 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eRootstockNetwork.rsk]: `https://public-node.rsk.co`,
   [eRootstockNetwork.rskTestnet]: `https://public-node.testnet.rsk.co`,
   [eExsatNetwork.exsat]: `https://evm.exsat.network`,
-  [eExsatNetwork.exsatTestnet]: `https://evm-tst3.exactsat.io`,
+  [eExsatNetwork.exsatTestnet]: `https://evm-tst3.exsat.network`,
   [eHemiNetwork.hemi]: `https://7e57304f.rpc.hemi.network/rpc`,
   [eHemiNetwork.hemiTestnet]: `https://dbmef.testnet.rpc.hemi.network/rpc`,
 };

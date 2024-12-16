@@ -641,6 +641,22 @@ export const Configs: IConfiguration = {
         maxDeposits: '20000000000000000000000000',
         withdrawalDelay: 259200,
       },
+      USDT: {
+        tokenAddress: '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
+        tokenName: 'Tether USD',
+        tokenSymbol: 'USDT',
+        maxPerDeposit: '10000000000',
+        maxDeposits: '2000000000000',
+        withdrawalDelay: 259200,
+      },
+      USDC: {
+        tokenAddress: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
+        tokenName: 'USDC',
+        tokenSymbol: 'USDC',
+        maxPerDeposit: '10000000000',
+        maxDeposits: '2000000000000',
+        withdrawalDelay: 259200,
+      },
     },
     [eBounceBitNetwork.bb]: {
       BBTC: {
@@ -1085,6 +1101,14 @@ export const Configs: IConfiguration = {
         tokenSymbol: 'suBTC',
         maxPerDeposit: '200000000000000000000',
         maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      stBTC: {
+        tokenAddress: '0xf6718b2701d4a6498ef77d7c152b2137ab28b8a3',
+        tokenName: 'stBTC',
+        tokenSymbol: 'stBTC',
+        maxPerDeposit: '500000000000000000000',
+        maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
     },
