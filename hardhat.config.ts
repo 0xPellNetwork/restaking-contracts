@@ -28,6 +28,7 @@ import {
   eCoreNetwork,
   eEthereumNetwork,
   eExsatNetwork,
+  eGoatNetwork,
   eHemiNetwork,
   eIoTeXNetwork,
   eMantleNetwork,
@@ -499,6 +500,24 @@ export default {
         },
       },
     },
+    [eGoatNetwork.goat]: {
+      ...getCommonNetworkConfig(eGoatNetwork.goat, 2345),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://explorer.goat.network',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eGoatNetwork.goatTestnet]: {
+      ...getCommonNetworkConfig(eGoatNetwork.goatTestnet, 48816),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://explorer.testnet3.goat.network',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
   },
   namedAccounts: {
     ...DEFAULT_NAMED_ACCOUNTS,
@@ -554,6 +573,8 @@ export default {
       [eExsatNetwork.exsatTestnet]: ETHERSCAN_KEY,
       [eHemiNetwork.hemi]: ETHERSCAN_KEY,
       [eHemiNetwork.hemiTestnet]: ETHERSCAN_KEY,
+      [eGoatNetwork.goat]: ETHERSCAN_KEY,
+      [eGoatNetwork.goatTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -850,6 +871,22 @@ export default {
         urls: {
           apiURL: 'https://testnet.explorer.hemi.xyz/api',
           browserURL: 'https://testnet.explorer.hemi.xyz',
+        },
+      },
+      {
+        network: 'goat',
+        chainId: 2345,
+        urls: {
+          apiURL: 'https://explorer.goat.network/api',
+          browserURL: 'https://explorer.goat.network',
+        },
+      },
+      {
+        network: 'goat-testnet',
+        chainId: 48816,
+        urls: {
+          apiURL: 'https://explorer.testnet3.goat.network/api',
+          browserURL: 'https://explorer.testnet3.goat.network',
         },
       },
     ],

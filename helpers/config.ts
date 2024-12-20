@@ -97,6 +97,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '10000000000000000000000000',
         withdrawalDelay: 180,
       },
+      sUSDX: {
+        tokenAddress: '0x559852401e545f941F275B5674afAfcb1b51D147',
+        tokenName: 'sUSDX',
+        tokenSymbol: 'sUSDX',
+        maxPerDeposit: '100000000000000000000000',
+        maxDeposits: '10000000000000000000000000',
+        withdrawalDelay: 180,
+      },
     },
     [eBounceBitNetwork.bbTestnet]: {
       BBTC: {
@@ -657,6 +665,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000',
         withdrawalDelay: 259200,
       },
+      sUSDX: {
+        tokenAddress: '0x7788A3538C5fc7F9c7C8A74EAC4c898fC8d87d92',
+        tokenName: 'sUSDX',
+        tokenSymbol: 'sUSDX',
+        maxPerDeposit: '100000000000000000000000',
+        maxDeposits: '20000000000000000000000000',
+        withdrawalDelay: 259200,
+      },
     },
     [eBounceBitNetwork.bb]: {
       BBTC: {
@@ -959,6 +975,14 @@ export const Configs: IConfiguration = {
         tokenSymbol: 'USDC',
         maxPerDeposit: '10000000000000000000000',
         maxDeposits: '2000000000000000000000000',
+        withdrawalDelay: 259200,
+      },
+      sUSDX: {
+        tokenAddress: '0x7788A3538C5fc7F9c7C8A74EAC4c898fC8d87d92',
+        tokenName: 'sUSDX',
+        tokenSymbol: 'sUSDX',
+        maxPerDeposit: '100000000000000000000000',
+        maxDeposits: '20000000000000000000000000',
         withdrawalDelay: 259200,
       },
     },

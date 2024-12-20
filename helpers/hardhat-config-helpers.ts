@@ -25,6 +25,7 @@ import {
   eRootstockNetwork,
   eExsatNetwork,
   eHemiNetwork,
+  eGoatNetwork,
 } from './types';
 
 require('dotenv').config();
@@ -102,6 +103,8 @@ export const NETWORKS_RPC_URL: iParamsPerNetwork<string> = {
   [eExsatNetwork.exsatTestnet]: `https://evm-tst3.exsat.network`,
   [eHemiNetwork.hemi]: `https://7e57304f.rpc.hemi.network/rpc`,
   [eHemiNetwork.hemiTestnet]: `https://dbmef.testnet.rpc.hemi.network/rpc`,
+  [eGoatNetwork.goat]: `https://rpc.goat.network`,
+  [eGoatNetwork.goatTestnet]: `https://rpc.testnet3.goat.network`,
 };
 
 export const LIVE_NETWORKS: iParamsPerNetwork<boolean> = {
