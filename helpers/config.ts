@@ -887,6 +887,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000',
         withdrawalDelay: 259200,
       },
+      bfBTC: {
+        tokenAddress: '0xcdfb58c8c859cb3f62ebe9cf2767f9e036c7fb15',
+        tokenName: 'bfBTC',
+        tokenSymbol: 'bfBTC',
+        maxPerDeposit: '50000000000',
+        maxDeposits: '200000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBscNetwork.bsc]: {
       BTCB: {
@@ -984,6 +992,14 @@ export const Configs: IConfiguration = {
         maxPerDeposit: '100000000000000000000000',
         maxDeposits: '20000000000000000000000000',
         withdrawalDelay: 259200,
+      },
+      bfBTC: {
+        tokenAddress: '0x623F2774d9f27B59bc6b954544487532CE79d9DF',
+        tokenName: 'bfBTC',
+        tokenSymbol: 'bfBTC',
+        maxPerDeposit: '50000000000',
+        maxDeposits: '200000000000',
+        withdrawalDelay: 604800,
       },
     },
     [eBSquaredNetwork.bsquared]: {
@@ -1133,6 +1149,14 @@ export const Configs: IConfiguration = {
         tokenSymbol: 'stBTC',
         maxPerDeposit: '500000000000000000000',
         maxDeposits: '2000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      stCORE: {
+        tokenAddress: '0xb3a8f0f0da9ffc65318aa39e55079796093029ad',
+        tokenName: 'Liquid staked CORE',
+        tokenSymbol: 'stCORE',
+        maxPerDeposit: '50000000000000000000000000',
+        maxDeposits: '200000000000000000000000000',
         withdrawalDelay: 604800,
       },
     },
@@ -1381,10 +1405,18 @@ export const Configs: IConfiguration = {
       },
     },
     [eHemiNetwork.hemi]: {
-      rsETH: {
-        tokenAddress: '',
-        tokenName: 'rsETH',
-        tokenSymbol: 'rsETH',
+      oBTC: {
+        tokenAddress: '0xe3C0FF176eF92FC225096C6d1788cCB818808b35',
+        tokenName: 'oBTC',
+        tokenSymbol: 'oBTC',
+        maxPerDeposit: '50000000000',
+        maxDeposits: '200000000000',
+        withdrawalDelay: 604800,
+      },
+      iBTC: {
+        tokenAddress: '0x8154Aaf094c2f03Ad550B6890E1d4264B5DdaD9A',
+        tokenName: 'iBTC',
+        tokenSymbol: 'iBTC',
         maxPerDeposit: '200000000000000000000',
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
