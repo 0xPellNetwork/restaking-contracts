@@ -26,6 +26,7 @@ import {
   eBscNetwork,
   eBSquaredNetwork,
   eCoreNetwork,
+  eCornNetwork,
   eEthereumNetwork,
   eExsatNetwork,
   eGoatNetwork,
@@ -486,7 +487,7 @@ export default {
       ...getCommonNetworkConfig(eHemiNetwork.hemi, 43111),
       verify: {
         etherscan: {
-          apiUrl: 'https://explorer-b81c3bd8.hemi.xyz',
+          apiUrl: 'https://explorer.hemi.xyz',
           apiKey: ETHERSCAN_KEY,
         },
       },
@@ -514,6 +515,24 @@ export default {
       verify: {
         etherscan: {
           apiUrl: 'https://explorer.testnet3.goat.network',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eCornNetwork.corn]: {
+      ...getCommonNetworkConfig(eCornNetwork.corn, 21000000),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://cornscan.io',
+          apiKey: ETHERSCAN_KEY,
+        },
+      },
+    },
+    [eCornNetwork.cornTestnet]: {
+      ...getCommonNetworkConfig(eCornNetwork.cornTestnet, 21000001),
+      verify: {
+        etherscan: {
+          apiUrl: 'https://testnet.cornscan.io',
           apiKey: ETHERSCAN_KEY,
         },
       },
@@ -575,6 +594,8 @@ export default {
       [eHemiNetwork.hemiTestnet]: ETHERSCAN_KEY,
       [eGoatNetwork.goat]: ETHERSCAN_KEY,
       [eGoatNetwork.goatTestnet]: ETHERSCAN_KEY,
+      [eCornNetwork.corn]: ETHERSCAN_KEY,
+      [eCornNetwork.cornTestnet]: ETHERSCAN_KEY,
     },
     customChains: [
       {
@@ -861,7 +882,7 @@ export default {
         network: 'hemi',
         chainId: 43111,
         urls: {
-          apiURL: 'https://explorer-b81c3bd8.hemi.xyz/api',
+          apiURL: 'https://explorer.hemi.xyz/api',
           browserURL: 'https://explorer-b81c3bd8.hemi.xyz',
         },
       },
@@ -887,6 +908,22 @@ export default {
         urls: {
           apiURL: 'https://explorer.testnet3.goat.network/api',
           browserURL: 'https://explorer.testnet3.goat.network',
+        },
+      },
+      {
+        network: 'corn',
+        chainId: 21000000,
+        urls: {
+          apiURL: 'https://cornscan.io/api',
+          browserURL: 'https://cornscan.io',
+        },
+      },
+      {
+        network: 'corn-testnet',
+        chainId: 21000001,
+        urls: {
+          apiURL: 'https://testnet.cornscan.io/api',
+          browserURL: 'https://testnet.cornscan.io',
         },
       },
     ],

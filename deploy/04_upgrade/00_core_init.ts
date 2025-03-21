@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 import { COMMON_DEPLOY_PARAMS } from '../../helpers/env';
-import { eNetwork, getContract, StrategyManager, waitForTx } from '../../helpers';
+import { eNetwork, getContract, sleepTx, StrategyManager, waitForTx } from '../../helpers';
 import {
   DELEGATION_MANAGER_IMPL_ID,
   DELEGATION_MANAGER_PROXY_ID,
@@ -81,6 +81,8 @@ const func: DeployFunction = async function ({
     )
   );
 
+  await sleepTx(5000);
+
   console.log('[Deployment][INFO] Upgraded DelegationManager');
 
   const whiteLister = getParamPerNetwork(Configs.WhiteLister, network);
@@ -102,6 +104,8 @@ const func: DeployFunction = async function ({
     )
   );
   console.log('[Deployment][INFO] Upgraded StrategyManager');
+
+  await sleepTx(5000);
 
   const strategyManagerInstance = await hre.ethers.getContractAt(
     'StrategyManager',
@@ -132,6 +136,8 @@ const func: DeployFunction = async function ({
     )
   );
   console.log('[Deployment][INFO] Upgraded Slasher');
+
+  await sleepTx(5000);
 
   return true;
 };

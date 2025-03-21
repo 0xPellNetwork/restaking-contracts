@@ -1,6 +1,6 @@
 import { FORK } from './../../helpers/hardhat-config-helpers';
 import { task } from 'hardhat/config';
-import { getContract, waitForTx } from '../../helpers/utilities/tx';
+import { getContract, sleepTx, waitForTx } from '../../helpers/utilities/tx';
 import { exit } from 'process';
 import { DelegationManager, eNetwork, Slasher, StrategyManager } from '../../helpers';
 import { getParamPerNetwork } from '../../helpers/config-helpers';
@@ -61,11 +61,15 @@ task(`transfer-protocol-ownership`, `Transfer the ownership of protocol from dep
       console.log('- Transfered of ProxyAdmin');
     }
 
+    await sleepTx(5000);
+
     const delegationManagerOwner = await delegationManager.owner();
     if (delegationManagerOwner === deployer) {
       await waitForTx(await delegationManager.transferOwnership(owner));
       console.log('- Transfered of DelegationManager');
     }
+
+    await sleepTx(5000);
 
     const strategyManagerOwner = await strategyManager.owner();
     if (strategyManagerOwner === deployer) {

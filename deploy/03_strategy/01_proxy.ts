@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 import { COMMON_DEPLOY_PARAMS } from '../../helpers/env';
-import { eNetwork, waitForTx } from '../../helpers';
+import { eNetwork, sleepTx, waitForTx } from '../../helpers';
 import {
   DELEGATION_MANAGER_PROXY_ID,
   EMPTY_CONTRANCT_ID,
@@ -51,6 +51,8 @@ const func: DeployFunction = async function ({
       ],
       ...COMMON_DEPLOY_PARAMS,
     });
+
+    await sleepTx(5000);
   }
 
   return true;

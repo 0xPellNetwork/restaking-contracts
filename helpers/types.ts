@@ -23,7 +23,8 @@ export type eNetwork =
   | eRootstockNetwork
   | eExsatNetwork
   | eHemiNetwork
-  | eGoatNetwork;
+  | eGoatNetwork
+  | eCornNetwork;
 
 export enum eEthereumNetwork {
   main = 'main',
@@ -135,7 +136,12 @@ export enum eHemiNetwork {
 
 export enum eGoatNetwork {
   goat = 'goat',
-  goatTestnet = 'goatTestnet',
+  goatTestnet = 'goat-testnet',
+}
+
+export enum eCornNetwork {
+  corn = 'corn',
+  cornTestnet = 'corn-testnet',
 }
 
 export type tEthereumAddress = string;

@@ -1,7 +1,7 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
 import { COMMON_DEPLOY_PARAMS } from '../../helpers/env';
-import { eNetwork } from '../../helpers';
+import { eNetwork, sleepTx, waitForTx } from '../../helpers';
 import {
   DELEGATION_MANAGER_PROXY_ID,
   EMPTY_CONTRANCT_ID,
@@ -29,6 +29,8 @@ const func: DeployFunction = async function ({
     ...COMMON_DEPLOY_PARAMS,
   });
 
+  await sleepTx(5000);
+
   await deploy(DELEGATION_MANAGER_PROXY_ID, {
     from: deployer,
     contract: 'TransparentUpgradeableProxy',
@@ -36,12 +38,16 @@ const func: DeployFunction = async function ({
     ...COMMON_DEPLOY_PARAMS,
   });
 
+  await sleepTx(5000);
+
   await deploy(SLASHER_PROXY_ID, {
     from: deployer,
     contract: 'TransparentUpgradeableProxy',
     args: [EmptyArtifact.address, ProxyAdminArtifact.address, '0x'],
     ...COMMON_DEPLOY_PARAMS,
   });
+
+  await sleepTx(5000);
 
   return true;
 };

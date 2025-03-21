@@ -11,6 +11,7 @@ import {
   eBounceBitNetwork,
   eBscNetwork,
   eCoreNetwork,
+  eCornNetwork,
   eEthereumNetwork,
   eExsatNetwork,
   eHemiNetwork,
@@ -1001,6 +1002,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '200000000000',
         withdrawalDelay: 604800,
       },
+      YBTC: {
+        tokenAddress: '0x4b6d20acFC764Ef6b60F0339e7CBaD83284E7D6e',
+        tokenName: 'YBTC',
+        tokenSymbol: 'YBTC',
+        maxPerDeposit: '10000000000',
+        maxDeposits: '100000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBSquaredNetwork.bsquared]: {
       uBTC: {
@@ -1421,6 +1430,24 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
+      enzoBTC: {
+        tokenAddress: '0x6A9A65B84843F5fD4aC9a0471C4fc11AFfFBce4a',
+        tokenName: 'Lorenzo Wrapped Bitcoin',
+        tokenSymbol: 'enzoBTC',
+        maxPerDeposit: '50000000000',
+        maxDeposits: '100000000000',
+        withdrawalDelay: 604800,
+      },
+    },
+    [eCornNetwork.corn]: {
+      YBTC: {
+        tokenAddress: '0x4b6d20acFC764Ef6b60F0339e7CBaD83284E7D6e',
+        tokenName: 'YBTC',
+        tokenSymbol: 'YBTC',
+        maxPerDeposit: '20000000000',
+        maxDeposits: '200000000000',
+        withdrawalDelay: 604800,
+      },
     },
   },
   MinWithdrawalDelay: {
@@ -1445,6 +1472,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: 60,
     [eExsatNetwork.exsatTestnet]: 60,
     [eHemiNetwork.hemiTestnet]: 60,
+    [eCornNetwork.cornTestnet]: 60,
     [eEthereumNetwork.main]: 259200,
     [eArbitrumNetwork.arbitrum]: 259200,
     [eBounceBitNetwork.bb]: 604800,
@@ -1465,6 +1493,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: 259200,
     [eExsatNetwork.exsat]: 259200,
     [eHemiNetwork.hemi]: 259200,
+    [eCornNetwork.corn]: 259200,
   },
   StrategyManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 0,
@@ -1488,6 +1517,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: 0,
     [eExsatNetwork.exsatTestnet]: 0,
     [eHemiNetwork.hemiTestnet]: 0,
+    [eCornNetwork.cornTestnet]: 0,
     [eEthereumNetwork.main]: 0,
     [eArbitrumNetwork.arbitrum]: 0,
     [eBounceBitNetwork.bb]: 0,
@@ -1508,6 +1538,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: 0,
     [eExsatNetwork.exsat]: 0,
     [eHemiNetwork.hemi]: 0,
+    [eCornNetwork.corn]: 0,
   },
   DelegationManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 1, // pause new delegation
@@ -1531,6 +1562,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: 1,
     [eExsatNetwork.exsatTestnet]: 1,
     [eHemiNetwork.hemiTestnet]: 1,
+    [eCornNetwork.cornTestnet]: 1,
     [eEthereumNetwork.main]: 1,
     [eArbitrumNetwork.arbitrum]: 1,
     [eBounceBitNetwork.bb]: 1,
@@ -1551,6 +1583,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: 1,
     [eExsatNetwork.exsat]: 1,
     [eHemiNetwork.hemi]: 1,
+    [eCornNetwork.corn]: 1,
   },
   SlasherPausedStatus: {
     [eEthereumNetwork.sepolia]:
@@ -1595,6 +1628,8 @@ export const Configs: IConfiguration = {
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eHemiNetwork.hemiTestnet]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eCornNetwork.cornTestnet]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eEthereumNetwork.main]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eArbitrumNetwork.arbitrum]:
@@ -1635,6 +1670,8 @@ export const Configs: IConfiguration = {
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eHemiNetwork.hemi]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eCornNetwork.corn]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   },
   RewardsDuration: {
     [eBounceBitNetwork.bbTestnet]: 3600,
@@ -1662,6 +1699,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eExsatNetwork.exsatTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eHemiNetwork.hemiTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eCornNetwork.cornTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0xEE033Faad50753828275BF95cc191986599396DF',
     [eArbitrumNetwork.arbitrum]: '0x154EcCd879a76ca5500Cb8EE7dd5c079e8a6e966',
     [eBounceBitNetwork.bb]: '0x1297d797aC69da9Bd6260E5D932a4bB645b0cB69',
@@ -1682,6 +1720,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: '0x154EcCd879a76ca5500Cb8EE7dd5c079e8a6e966',
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0x154eccd879a76ca5500cb8ee7dd5c079e8a6e966',
+    [eCornNetwork.corn]: '0x016a224498fe3b77c87e0081F8632BCdF359387A',
   },
   WhiteLister: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1705,6 +1744,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eExsatNetwork.exsatTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eHemiNetwork.hemiTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eCornNetwork.cornTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0xa4a968Ad2F4C9Ec3396BA792d16aBE1F9Eec7E27',
     [eArbitrumNetwork.arbitrum]: '0x2BbE45C3af8185fe54811705b9072C6dB71B9368',
     [eBounceBitNetwork.bb]: '0x1B713049ea6d4490392687B62acaF731cD3e34C6',
@@ -1725,6 +1765,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: '0x2BbE45C3af8185fe54811705b9072C6dB71B9368',
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0x2bbe45c3af8185fe54811705b9072c6db71b9368',
+    [eCornNetwork.corn]: '0x9c39D12fEEA65BC1b4Cedc537943C6A8a539F349',
   },
   Pauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1748,6 +1789,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eExsatNetwork.exsatTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eHemiNetwork.hemiTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eCornNetwork.cornTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0x6bDd40DCcEa8eB852d26981Dbe6D890f3Ad3D657',
     [eArbitrumNetwork.arbitrum]: '0xa64DC4680698515c7dbB5499F5417B056BF20F5B',
     [eBounceBitNetwork.bb]: '0x3f31a0Fa55d605286176500017CCd49bcc79A1e8',
@@ -1768,6 +1810,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: '0xa64DC4680698515c7dbB5499F5417B056BF20F5B',
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0xa64dc4680698515c7dbb5499f5417b056bf20f5b',
+    [eCornNetwork.corn]: '0xF7f77e30FACB9AB9E51F3355A03754B77883Af1C',
   },
   Unpauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1791,6 +1834,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rskTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eExsatNetwork.exsatTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eHemiNetwork.hemiTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
+    [eCornNetwork.cornTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
     [eEthereumNetwork.main]: '0xE08b4A90b0Ba85d0b7EB001225Acb49728d69B6A',
     [eArbitrumNetwork.arbitrum]: '0xcd81C0929957a960a6Ee8d5DB6fA928BEcdFEBCB',
     [eBounceBitNetwork.bb]: '0xBA932f31e1f7641f5E1CB8640eDd409DF73636ce',
@@ -1811,6 +1855,7 @@ export const Configs: IConfiguration = {
     [eRootstockNetwork.rsk]: '0xcd81C0929957a960a6Ee8d5DB6fA928BEcdFEBCB',
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0xcd81c0929957a960a6ee8d5db6fa928becdfebcb',
+    [eCornNetwork.corn]: '0x5bd2b52bd178df21e5949c8C70cbEED07885d640',
   },
   Operator: {
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
