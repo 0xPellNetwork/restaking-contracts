@@ -1402,6 +1402,22 @@ export const Configs: IConfiguration = {
         maxDeposits: '1000000000000000000000',
         withdrawalDelay: 604800,
       },
+      SolvBTC: {
+        tokenAddress: '0x541fd749419ca806a8bc7da8ac23d346f2df8b77',
+        tokenName: 'Solv BTC',
+        tokenSymbol: 'SolvBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
+      'SolvBTC.BBN': {
+        tokenAddress: '0xCC0966D8418d412c599A6421b760a847eB169A8c',
+        tokenName: 'SolvBTC Babylon',
+        tokenSymbol: 'SolvBTC.BBN',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '1000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eExsatNetwork.exsat]: {
       stBTC: {
@@ -1436,6 +1452,14 @@ export const Configs: IConfiguration = {
         tokenSymbol: 'enzoBTC',
         maxPerDeposit: '50000000000',
         maxDeposits: '100000000000',
+        withdrawalDelay: 604800,
+      },
+      suBTC: {
+        tokenAddress: '0xe85411C030fB32A9D8b14Bbbc6CB19417391F711',
+        tokenName: 'Sumerian BTC',
+        tokenSymbol: 'suBTC',
+        maxPerDeposit: '500000000000000000000',
+        maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
     },
