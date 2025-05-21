@@ -14,6 +14,7 @@ import {
   eCornNetwork,
   eEthereumNetwork,
   eExsatNetwork,
+  eGoatNetwork,
   eHemiNetwork,
   eIoTeXNetwork,
   eMantleNetwork,
@@ -1010,6 +1011,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '100000000000',
         withdrawalDelay: 604800,
       },
+      satUSD: {
+        tokenAddress: '0xb4818BB69478730EF4e33Cc068dD94278e2766cB',
+        tokenName: 'Satoshi Stablecoin V2',
+        tokenSymbol: 'satUSD',
+        maxPerDeposit: '5000000000000000000000000',
+        maxDeposits: '60000000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eBSquaredNetwork.bsquared]: {
       uBTC: {
@@ -1462,6 +1471,14 @@ export const Configs: IConfiguration = {
         maxDeposits: '2000000000000000000000',
         withdrawalDelay: 604800,
       },
+      satUSD: {
+        tokenAddress: '0xb4818BB69478730EF4e33Cc068dD94278e2766cB',
+        tokenName: 'Satoshi Stablecoin V2',
+        tokenSymbol: 'satUSD',
+        maxPerDeposit: '5000000000000000000000000',
+        maxDeposits: '60000000000000000000000000',
+        withdrawalDelay: 604800,
+      },
     },
     [eCornNetwork.corn]: {
       YBTC: {
@@ -1470,6 +1487,16 @@ export const Configs: IConfiguration = {
         tokenSymbol: 'YBTC',
         maxPerDeposit: '20000000000',
         maxDeposits: '200000000000',
+        withdrawalDelay: 604800,
+      },
+    },
+    [eGoatNetwork.goat]: {
+      WGBTC: {
+        tokenAddress: '0xbC10000000000000000000000000000000000000',
+        tokenName: 'Wrapped Goat Bitcoin',
+        tokenSymbol: 'WGBTC',
+        maxPerDeposit: '100000000000000000000',
+        maxDeposits: '500000000000000000000',
         withdrawalDelay: 604800,
       },
     },
@@ -1518,6 +1545,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: 259200,
     [eHemiNetwork.hemi]: 259200,
     [eCornNetwork.corn]: 259200,
+    [eGoatNetwork.goat]: 259200,
   },
   StrategyManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 0,
@@ -1563,6 +1591,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: 0,
     [eHemiNetwork.hemi]: 0,
     [eCornNetwork.corn]: 0,
+    [eGoatNetwork.goat]: 0,
   },
   DelegationManagerPausedStatus: {
     [eEthereumNetwork.sepolia]: 1, // pause new delegation
@@ -1608,6 +1637,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: 1,
     [eHemiNetwork.hemi]: 1,
     [eCornNetwork.corn]: 1,
+    [eGoatNetwork.goat]: 1,
   },
   SlasherPausedStatus: {
     [eEthereumNetwork.sepolia]:
@@ -1696,6 +1726,8 @@ export const Configs: IConfiguration = {
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
     [eCornNetwork.corn]:
       '115792089237316195423570985008687907853269984665640564039457584007913129639935',
+    [eGoatNetwork.goat]:
+      '115792089237316195423570985008687907853269984665640564039457584007913129639935',
   },
   RewardsDuration: {
     [eBounceBitNetwork.bbTestnet]: 3600,
@@ -1745,6 +1777,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0x154eccd879a76ca5500cb8ee7dd5c079e8a6e966',
     [eCornNetwork.corn]: '0x016a224498fe3b77c87e0081F8632BCdF359387A',
+    [eGoatNetwork.goat]: '0x1ecBb457999Ea649972b0445dBF54e6D1A640388',
   },
   WhiteLister: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1790,6 +1823,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0x2bbe45c3af8185fe54811705b9072c6db71b9368',
     [eCornNetwork.corn]: '0x9c39D12fEEA65BC1b4Cedc537943C6A8a539F349',
+    [eGoatNetwork.goat]: '0x6B606e88019eDd91D756D254A1040288b7D19322',
   },
   Pauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1835,6 +1869,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0xa64dc4680698515c7dbb5499f5417b056bf20f5b',
     [eCornNetwork.corn]: '0xF7f77e30FACB9AB9E51F3355A03754B77883Af1C',
+    [eGoatNetwork.goat]: '0x6B77852e19fA8b08e1d62D6a4004A89B3Ee54CF0',
   },
   Unpauser: {
     [eEthereumNetwork.sepolia]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
@@ -1880,6 +1915,7 @@ export const Configs: IConfiguration = {
     [eExsatNetwork.exsat]: '',
     [eHemiNetwork.hemi]: '0xcd81c0929957a960a6ee8d5db6fa928becdfebcb',
     [eCornNetwork.corn]: '0x5bd2b52bd178df21e5949c8C70cbEED07885d640',
+    [eGoatNetwork.goat]: '0x749A99acBD79868B48A084EF77B20CA6D1a724a4',
   },
   Operator: {
     [eBounceBitNetwork.bbTestnet]: '0xcbeD65Db7E177D4875dDF5B67E13326A43a7B03f',
